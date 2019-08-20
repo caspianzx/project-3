@@ -3,18 +3,22 @@ class SalonsController < ApplicationController
     if current_salon
       @salons = Salon.all
       @salon = current_salon
-      puts @salon.detail.name
     end
   end
 
   def show
-
+    puts 'SHOWING'
+    @salon = Salon.find(params[:id])
   end
 
   def new
   end
 
   def edit
+    @salon = Salon.find(params[:id])
+    puts @salon.email
+    @detail = Detail.where(salon: @salon).first
+    puts @detail.phone
   end
 
   def create
@@ -24,7 +28,7 @@ class SalonsController < ApplicationController
     puts @details
     if @details.save
       puts 'worked'
-      redirect_to @details
+      redirect_to salon_path
     else
       puts 'try again'
       redirect_to 'new'
@@ -32,12 +36,18 @@ class SalonsController < ApplicationController
   end
 
   def update
+    @salon = Salon.find(params[:id])
+    @salon.detail.update(detail_params)
+    redirect_to salon_path
   end
 
   def destroy
   end
 
   private
+  # def salon_params
+  #   params.require(:salon).permit(:id)
+  # end
   def detail_params
     params.require(:detail).permit(:name, :phone, :address, :area, :website, :logo_url)
   end
