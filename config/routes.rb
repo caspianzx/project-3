@@ -4,10 +4,6 @@ Rails.application.routes.draw do
   root 'salons#index'
   get '/salons' => 'salons#index', as: 'salons'
 
-
-
-
-
   #CREATE SERVICES CONTROLLER
   get '/salons/:id/services/new' => 'service#new', as: 'new_service'
   post '/salons/:id/services/create' => 'service#create', as: 'create_service'
@@ -18,9 +14,6 @@ Rails.application.routes.draw do
   #PHOTOS TABLE SALON CONTROLLER
   get '/salons/:id/photos/new' => 'salons#newphoto', as: 'new_photo'
   post '/salons/:id/photos/create' => 'salons#newphoto', as: 'create_photo'
-
-
-
 
   #CREATE APPTS CONTROLLER
   #appts table
@@ -36,20 +29,9 @@ Rails.application.routes.draw do
   #show.html, auth only salons
   get '/salons/:id' => 'salons#show', as: 'salon'
 
-
-
-
-
   # post '/salons' => 'salons#create'
 
   # get '/salons/:id/edit' => 'salons#edit', as: 'edit_salon'
   # patch '/salons/:id' => 'salons#update'
   # delete '/salons/:id' => 'salons#destroy'
-
-
-
-
-
-
-
 end
