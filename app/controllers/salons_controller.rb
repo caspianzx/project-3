@@ -46,17 +46,33 @@ class SalonsController < ApplicationController
 
   def newphoto
     @salon = Salon.find(params[:id])
-
   end
 
   def createphoto
+    @salon = Salon.find(params[:id])
+    # puts photo_params[:photo_url]
+    @photo = Photo.new(photo_params)
+    @photo.salon = @salon
+    @photo.save
+    if @photo.save
+      puts 'worked'
+      redirect_to photos_path
+    else
+      puts 'try again'
+      redirect_to 'new_photo'
+    end
+  end
 
+  def showphoto
+    @salon = Salon.find(params[:id])
+    # puts @salon.photos.first.photo_url
+    @photos = @salon.photos
   end
 
 
   private
   def photo_params
-
+    params.require(:photo).permit(:photo_url)
   end
 
   def detail_params
