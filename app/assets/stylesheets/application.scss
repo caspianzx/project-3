@@ -12,6 +12,8 @@
  *
 
  */
-
-
- @import "bootstrap";
+	@import "bootswatch/lux/variables";
+	@import "bootstrap";
+	@import "bootswatch/lux/bootswatch";
+	@import "navbar";
+	@import "bannerSlogan";
