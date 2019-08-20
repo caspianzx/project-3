@@ -4,8 +4,7 @@ class Appointments < ActiveRecord::Migration[5.2]
        t.text :name
        t.text :phone
        t.text :email
-       t.date :date
-       t.text :timeslot
+       # date/time
        t.references :service
        t.timestamps
      end
