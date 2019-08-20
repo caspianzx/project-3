@@ -12,6 +12,7 @@ Rails.application.routes.draw do
   #REDIRECT TO...
 
   #PHOTOS TABLE SALON CONTROLLER
+  get '/salons/:id/photos' => 'salons#showphotos', as: 'photos'
   get '/salons/:id/photos/new' => 'salons#newphoto', as: 'new_photo'
   post '/salons/:id/photos/create' => 'salons#newphoto', as: 'create_photo'
 

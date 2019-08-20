@@ -3,7 +3,7 @@
 <div class= "indexBanner"></div>
 <p class= "indexSlogan">Make it worth <br/> their stares</p>
 
-<% if @salons.first.detail != nil %>
+<% if defined? @salons.first.detail != nil %>
 
 <div class="container">
   <div class="row">
@@ -34,7 +34,4 @@
   </div>
 </div>
 
-
-<%= link_to 'New Details', new_salon_path(@salon), :class => 'btn btn-link' %>
-<%= link_to 'Edit Details', edit_salon_path(@salon), :class => 'btn btn-link' %>
 <% end %>

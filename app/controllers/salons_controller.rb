@@ -1,7 +1,7 @@
 class SalonsController < ApplicationController
   def index
+    @salons = Salon.all
     if current_salon
-      @salons = Salon.all
       @salon = current_salon
     end
   end
@@ -44,10 +44,8 @@ class SalonsController < ApplicationController
   def destroy
   end
 
+
   private
-  # def salon_params
-  #   params.require(:salon).permit(:id)
-  # end
   def detail_params
     params.require(:detail).permit(:name, :phone, :address, :area, :website, :logo_url)
   end
