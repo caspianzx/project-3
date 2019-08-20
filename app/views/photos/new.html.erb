@@ -1,0 +1,9 @@
+<%= form_with scope: :photo, url: photos_path, local: true, class: 'newform' do |form| %>
+  <div class="form-group">
+    <%= form.label :photo_url, :class => 'form-control' %><br>
+    <%= form.text_field :photo_url, :class => 'form-text text-muted' %>
+  </div>
+
+    <%= form.submit 'Save', :class => 'btn btn-primary' %>
+<% end %>
+<%= link_to 'Back', salons_path, :class => 'btn btn-link' %>
