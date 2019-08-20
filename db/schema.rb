@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2019_08_20_062421) do
+ActiveRecord::Schema.define(version: 2019_08_20_030548) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -19,11 +19,11 @@ ActiveRecord::Schema.define(version: 2019_08_20_062421) do
     t.text "name"
     t.text "phone"
     t.text "email"
+    t.date "date"
+    t.text "timeslot"
     t.bigint "service_id"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
-    t.date "date"
-    t.text "timeslot"
     t.index ["service_id"], name: "index_appointments_on_service_id"
   end
 
@@ -61,7 +61,7 @@ ActiveRecord::Schema.define(version: 2019_08_20_062421) do
   end
 
   create_table "services", force: :cascade do |t|
-    t.text "type"
+    t.text "name"
     t.integer "price"
     t.bigint "salon_id"
     t.datetime "created_at", null: false
