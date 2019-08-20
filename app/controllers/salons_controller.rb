@@ -8,7 +8,8 @@ class SalonsController < ApplicationController
   end
 
   def show
-
+    puts 'SHOWING'
+    @salon = Salon.find(params[:id])
   end
 
   def new
@@ -38,6 +39,9 @@ class SalonsController < ApplicationController
   end
 
   private
+  # def salon_params
+  #   params.require(:salon).permit(:id)
+  # end
   def detail_params
     params.require(:detail).permit(:name, :phone, :address, :area, :website, :logo_url)
   end
