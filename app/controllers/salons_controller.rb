@@ -44,8 +44,21 @@ class SalonsController < ApplicationController
   def destroy
   end
 
+  def newphoto
+    @salon = Salon.find(params[:id])
+
+  end
+
+  def createphoto
+
+  end
+
 
   private
+  def photo_params
+
+  end
+
   def detail_params
     params.require(:detail).permit(:name, :phone, :address, :area, :website, :logo_url)
   end

@@ -14,7 +14,7 @@ Rails.application.routes.draw do
   #PHOTOS TABLE SALON CONTROLLER
   get '/salons/:id/photos' => 'salons#showphotos', as: 'photos'
   get '/salons/:id/photos/new' => 'salons#newphoto', as: 'new_photo'
-  post '/salons/:id/photos/create' => 'salons#newphoto', as: 'create_photo'
+  post '/salons/:id/photos/create' => 'salons#createphoto', as: 'create_photo'
 
   #CREATE APPTS CONTROLLER
   #appts table
