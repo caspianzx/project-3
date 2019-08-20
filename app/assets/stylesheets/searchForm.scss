@@ -1,0 +1,18 @@
+.form-control:focus {
+  box-shadow: none;
+}
+
+
+#submit_btn {
+	background-color: #FF8272;
+	font-size: 12px;
+	box-sizing: border-box;
+	height:45px;
+	border-bottom-right-radius: 3px;
+	border-top-right-radius: 3px;
+}
+
+#input1 {
+	border-top-left-radius: 3px;
+	border-bottom-left-radius: 3px;
+}
