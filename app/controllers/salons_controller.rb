@@ -1,6 +1,8 @@
 class SalonsController < ApplicationController
   def index
+    @salons = Salon.all
     @salon = current_salon
+    puts @salon.detail.name
   end
 
   def show

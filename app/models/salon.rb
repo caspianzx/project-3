@@ -3,6 +3,7 @@ class Salon < ApplicationRecord
   # :confirmable, :lockable, :timeoutable, :trackable and :omniauthable
   devise :database_authenticatable, :registerable,
          :recoverable, :rememberable, :validatable
-  has_many :photo
-  has_many :service
+  has_many :photos
+  has_many :services
+  has_one :detail
 end

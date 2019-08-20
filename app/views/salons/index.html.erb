@@ -1,3 +1,26 @@
 <p>SALONS INDEX PAGE</p>
 
+<div class="container">
+  <div class="row">
+    <table class="table table-striped">
+      <thead>
+        <tr>
+          <th scope="col">#</th>
+          <th scope="col">title</th>
+          <th scope="col">created</th>
+        </tr>
+      </thead>
+      <tbody>
+      <% @salons.each do |salon| %>
+        <tr>
+          <td><%= salon.detail.name %></td>
+          <td class="salon-title"><%= salon.detail.phone %></td>
+          <td><%= salon.detail.area %></td>
+        </tr>
+      <% end %>
+      </tbody>
+    </table>
+  </div>
+</div>
+
 <%= link_to 'New Details', new_salon_path(@salon), :class => 'btn btn-link' %>
