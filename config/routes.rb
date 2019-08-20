@@ -2,14 +2,49 @@ Rails.application.routes.draw do
   # For details on the DSL available within this file, see http://guides.rubyonrails.org/routing.html
   root 'hair#index'
   get '/salons' => 'salons#index', as: 'salons'
-  get '/salons/new' => 'salons#new', as: 'new_salon'
-  post '/salons' => 'salons#create'
-  get '/salons/:id' => 'salons#show', as: 'salon'
-  get '/salons/:id/edit' => 'salons#edit', as: 'edit_salon'
-  patch '/salons/:id' => 'salons#update'
-  delete '/salons/:id' => 'salons#destroy'
 
-  get '/salons/:id/bookings' => 'salons#showbooking' as: 'booking'
-  get '/salons/:id/bookings/new' => 'salons#newbooking' as: 'new_booking'
-  post '/salons/:id/bookings/new' => 'salons#createbooking' as: 'create_booking'
+
+  #show.html, auth only salons
+  get '/salons/:id' => 'salons#show', as: 'salon'
+
+  #edit.html, salon_details model. new below
+  get '/salons/:id/edit' => 'salons#edit' as: 'edit_salon'
+
+  #CREATE SERVICES CONTROLLER
+  get '/salons/:id/services/new' => 'service#new' as: 'new_service'
+  post '/salons/:id/services/create' => 'service#create' as: 'create_service'
+  get '/salons/:id/services/edit' => 'service#edit' as: 'edit_service'
+  patch '/salons/:id/services/' => 'service#update'
+  #REDIRECT TO...
+
+  #PHOTOS TABLE SALON CONTROLLER
+  get '/salons/:id/photos/new' => 'salons#newphoto' as: 'new_photo'
+  post '/salons/:id/photos/create' => 'salons#newphoto' as: 'create_photo'
+
+  #salon_details table (for public)
+  get '/salons/:id/new' => 'salons#new', as: 'new_salon'
+
+
+  #CREATE APPTS CONTROLLER
+  #appts table
+  get '/salons/:id/appointments' => 'appointments#show' as: 'appointments'
+  get '/salons/:id/appointments/new' => 'appointments#new' as: 'new_appointment'
+  post '/salons/:id/appointments/create' => 'appointments#create' as: 'create_appointment'
+
+
+
+
+
+  # post '/salons' => 'salons#create'
+
+  # get '/salons/:id/edit' => 'salons#edit', as: 'edit_salon'
+  # patch '/salons/:id' => 'salons#update'
+  # delete '/salons/:id' => 'salons#destroy'
+
+
+
+
+
+
+
 end
