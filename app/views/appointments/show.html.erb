@@ -1,3 +1,17 @@
 <p>SHOW APPTS</p>
 
+<% if @appointments %>
+	<% @appointments.each do |appt| %>
+		<p>Name: appt.name</p>
+		<p>Phone: appt.phone</p>
+		<p>Email: appt.email</p>
+		<p>Date: appt.date</p>
+		<p>Timeslot: appt.timeslot</p>
+		<p>Placeholder for services</p>
+
+	<% end %>
+<% else %>
+	<p>Placeholder: no appts yet!</p>
+<% end %>
+
 <%= link_to 'New Appt', new_appointment_path, :class => 'btn btn-link' %>

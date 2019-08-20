@@ -4,6 +4,9 @@ class AppointmentsController < ApplicationController
   end
 
   def show
+    if current_salon
+      @appointments = current_salon.id
+    end
   end
 
   def new
