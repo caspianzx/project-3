@@ -5,10 +5,10 @@ Rails.application.routes.draw do
   get '/salons' => 'salons#index', as: 'salons'
 
   #CREATE SERVICES CONTROLLER
-  get '/salons/:id/services/new' => 'service#new', as: 'new_service'
-  post '/salons/:id/services/create' => 'service#create', as: 'create_service'
-  get '/salons/:id/services/edit' => 'service#edit', as: 'edit_service'
-  patch '/salons/:id/services/' => 'service#update'
+  get '/salons/:id/services/new' => 'services#new', as: 'new_service'
+  post '/salons/:id/services/create' => 'services#create', as: 'create_service'
+  get '/salons/:id/services/edit' => 'services#edit', as: 'edit_service'
+  patch '/salons/:id/services/' => 'services#update'
   #REDIRECT TO...
 
   #PHOTOS TABLE SALON CONTROLLER
