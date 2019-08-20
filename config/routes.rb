@@ -5,11 +5,8 @@ Rails.application.routes.draw do
   get '/salons' => 'salons#index', as: 'salons'
 
 
-  #show.html, auth only salons
-  get '/salons/:id' => 'salons#show', as: 'salon'
 
-  #edit.html, salon_details model. new below
-  get '/salons/:id/edit' => 'salons#edit', as: 'edit_salon'
+
 
   #CREATE SERVICES CONTROLLER
   get '/salons/:id/services/new' => 'service#new', as: 'new_service'
@@ -22,8 +19,7 @@ Rails.application.routes.draw do
   get '/salons/:id/photos/new' => 'salons#newphoto', as: 'new_photo'
   post '/salons/:id/photos/create' => 'salons#newphoto', as: 'create_photo'
 
-  #salon_details table (for public)
-  get '/salons/:id/new' => 'salons#new', as: 'new_salon'
+
 
 
   #CREATE APPTS CONTROLLER
@@ -31,6 +27,14 @@ Rails.application.routes.draw do
   get '/salons/:id/appointments' => 'appointments#show', as: 'appointments'
   get '/salons/:id/appointments/new' => 'appointments#new', as: 'new_appointment'
   post '/salons/:id/appointments/create' => 'appointments#create', as: 'create_appointment'
+
+   #salon_details table (for public)
+  get '/salons/:id/new' => 'salons#new', as: 'new_salon'
+  post '/salons/:id/create' => 'salons#create', as: 'create_salon'
+  #edit.html, salon_details model. new below
+  get '/salons/:id/edit' => 'salons#edit', as: 'edit_salon'
+  #show.html, auth only salons
+  get '/salons/:id' => 'salons#show', as: 'salon'
 
 
 
