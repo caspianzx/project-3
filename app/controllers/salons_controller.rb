@@ -1,11 +1,14 @@
 class SalonsController < ApplicationController
   def index
-    @salons = Salon.all
-    @salon = current_salon
-    puts @salon.detail.name
+    if current_salon
+      @salons = Salon.all
+      @salon = current_salon
+      puts @salon.detail.name
+    end
   end
 
   def show
+
   end
 
   def new
@@ -21,19 +24,11 @@ class SalonsController < ApplicationController
     puts @details
     if @details.save
       puts 'worked'
+      redirect_to @details
     else
       puts 'try again'
+      redirect_to 'new'
     end
-
-    redirect_to root_path
-
-    # @song.user = current_user
-
-    # if @detail.save
-    #   # redirect_to @detail
-    # else
-    #   render 'new'
-    # end
   end
 
   def update
