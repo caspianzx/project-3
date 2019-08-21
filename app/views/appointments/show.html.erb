@@ -5,7 +5,6 @@
 				<p><%= @salon.detail.name %></p>
 		  </div>
 		  <div id="carouselExampleControls" class="carousel slide" data-ride="carousel">
-
   			<div class="carousel-inner">
 					<% @photos.each do |photo| %>
 					<div class="carousel-item active">
@@ -60,13 +59,38 @@
   			<table class="table table-hover">
   				<tbody>
   					<% @services.each do |service| %>
-    				<tr onclick ="window.location='/salons/<%=service.salon_id%>/appointments/new' ">
+    				<tr  data-toggle="modal" data-target="#exampleModal">
     						<td> <%= service.name %></td>
       					<td> SGD <%= service.price %></td>
     				</tr>
+
+
+    						<div class="modal fade" id="exampleModal" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
+  <div class="modal-dialog" role="document">
+    <div class="modal-content">
+      <div class="modal-header">
+        <h5 class="modal-title" id="exampleModalLabel">
+        	Appointment Form
+        </h5>
+        <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+          <span aria-hidden="true">&times;</span>
+        </button>
+      </div>
+      <div class="modal-body">
+        <%= service.name %>
+      </div>
+      <div class="modal-footer">
+        <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
+        <button type="button" class="btn btn-primary">Save changes</button>
+      </div>
+    </div>
+  </div>
+</div>
     				<% end %>
     			</tbody>
 				</table>
+
+
 
 
 
