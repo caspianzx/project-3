@@ -28,6 +28,8 @@ class AppointmentsController < ApplicationController
     @salon = Salon.find(params[:salon_id])
     @services = @salon.services
     @appointment = Appointment.find(params[:appt_id])
+    @timeslots = @salon.timeslots
+
 
   end
 
