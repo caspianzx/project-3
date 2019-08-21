@@ -60,12 +60,10 @@
   			<table class="table table-hover">
   				<tbody>
   					<% @services.each do |service| %>
-						<a href ="/">
-    				<tr onclick ="window.location='/'">
+    				<tr onclick ="window.location='/salons/<%=service.salon_id%>/appointments/new' ">
     						<td> <%= service.name %></td>
       					<td> SGD <%= service.price %></td>
     				</tr>
-    				</a>
     				<% end %>
     			</tbody>
 				</table>
