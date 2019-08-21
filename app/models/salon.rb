@@ -6,4 +6,5 @@ class Salon < ApplicationRecord
   has_many :photos
   has_many :services
   has_one :detail
+  has_many :appointments, through: :services
 end

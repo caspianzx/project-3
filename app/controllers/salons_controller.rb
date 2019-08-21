@@ -1,7 +1,7 @@
 class SalonsController < ApplicationController
   def index
+    @salons = Salon.all
     if current_salon
-      @salons = Salon.all
       @salon = current_salon
     end
   end
@@ -44,10 +44,46 @@ class SalonsController < ApplicationController
   def destroy
   end
 
+  def newphoto
+    @salon = Salon.find(params[:id])
+  end
+
+  def createphoto
+    @salon = Salon.find(params[:id])
+    # puts photo_params[:photo_url]
+    @photo = Photo.new(photo_params)
+    @photo.salon = @salon
+    @photo.save
+    if @photo.save
+      puts 'worked'
+      redirect_to photos_path
+    else
+      puts 'try again'
+      redirect_to 'new_photo'
+    end
+  end
+
+  def showphoto
+    @salon = Salon.find(params[:id])
+    # puts @salon.photos.first.photo_url
+    @photos = @salon.photos
+  end
+
+  def destroyphoto
+    @photo = Photo.find(params[:photo_id])
+    # puts @photo.photo_url
+    @salon = Salon.find(params[:salon_id])
+    # puts @salon.id
+    @photo.destroy
+    redirect_to :controller => 'salons', :action => 'showphoto', :id => @salon.id
+  end
+
+
   private
-  # def salon_params
-  #   params.require(:salon).permit(:id)
-  # end
+  def photo_params
+    params.require(:photo).permit(:photo_url, :id)
+  end
+
   def detail_params
     params.require(:detail).permit(:name, :phone, :address, :area, :website, :logo_url)
   end
