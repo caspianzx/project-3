@@ -38,31 +38,63 @@
 	</div>
 </div>
 
+<div class="container menu">
+	<div class="row">
+		<div class="col-6 offset-3">
+
+			<ul class="nav nav-tabs nav-justified" id="myTab" role="tablist">
+  			<li class="nav-item">
+    			<a class="nav-link active" id="home-tab" data-toggle="tab" href="#home" role="tab" aria-controls="home" aria-selected="true">Services</a>
+  			</li>
+
+  			<li class="nav-item">
+    			<a class="nav-link" id="profile-tab" data-toggle="tab" href="#profile" role="tab" aria-controls="profile" aria-selected="false">Contact</a>
+  			</li>
+			</ul>
+
+		<div class="tab-content" id="myTabContent">
+  		<div class="tab-pane fade show active" id="home" role="tabpanel" aria-labelledby="home-tab">
+
+  			<table class="table  table-hover">
+  <thead>
+    <tr>
+    	  <th scope="col">Services</th>
+      <th scope="col">Price</th>
+         </tr>
+  </thead>
+
+  <tbody>
+    <tr>
+    	<% @services.each do |service| %>
+    	<td> <%= service.name %></td>
+      <td> SGD <%= service.price %></td>
+    </tr>
+    <% end %>
+    </tbody>
+
+</table>
 
 
 
-					<p>Phone: <%= @salon.detail.phone %></p>
+
+
+
+
+  		</div>
+  		<div class="tab-pane fade" id="profile" role="tabpanel" aria-labelledby="profile-tab">
+  				<p class ="profileSalon"><%= @salon.detail.name %></p>
+  				<p>Phone: <%= @salon.detail.phone %></p>
 					<p>Address: <%= @salon.detail.address %></p>
 					<p>Area: <%= @salon.detail.area %></p>
 					<p>Website: <%= @salon.detail.website %></p>
+  		</div>
+			</div>
+		</div>
+	</div>
+</div>
 
 
 
-<h5>Services</h5><br>
-
-<table>
-	<tr>
-		<th>Service</th>
-		<th>Price</th>
-	</tr>
-
-	<% @services.each do |service| %>
-		<tr>
-			<td><%= service.name %></td>
-			<td><%= service.price %></td>
-		</tr>
-	<% end %>
-</table><br>
 
 
 
@@ -77,5 +109,5 @@
 
 	<% end %>
 <% else %>
-	<p>Placeholder: no appts yet!</p>
+
 <% end %>
