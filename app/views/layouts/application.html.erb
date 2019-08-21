@@ -10,40 +10,10 @@
 	<link href="https://fonts.googleapis.com/css?family=Roboto&display=swap" rel="stylesheet">
 
 	<link href="https://fonts.googleapis.com/css?family=EB+Garamond&display=swap" rel="stylesheet">
-
 </head>
 
 <body>
-	<nav class="navbar navbar-expand-lg navbar-dark bg-primary">
-		<%= link_to 'The Hair Affair', salons_path, :class => 'navbar-brand' %>
-		<button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarColor01" aria-controls="navbarColor01" aria-expanded="false" aria-label="Toggle navigation">
-			<span class="navbar-toggler-icon"></span>
-		</button>
-
-		<div class="collapse navbar-collapse justify-content-end" id="navbarColor01">
-			<ul class="navbar-nav">
-				<li class="nav-item" id="salonborder">
-					<a class="nav-link"  id="listsalon" href="#">List your salon</a>
-				</li>
-				<% if salon_signed_in? %>
-				<li class="nav-item">
-					<%= link_to 'Log Out', destroy_salon_session_path, :class => 'nav-link' %>
-				</li>
-				<% else %>
-				<li class="nav-item">
-					<%= link_to 'Register', new_salon_registration_path, :class => 'nav-link' %>
-				</li>
-				<li class="nav-item">
-					<%= link_to 'Log In', new_salon_session_path, :class => 'nav-link' %>
-				</li>
-				<% end %>
-				<li class="nav-item">
-					<a class="nav-link" href="#">Help</a>
-				</li>
-			</ul>
-		</div>
-	</nav>
-
+	<%= render 'navbar' %>
 
 
 	<%= yield %>
