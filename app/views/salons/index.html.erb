@@ -39,13 +39,11 @@
 <div class="container">
   <div class="row">
   	<% @salons.each do |salon| %>
-
   	<div class="col-4">
   		<div class="card">
   			<div class ="cardImage">
   				<img src= "<%=salon.detail.logo_url%>" class="card-img-top cardImage" alt="...">
   			</div>
-
  					 <div class="card-body">
     					<p class="card-text"><%= salon.detail.name %></p>
   					</div>
