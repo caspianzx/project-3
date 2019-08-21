@@ -1,6 +1,6 @@
-<p>NEW APPTS</p>
+<p>EDIT APPT PAGE</p>
 
-<%= form_with scope: :appointment, url: create_appointment_path, local: true, class: 'newform' do |form| %>
+<%= form_with scope: :appointment, url: update_appointment_path(:salon_id => @salon.id, :appt_id => @appointment.id), method: "patch", local: true do |form| %>
   <div class="form-group">
     <%= form.label :name, :class => 'form-control' %><br>
     <%= form.text_field :name, :class => 'form-text text-muted' %>
@@ -36,4 +36,5 @@
     <%= form.submit 'Save', :class => 'btn btn-primary' %>
 
 <% end %>
-<%= link_to 'Back', appointments_path, :class => 'btn btn-link' %>
+
+<%= link_to 'Back', appointments_path %>
