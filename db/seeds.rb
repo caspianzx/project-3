@@ -20,7 +20,7 @@ myArray = ["Cut", "Cut + Wash", "Wash", "Straightening", "Curl", "Hair Treatment
 c = 0
 
 10.times do
-  Service.create(name: myArray[0], price: rand(20..30), salon_id: c += 1 )
+  Service.create(name: myArray[0], price: rand(20..30), service_id: c += 1 )
 end
 
 d = 0
@@ -74,5 +74,5 @@ end
 
 
 50.times do
-  Appointment.create(name: Faker::Name.first_name, phone: Faker::PhoneNumber.cell_phone, email: Faker::Internet.email,salon_id: rand(1..10) )
+  Appointment.create(name: Faker::Name.first_name, phone: Faker::PhoneNumber.cell_phone, email: Faker::Internet.email,service_id: rand(1..10) )
 end
