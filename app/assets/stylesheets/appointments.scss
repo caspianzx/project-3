@@ -49,6 +49,7 @@
 	margin-top:10px;
 }
 
+
 .table th, .table td {
 	color: black;
 	text-align: center;
@@ -56,6 +57,7 @@
 
 .table td {
 	cursor: pointer;
+	border-bottom: 1px solid rgba(0, 0, 0, 0.05);;
 }
 
 .table-hover tbody tr:hover {
