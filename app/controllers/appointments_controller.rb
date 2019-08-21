@@ -5,39 +5,59 @@ class AppointmentsController < ApplicationController
 
   def show
     @salon = Salon.find(params[:id])
+    @appointments = @salon.appointments
     @services = Service.where(salon_id: params[:id] ).order("id ASC")
-    @salon = Salon.find(params[:id])
     # puts @salon.photos.first.photo_url
     @photos = @salon.photos
-    if current_salon
-      @appointments = current_salon.id
-    end
   end
 
   def new
+    @salon = Salon.find(params[:id])
+    @services = @salon.services
   end
 
   def edit
+    puts params.inspect
+    @salon = Salon.find(params[:salon_id])
+    @services = @salon.services
+    @appointment = Appointment.find(params[:appt_id])
+
   end
 
   def create
-    puts appointment_params[:name]
     @appointment = Appointment.new(appointment_params)
-    # @appointment.service = Service.find(appointment_params[:service_id])
-    # if @appointment.save
-    #   puts 'Booked!'
-    #   puts @appointment
-    #   redirect_to 'appointments'
-    # else
-    #   puts 'Booking failed!'
-    #   redirect_to 'new_appointment'
-    # end
+    @appointment.save
+    if @appointment.save
+      puts 'Booked!'
+      redirect_to :controller => 'appointments', :action => 'show', :id => params[:id]
+    else
+      puts 'Booking failed!'
+      redirect_to :controller => 'appointments', :action => 'new', :id => params[:id]
+    end
   end
 
   def update
+    @salon = Salon.find(params[:salon_id])
+    @appointment = Appointment.find(params[:appt_id])
+    @appointment.update(appointment_params)
+    puts @appointment.inspect
+    if @appointment.update(appointment_params)
+      redirect_to appointments_path
+    else
+      redirect_to edit_appointments_path
+    end
   end
 
   def destroy
+    @salon = Salon.find(params[:salon_id])
+    @appointment = Appointment.find(params[:appt_id])
+    @appointment.destroy
+    if @appointment.destroy
+      puts 'WORKED'
+    else
+      puts 'DIDNT WORK'
+    end
+    redirect_to :controller => 'appointments', :action => 'show', :id => @salon.id
   end
 
   def appointment_params

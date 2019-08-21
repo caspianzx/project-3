@@ -24,6 +24,9 @@ Rails.application.routes.draw do
   get '/salons/:id/appointments' => 'appointments#show', as: 'appointments'
   get '/salons/:id/appointments/new' => 'appointments#new', as: 'new_appointment'
   post '/salons/:id/appointments/create' => 'appointments#create', as: 'create_appointment'
+  get '/salons/:id/appointments/edit' => 'appointments#edit', as: 'edit_appointment'
+  patch '/salons/:id/appointments' => 'appointments#update', as: 'update_appointment'
+  delete '/salons/:id/appointments' => 'appointments#destroy', as: 'destroy_appointment'
 
    #salon_details table (for public)
   get '/salons/:id/new' => 'salons#new', as: 'new_salon'
