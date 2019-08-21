@@ -14,6 +14,13 @@ class AppointmentsController < ApplicationController
   def new
     @salon = Salon.find(params[:id])
     @services = @salon.services
+    puts 'YOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOooooo'
+    # @timeslots = []
+    # @salon.timeslots.each do |timeslot|
+    #   @timeslots.push(timeslot.time)
+    # end
+    @timeslots = @salon.timeslots
+    puts @timeslots.inspect
   end
 
   def edit
@@ -61,6 +68,6 @@ class AppointmentsController < ApplicationController
   end
 
   def appointment_params
-    params.require(:appointment).permit(:name, :phone, :email, :date, :timeslot, :service_id)
+    params.require(:appointment).permit(:name, :phone, :email, :date, :timeslot_id, :service_id)
   end
 end
