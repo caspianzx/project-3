@@ -19,6 +19,8 @@ ActiveRecord::Schema.define(version: 2019_08_20_030548) do
     t.text "name"
     t.text "phone"
     t.text "email"
+    t.date "date"
+    t.text "timeslot"
     t.bigint "service_id"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
