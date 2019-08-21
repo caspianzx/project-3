@@ -59,6 +59,7 @@ i = 0
   Service.create(name: myArray[6], price: rand(100..150), salon_id: i += 1 )
 end
 
+
 j = 0
 
 10.times do
