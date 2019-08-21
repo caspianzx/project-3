@@ -1,0 +1,35 @@
+.salonName {
+	position: relative;
+	font-family: "Roboto thin", sans-serif;
+	font-size: 22px;
+	margin-top: 10px;
+	text-align: center;
+	letter-spacing: 2px;
+	color: black;
+}
+
+#previousBtn {
+	background-color: #FF8272;
+	padding: 10px;
+	margin-left: -120px;
+	border-radius: 50px;
+	width: 60px;
+	height: 60px;
+	justify-content: center;
+	align-items: center;
+}
+
+.carousel-control-prev-icon, .carousel-control-next-icon  {
+	width: 15px;
+	height: 15px;
+	margin: 10px;
+}
+
+#nextBtn {
+	background-color: #FF8272;
+	padding: 14px;
+	margin-left: 120px;
+	border-radius: 50px;
+	width: 60px;
+	height: 60px;
+}
