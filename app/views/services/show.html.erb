@@ -1,0 +1,17 @@
+<h1>Types of Services by Salon <%= params[:id]%></h1><br>
+
+<table>
+	<tr>
+		<th>Service</th>
+		<th>Price</th>
+	</tr>
+
+	<% @services.each do |service| %>
+		<tr>
+			<td><%= service.name %></td>
+			<td><%= service.price %></td>
+		</tr>
+	<% end %>
+</table><br>
+
+<%= link_to 'Edit service', edit_service_path %>
