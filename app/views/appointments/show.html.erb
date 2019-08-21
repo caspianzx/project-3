@@ -52,7 +52,7 @@
 		<p>Phone: <%= appt.phone %></p>
 		<p>Email: <%= appt.email %></p>
 		<p>Date: <%= appt.date %></p>
-		<p>Timeslot: <%= appt.timeslot %></p>
+		<p>Timeslot: <%= appt.timeslot.time %>:00 ~ <%= appt.timeslot.time.to_i + 1 %>:00</p>
 		<p>Svc Name: <%= appt.service.name %></p>
 		<p>Svc Price: <%= appt.service.price %></p>
 		<%= link_to 'Edit Appt', edit_appointment_path(:salon_id => @salon.id, :appt_id => appt.id), :class => 'btn btn-link' %>
