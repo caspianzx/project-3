@@ -5,6 +5,7 @@
 <p>Website: <%= @salon.detail.website %></p>
 <p>Logo URL: <%= @salon.detail.logo_url %></p>
 
+<%= link_to 'Edit details', edit_salon_path %><br>
 <h5>Services</h5><br>
 
 <table>
@@ -21,5 +22,14 @@
 	<% end %>
 </table><br>
 
-<%= link_to 'Edit service', edit_service_path %>
+<%= link_to 'Edit service', edit_service_path %><br>
+
+<% @photos.each do |photo| %>
+	<%= image_tag(photo.photo_url) %>
+	<%= link_to 'Delete photo', destroy_photo_path(:photo_id => photo.id, :salon_id => @salon.id),
+        method: :delete,
+        data: { confirm: 'Are you sure?' } %>
+<% end %><br>
+
+<%= link_to 'Add new photo', new_photo_path(@salon), :class => 'btn btn-link' %>
 <%= link_to 'Back', salons_path, :class => 'btn btn-link' %>
