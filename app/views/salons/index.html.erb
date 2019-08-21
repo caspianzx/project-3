@@ -1,7 +1,38 @@
 
 
-<div class= "indexBanner"></div>
-<p class= "indexSlogan">Make it worth <br/> their stares</p>
+
+<div class="container-fluid">
+  <div class="row">
+  	<div class= "col-md-12 p-0">
+		<div class= "indexBanner"></div>
+			<p class= "indexSlogan">Make it worth <br/> their <span class="stares">Stares</span></p>
+		</div>
+	</div>
+</div>
+
+<div class ="row" id="shiftRow">
+	<div class="col-md-6 offset-md-3" id="alignSearch">
+		<div class="container-fluid">
+  		<div class="row">
+  			<div class= "col-sm-8 p-0" id="heightAdjustment">
+  				<form>
+  					<div class="form-group">
+      				<input type="search" class="form-control" id="input1" placeholder="Search for services or salon">
+    				</div>
+  				</form>
+
+  			</div>
+  			<div class= "col-sm-4 p-0">
+  				<form>
+  					<button type="submit" class="btn btn-danger" id="submit_btn">Search</button>
+  				</form>
+  			</div>
+  		</div>
+  	</div>
+	</div>
+</div>
+
+
 
 <% if defined? @salons.first.detail != nil %>
 
@@ -33,5 +64,9 @@
     </table>
   </div>
 </div>
+
+
+<%= link_to 'New Details', new_salon_path(@salon), :class => 'btn btn-link' %>
+<%= link_to 'Edit Details', edit_salon_path(@salon), :class => 'btn btn-link' %>
 
 <% end %>
