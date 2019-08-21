@@ -12,14 +12,13 @@
 					<p>Phone: <%= @salon.detail.phone %></p>
 					<p>Address: <%= @salon.detail.address %></p>
 					<p>Area: <%= @salon.detail.area %></p>
-					<p>Website: <%= @salon.detail.website %></p>
+					<>Website: <%= @salon.detail.website %></p>
 				</div>
 			</div>
 		</div>
 	</div>
 </div>
 
-<%= link_to 'Edit details', edit_salon_path %><br>
 
 <h5>Services</h5><br>
 
@@ -37,17 +36,10 @@
 	<% end %>
 </table><br>
 
-<%= link_to 'Edit service', edit_service_path %><br>
-
 <% @photos.each do |photo| %>
 	<%= image_tag(photo.photo_url) %>
-	<%= link_to 'Delete photo', destroy_photo_path(:photo_id => photo.id, :salon_id => @salon.id),
-        method: :delete,
-        data: { confirm: 'Are you sure?' } %>
-<% end %><br>
 
-<%= link_to 'Add new photo', new_photo_path(@salon), :class => 'btn btn-link' %>
-<%= link_to 'Back', salons_path, :class => 'btn btn-link' %>
+<% end %><br>
 
 
 <% if @appointments %>
@@ -63,5 +55,3 @@
 <% else %>
 	<p>Placeholder: no appts yet!</p>
 <% end %>
-
-<%= link_to 'New Appt', new_appointment_path, :class => 'btn btn-link' %>
