@@ -1,0 +1,23 @@
+.cardImage {
+	height: 180px;
+}
+
+
+.card {
+	margin-bottom: 15px;
+	box-sizing: border-box;
+	border-radius: 5px;
+	cursor: pointer;
+}
+
+.card:hover {
+	border: 2px solid #FF8272;
+
+}
+
+.card-text {
+	font-family:"Roboto thin", sans-serif;
+	font-size: 15px;
+	color: black;
+	letter-spacing: 2px;
+}
