@@ -1,8 +1,56 @@
-<p>Name: <%= @salon.detail.name %></p>
-<p>Phone: <%= @salon.detail.phone %></p>
-<p>Address: <%= @salon.detail.address %></p>
-<p>Area: <%= @salon.detail.area %></p>
-<p>Website: <%= @salon.detail.website %></p>
-<p>Logo URL: <%= @salon.detail.logo_url %></p>
+
+<div class="container">
+	<div class="row">
+		<div class="col-lg bg-dark">
+			<div class="row">
+				<div class="col-lg-3">
+					<div class="vertical-center">
+						<img class="img-fluid rounded-circle bg-info" src='<%= @salon.detail.logo_url %>' alt='logo'>
+					</div>
+				</div>
+				<div class="col-lg">
+					<p>Name: <%= @salon.detail.name %></p>
+					<p>Phone: <%= @salon.detail.phone %></p>
+					<p>Address: <%= @salon.detail.address %></p>
+					<p>Area: <%= @salon.detail.area %></p>
+					<p>Website: <%= @salon.detail.website %></p>
+				</div>
+			</div>
+		</div>
+	</div>
+	<div class="row">
+		<div class="col-lg-6 bg-danger">
+			<div class="container-fluid d-flex">
+				<h3 class="mr-auto">appointments</h3>
+				<%= image_tag "plus.svg", alt: "add", :height => '30' %>
+
+			</div>
+			<ul class="list-group">
+				<% @salon.appointments.each do |a| %>
+				<li class="list-group-item d-flex justify-content-between align-items-center">
+					<%= a.name %>
+					<span class="badge badge-primary badge-pill">14</span>
+				</li>
+				<% end %>
+			</ul>
+		</div>
+		<div class="col-lg-6 bg-success">
+			<div class="container-fluid d-flex">
+				<h3 class="mr-auto">services</h3>
+				<%= image_tag "plus.svg", alt: "add", :height => '30' %>
+			</div>
+			<ul class="list-group">
+				<% @salon.services.each do |s| %>
+				<li class="list-group-item d-flex justify-content-between align-items-center">
+					<%= s.name %>
+					<span class="badge badge-primary badge-pill">14</span>
+				</li>
+				<% end %>
+			</ul>
+
+		</div>
+
+	</div>
+</div>
 
 <%= link_to 'Back', salons_path, :class => 'btn btn-link' %>
