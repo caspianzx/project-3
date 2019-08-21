@@ -15,6 +15,7 @@ Rails.application.routes.draw do
   get '/salons/:id/photos' => 'salons#showphoto', as: 'photos'
   get '/salons/:id/photos/new' => 'salons#newphoto', as: 'new_photo'
   post '/salons/:id/photos/create' => 'salons#createphoto', as: 'create_photo'
+  delete '/salons/:id/photos' => 'salons#destroyphoto', as: 'destroy_photo'
 
   #CREATE APPTS CONTROLLER
   #appts table

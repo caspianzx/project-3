@@ -1,6 +1,9 @@
 <p>SHOW PHOTOS</p>
 <% @photos.each do |photo| %>
 	<%= image_tag(photo.photo_url) %>
+	<%= link_to 'Destroy', destroy_photo_path(:photo_id => photo.id, :salon_id => @salon.id),
+        method: :delete,
+        data: { confirm: 'Are you sure?' } %>
 <% end %>
 
 <%= link_to 'Back', salons_path, :class => 'btn btn-link' %>
