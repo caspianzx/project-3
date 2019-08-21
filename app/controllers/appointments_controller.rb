@@ -4,6 +4,11 @@ class AppointmentsController < ApplicationController
   end
 
   def show
+    @salon = Salon.find(params[:id])
+    @services = Service.where(salon_id: params[:id] ).order("id ASC")
+    @salon = Salon.find(params[:id])
+    # puts @salon.photos.first.photo_url
+    @photos = @salon.photos
     if current_salon
       @appointments = current_salon.id
     end

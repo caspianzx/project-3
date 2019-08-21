@@ -21,7 +21,7 @@
 		<div class="col-lg-6 bg-danger">
 			<div class="container-fluid d-flex">
 				<h3 class="mr-auto">appointments</h3>
-				<%= image_tag "plus.svg", alt: "add", :height => '30' %>
+
 
 			</div>
 			<ul class="list-group">
@@ -36,7 +36,7 @@
 		<div class="col-lg-6 bg-success">
 			<div class="container-fluid d-flex">
 				<h3 class="mr-auto">services</h3>
-				<%= image_tag "plus.svg", alt: "add", :height => '30' %>
+
 			</div>
 			<ul class="list-group">
 				<% @salon.services.each do |s| %>
@@ -52,4 +52,31 @@
 	</div>
 </div>
 
+<%= link_to 'Edit details', edit_salon_path %><br>
+<h5>Services</h5><br>
+
+<table>
+	<tr>
+		<th>Service</th>
+		<th>Price</th>
+	</tr>
+
+	<% @services.each do |service| %>
+		<tr>
+			<td><%= service.name %></td>
+			<td><%= service.price %></td>
+		</tr>
+	<% end %>
+</table><br>
+
+<%= link_to 'Edit service', edit_service_path %><br>
+
+<% @photos.each do |photo| %>
+	<%= image_tag(photo.photo_url) %>
+	<%= link_to 'Delete photo', destroy_photo_path(:photo_id => photo.id, :salon_id => @salon.id),
+        method: :delete,
+        data: { confirm: 'Are you sure?' } %>
+<% end %><br>
+
+<%= link_to 'Add new photo', new_photo_path(@salon), :class => 'btn btn-link' %>
 <%= link_to 'Back', salons_path, :class => 'btn btn-link' %>
