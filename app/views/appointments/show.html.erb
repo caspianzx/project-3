@@ -9,6 +9,10 @@
 		<p>Timeslot: <%= appt.timeslot %></p>
 		<p>Svc Name: <%= appt.service.name %></p>
 		<p>Svc Price: <%= appt.service.price %></p>
+		<%= link_to 'Edit Appt', edit_appointment_path(:salon_id => @salon.id, :appt_id => appt.id), :class => 'btn btn-link' %>
+		<%= link_to 'Destroy Appt', destroy_appointment_path(:salon_id => @salon.id, :appt_id => appt.id),
+        method: :delete,
+        data: { confirm: 'Are you sure?' } %>
 	<% end %>
 <% else %>
 	<p>No appts yet!</p>
