@@ -1,4 +1,4 @@
-<h1>Types of Services by Salon A</h1><br>
+<h1>Types of Services by Salon <%= params[:id]%></h1><br>
 
 <table>
 	<tr>
@@ -8,10 +8,10 @@
 
 	<% @services.each do |service| %>
 		<tr>
-			<td><%= service.type %></td>
+			<td><%= service.name %></td>
 			<td><%= service.price %></td>
 		</tr>
 	<% end %>
 </table><br>
 
-<%= link_to 'Edit service', o_path %>
+<%= link_to 'Edit service', edit_service_path %>

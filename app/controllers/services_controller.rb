@@ -2,7 +2,10 @@ class ServicesController < ApplicationController
 
   def show
     # get services for specified salon
-    @services = Service.where(salon_id: params[:salon_id] )
+    @services = Service.where(salon_id: params[:id] ).order("id ASC")
+    puts "showing services for salon"
+    puts params[:id]
+    puts params.inspect
   end
 
   def new
@@ -36,14 +39,26 @@ class ServicesController < ApplicationController
   end
 
   def edit
-    @service = Service.find(salon_id: params[:salon_id] )
+    #@salon = Salon.find(params[:id])
+   @salonId = params[:id]
+   @services = Service.where(salon_id: params[:id] ).order("id ASC")
+    puts "edit services"
+    puts @services
   end
 
   def update
-    @service = Service.find(salon_id: params[:salon_id] )
-    @service.update(salon_id: params[:salon_id] )
+    puts "saving new edits"
 
-    redirect_to salon_path
+    @services = Service.where(salon_id: params[:id] )
+    p @services
+
+    @services.each_with_index do |service, index|
+      priceName = "price" + index.to_s
+      p "--------"
+      p params[priceName]
+      service.update(price: params[priceName] )
+    end
+    redirect_to service_path
   end
 
   # def destroy

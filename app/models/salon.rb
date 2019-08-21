@@ -7,5 +7,5 @@ class Salon < ApplicationRecord
   has_many :services
   has_one :detail
 
-  #accepts_nested_attributes_for :services
+  accepts_nested_attributes_for :services
 end

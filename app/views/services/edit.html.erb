@@ -1,36 +1,20 @@
 <h1>Edit price menu</h1><br>
 
-<%= form_with scope: :service, model: service, local: true do |form| %>
+<%= form_with scope: :service, url: update_service_path, method: "patch", local: true do |form| %>
 
-<div>
-	<p>Cut & Wash</p>>
-		<%= form.label :price%>
-		<%= form.text_area :price %>
-</div>
-<div>
-	<%= select_tag(:service, raw('<option value="1">Cut & Wash</option><option value="2">Colour</option><option value="3">Perm</option><option value="4">Rebonding</option><option value="5">Treatment</option>')) %><br>
-		<%= form.label :price%>
-		<%= form.text_area :price %>
-</div>
-<div>
-	<%= select_tag(:service, raw('<option value="1">Cut & Wash</option><option value="2">Colour</option><option value="3">Perm</option><option value="4">Rebonding</option><option value="5">Treatment</option>')) %><br>
-		<%= form.label :price%>
-		<%= form.text_area :price %>
-</div>
-<div>
-	<%= select_tag(:service, raw('<option value="1">Cut & Wash</option><option value="2">Colour</option><option value="3">Perm</option><option value="4">Rebonding</option><option value="5">Treatment</option>')) %><br>
-		<%= form.label :price%>
-		<%= form.text_area :price %>
-</div>
-<div>
-	<%= select_tag(:service, raw('<option value="1">Cut & Wash</option><option value="2">Colour</option><option value="3">Perm</option><option value="4">Rebonding</option><option value="5">Treatment</option>')) %><br>
-		<%= form.label :price%>
-		<%= form.text_area :price %>
-</div>
+	<input type="hidden" name="service[salon_id]" value="<%= @salonId %>" />
+
+	<% @services.each_with_index do |service, index| %>
+
+		<%= service.name %>
+		<input name="price<%= index %>" value=<%= service.price %>><br>
+
+
+  <% end %>
 	<p>
 		<%= form.submit %>
 	</p>
 
 	<% end %>
 
-	<%= link_to 'Back', root_path %>
+	<%= link_to 'Back', service_path %>
