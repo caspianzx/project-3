@@ -4,9 +4,8 @@ class AppointmentsController < ApplicationController
   end
 
   def show
-    if current_salon
-      @appointments = current_salon.id
-    end
+    @salon = Salon.find(params[:id])
+    @appointments = @salon.appointments
   end
 
   def new
