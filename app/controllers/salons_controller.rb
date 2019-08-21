@@ -11,7 +11,7 @@ class SalonsController < ApplicationController
     @salon = Salon.find(params[:id])
 
     @services = Service.where(salon_id: params[:id] ).order("id ASC")
-    @appointments = Appointment.where(salon_id: params[:id] )
+    @appointments = @salon.appointments
 
     # puts @salon.photos.first.photo_url
     @photos = @salon.photos
