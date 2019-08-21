@@ -8,5 +8,4 @@ class Salon < ApplicationRecord
   has_one :detail
   accepts_nested_attributes_for :services
   has_many :appointments, through: :services
-
 end

@@ -98,3 +98,9 @@ end
 50.times do
   Appointment.create(name: Faker::Name.first_name, phone: Faker::PhoneNumber.cell_phone, email: Faker::Internet.email,service_id: rand(1..10) )
 end
+
+m = 9
+
+10.times do
+  Timeslot.create(time: (m + 1))
+end
