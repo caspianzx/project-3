@@ -26,6 +26,7 @@ Rails.application.routes.draw do
   post '/salons/:id/create' => 'salons#create', as: 'create_salon'
   #edit.html, salon_details model. new below
   get '/salons/:id/edit' => 'salons#edit', as: 'edit_salon'
+  patch '/salons/:id' => 'salons#update', as: 'update_salon'
   #show.html, auth only salons
   get '/salons/:id' => 'salons#show', as: 'salon'
 

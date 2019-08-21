@@ -1,5 +1,6 @@
 
 
+
 <div class="container-fluid">
   <div class="row">
   	<div class= "col-md-12 p-0">
@@ -33,8 +34,8 @@
 
 
 
+<% if @salons.first.detail != nil %>
 
-<% if current_salon %>
 <div class="container">
   <div class="row">
     <table class="table table-striped">
@@ -67,4 +68,5 @@
 
 
 <%= link_to 'New Details', new_salon_path(@salon), :class => 'btn btn-link' %>
+<%= link_to 'Edit Details', edit_salon_path(@salon), :class => 'btn btn-link' %>
 <% end %>
