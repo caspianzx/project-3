@@ -1,82 +1,104 @@
 <div class="container">
+	<!-- 	companys picture uploads -->
 	<div class="row">
-		<div class="col-lg bg-dark">
-			<div class="row">
-				<div class="col-lg-3">
-					<div class="vertical-center">
-						<img class="img-fluid rounded-circle bg-info" src='<%= @salon.detail.logo_url %>' alt='logo'>
+		<div class="card border-primary my-3 w-100">
+			<div id="demo" class="carousel slide mx-auto" data-ride="carousel">
+
+				<ul class="carousel-indicators">
+					<li data-target="#demo" data-slide-to="0" class="active"></li>
+					<% @photos.each do |photo| %>
+					<li data-target="#demo" data-slide-to="<%= photo.id  %>"></li>
+					<% end %>
+				</ul>
+
+				<!-- The slideshow -->
+				<div class="carousel-inner">
+					<div class="carousel-item active">
+						<img src="<%= @photos.first.photo_url %>">
+					</div>
+					<% @photos.each do |photo| %>
+					<div class="carousel-item">
+						<img src="<%= photo.photo_url %>" class="img-fluid mr-auto" >
+					</div>
+					<% end %>
+				</div>
+
+
+				<!-- Left and right controls -->
+				<a class="carousel-control-prev" href="#demo" data-slide="prev">
+					<span class="carousel-control-prev-icon"></span>
+				</a>
+				<a class="carousel-control-next" href="#demo" data-slide="next">
+					<span class="carousel-control-next-icon"></span>
+				</a>
+
+
+			</div>
+		</div>
+	</div>
+	<!-- 	companys basic bio info -->
+	<div class="row">
+		<div class="card border-primary my-3 w-100">
+			<div class="col-lg">
+				<div class="row justify-content-between">
+					<div class="col-3">
+						<div class="vertical-center">
+							<img class="rounded-circle bg-info w-100" src='<%= @salon.detail.logo_url %>' alt='logo'>
+						</div>
+					</div>
+					<div class="col">
+						<p>Name: <%= @salon.detail.name %></p>
+						<p>Phone: <%= @salon.detail.phone %></p>
+						<p>Address: <%= @salon.detail.address %></p>
+						<p>Area: <%= @salon.detail.area %></p>
+						<p>Website: <%= @salon.detail.website %></p>
+
 					</div>
 				</div>
-				<div class="col-lg">
-					<p>Name: <%= @salon.detail.name %></p>
-					<p>Phone: <%= @salon.detail.phone %></p>
-					<p>Address: <%= @salon.detail.address %></p>
-					<p>Area: <%= @salon.detail.area %></p>
-					<p>Website: <%= @salon.detail.website %></p>
-				</div>
 			</div>
 		</div>
 	</div>
+	<!-- 	companys appointments & services -->
 	<div class="row">
-		<div class="col-lg-6 bg-danger">
-			<div class="container-fluid d-flex">
-				<h3 class="mr-auto">appointments</h3>
-
-
-			</div>
-			<ul class="list-group">
-				<% @salon.appointments.each do |a| %>
-				<li class="list-group-item d-flex justify-content-between align-items-center">
-					<%= a.name %>
-					<span class="badge badge-primary badge-pill">14</span>
-				</li>
-				<% end %>
-			</ul>
-		</div>
-		<div class="col-lg-6 bg-success">
-			<div class="container-fluid d-flex">
-				<h3 class="mr-auto">services</h3>
+		<!-- 	companys appointments-->
+		<div class="col-lg-6">
+			<div class="card border-primary my-3 w-100">
+				<div class="card-header d-flex">
+					<h3 class="mr-auto">appointments</h3>
+				</div>
+				<div class="card-body">
+					<ul class="list-group">
+						<% @salon.appointments.each do |a| %>
+						<li class="list-group-item d-flex justify-content-between align-items-center">
+							<%= a.name %>
+							<span class="badge badge-primary badge-pill">14</span>
+						</li>
+						<% end %>
+					</ul>
+				</div>
 
 			</div>
-			<ul class="list-group">
-				<% @salon.services.each do |s| %>
-				<li class="list-group-item d-flex justify-content-between align-items-center">
-					<%= s.name %>
-					<span class="badge badge-primary badge-pill">14</span>
-				</li>
-				<% end %>
-			</ul>
-
 		</div>
+		<!-- 	companys services -->
+		<div class="col-lg-6">
+			<div class="card border-primary my-3 w-100">
 
+				<div class="card-header d-flex">
+					<h3 class="mr-auto">services</h3>
+					<%= link_to image_tag('plus.svg', :height => '20' ), new_service_path %>
+				</div>
+				<div class="card-body">
+					<ul class="list-group">
+						<% @salon.services.each do |s| %>
+						<li class="list-group-item d-flex justify-content-between align-items-center">
+							<%= s.name %>
+							<span class="badge badge-primary badge-pill">$<%= s.price %></span>
+						</li>
+						<% end %>
+					</ul>
+				</div>
+
+			</div>
+		</div>
 	</div>
 </div>
-
-<%= link_to 'Edit details', edit_salon_path %><br>
-<h5>Services</h5><br>
-
-<table>
-	<tr>
-		<th>Service</th>
-		<th>Price</th>
-	</tr>
-
-	<% @services.each do |service| %>
-		<tr>
-			<td><%= service.name %></td>
-			<td><%= service.price %></td>
-		</tr>
-	<% end %>
-</table><br>
-
-<%= link_to 'Edit service', edit_service_path %><br>
-
-<% @photos.each do |photo| %>
-	<%= image_tag(photo.photo_url) %>
-	<%= link_to 'Delete photo', destroy_photo_path(:photo_id => photo.id, :salon_id => @salon.id),
-        method: :delete,
-        data: { confirm: 'Are you sure?' } %>
-<% end %><br>
-
-<%= link_to 'Add new photo', new_photo_path(@salon), :class => 'btn btn-link' %>
-<%= link_to 'Back', salons_path, :class => 'btn btn-link' %>
