@@ -6,6 +6,9 @@ class AppointmentsController < ApplicationController
   def show
     @salon = Salon.find(params[:id])
     @appointments = @salon.appointments
+    @services = Service.where(salon_id: params[:id] ).order("id ASC")
+    # puts @salon.photos.first.photo_url
+    @photos = @salon.photos
   end
 
   def new

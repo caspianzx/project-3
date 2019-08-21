@@ -1,4 +1,50 @@
+
 <p>SHOW APPTS OF <%= @salon.email %></p>
+=======
+<div class="container">
+	<div class="row">
+		<div class="col-lg bg-dark">
+			<div class="row">
+				<div class="col-lg-3">
+					<div class="vertical-center">
+						<img class="img-fluid rounded-circle bg-info" src='<%= @salon.detail.logo_url %>' alt='logo'>
+					</div>
+				</div>
+				<div class="col-lg">
+					<p>Name: <%= @salon.detail.name %></p>
+					<p>Phone: <%= @salon.detail.phone %></p>
+					<p>Address: <%= @salon.detail.address %></p>
+					<p>Area: <%= @salon.detail.area %></p>
+					<>Website: <%= @salon.detail.website %></p>
+				</div>
+			</div>
+		</div>
+	</div>
+</div>
+
+
+<h5>Services</h5><br>
+
+<table>
+	<tr>
+		<th>Service</th>
+		<th>Price</th>
+	</tr>
+
+	<% @services.each do |service| %>
+		<tr>
+			<td><%= service.name %></td>
+			<td><%= service.price %></td>
+		</tr>
+	<% end %>
+</table><br>
+
+<% @photos.each do |photo| %>
+	<%= image_tag(photo.photo_url) %>
+
+<% end %><br>
+
+
 
 <% if @appointments %>
 	<% @appointments.each do |appt| %>
@@ -15,7 +61,12 @@
         data: { confirm: 'Are you sure?' } %>
 	<% end %>
 <% else %>
+
 	<p>No appts yet!</p>
 <% end %>
 
 <%= link_to 'New Appt', new_appointment_path, :class => 'btn btn-link' %>
+
+	<p>Placeholder: no appts yet!</p>
+<% end %>
+

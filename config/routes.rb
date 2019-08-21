@@ -5,7 +5,7 @@ Rails.application.routes.draw do
   get '/salons' => 'salons#index', as: 'salons'
 
   #CREATE SERVICES CONTROLLER
-  get '/salons/:id/services' => 'services#show', as: 'service'
+  # get '/salons/:id/services' => 'services#show', as: 'service'
 
   get '/salons/:id/services/new' => 'services#new', as: 'new_service'
   post '/salons/:id/services/create' => 'services#create', as: 'create_service'
