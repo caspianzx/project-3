@@ -15,17 +15,22 @@
   </div>
 
   <div class="form-group">
+   <!--  <%= form.label :date, :class => 'form-control' %><br>
+    <%= form.date_field :date, :class => 'form-text text-muted' %> -->
     <%= form.label :date, :class => 'form-control' %><br>
-    <%= form.date_field :date, :class => 'form-text text-muted' %>
+    <%= form.date_select :date %>
   </div>
+
   <div class="form-group">
+   <!--  <%= form.label :timeslot, :class => 'form-control' %><br>
+    <%= form.time_field :timeslot, :class => 'form-text text-muted' %> -->
     <%= form.label :timeslot, :class => 'form-control' %><br>
-    <%= form.time_field :timeslot, :class => 'form-text text-muted' %>
+  	<%= form.select :timeslot, (9..17).to_a %>:00
   </div>
   <% if @services %>
-  	<%= form.collection_select :service_id, @services, :id, :type %>
+  	<%= form.collection_select :service_id, @services, :id, :name %><br>
   	<% else %>
-  	<p>Checkbox placeholder: no services yet</p>
+  	<p>Checkbox placeholder: no services yet</p><br>
   <% end %>
 
     <%= form.submit 'Save', :class => 'btn btn-primary' %>
