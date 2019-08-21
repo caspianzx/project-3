@@ -9,6 +9,7 @@ class SalonsController < ApplicationController
   def show
     puts 'SHOWING'
     @salon = Salon.find(params[:id])
+    @services = Service.where(salon_id: params[:id] ).order("id ASC")
   end
 
   def new

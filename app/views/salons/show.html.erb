@@ -5,4 +5,21 @@
 <p>Website: <%= @salon.detail.website %></p>
 <p>Logo URL: <%= @salon.detail.logo_url %></p>
 
+<h5>Services</h5><br>
+
+<table>
+	<tr>
+		<th>Service</th>
+		<th>Price</th>
+	</tr>
+
+	<% @services.each do |service| %>
+		<tr>
+			<td><%= service.name %></td>
+			<td><%= service.price %></td>
+		</tr>
+	<% end %>
+</table><br>
+
+<%= link_to 'Edit service', edit_service_path %>
 <%= link_to 'Back', salons_path, :class => 'btn btn-link' %>
