@@ -38,34 +38,23 @@
 
 <div class="container">
   <div class="row">
-    <table class="table table-striped">
-      <thead>
-        <tr>
-          <th scope="col">name</th>
-          <th scope="col">phone</th>
-          <th scope="col">address</th>
-          <th scope="col">area</th>
-          <th scope="col">website</th>
-          <th scope="col">logo url</th>
-        </tr>
-      </thead>
-      <tbody>
-      <% @salons.each do |salon| %>
-        <tr>
-          <td><%= salon.detail.name %></td>
-          <td class="salon-title"><%= salon.detail.phone %></td>
-          <td><%= salon.detail.address %></td>
-          <td><%= salon.detail.area %></td>
-          <td><%= salon.detail.website %></td>
-          <td><%= salon.detail.logo_url %></td>
-        </tr>
-      <% end %>
-      </tbody>
-    </table>
+  	<% @salons.each do |salon| %>
+
+  	<div class="col-4">
+  		<a href ="/salons/<%=salon.id%>">
+  		<div class="card">
+  			<div class ="cardImage">
+  				<img src= "<%=salon.detail.logo_url%>" class="card-img-top cardImage" alt="...">
+  			</div>
+ 					 <div class="card-body">
+    					<p class="card-text"><%= salon.detail.name %></p>
+  					</div>
+			</div>
+		</a>
+  	</div>
+
+    <% end %>
   </div>
 </div>
-
-
-
 
 <% end %>
