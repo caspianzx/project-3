@@ -94,10 +94,13 @@ k = 0
   Service.create(name: myArray[8], price: rand(150..200), salon_id: k += 1 )
 end
 
-m = 9
-
+l = 0
 10.times do
-  Timeslot.create(time: (m += 1), salon_id: 1)
+  l += 1
+  m = 9
+  10.times do
+    Timeslot.create(time: (m += 1), salon_id: (l))
+  end
 end
 
 50.times do
