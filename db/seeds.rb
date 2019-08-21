@@ -94,7 +94,25 @@ k = 0
   Service.create(name: myArray[8], price: rand(150..200), salon_id: k += 1 )
 end
 
+l = 0
+10.times do
+  l += 1
+  m = 9
+  10.times do
+    Timeslot.create(time: (m += 1), salon_id: (l))
+  end
+end
 
 50.times do
-  Appointment.create(name: Faker::Name.first_name, phone: Faker::PhoneNumber.cell_phone, email: Faker::Internet.email,service_id: rand(1..10) )
+  Appointment.create(name: Faker::Name.first_name, phone: Faker::PhoneNumber.cell_phone, email: Faker::Internet.email,service_id: rand(1..10), timeslot_id: rand(1..10) )
 end
+
+
+
+
+
+# n = 0
+# 5.times do
+#   x = Salon.find(1)
+#   x.timeslots.appointments << Appointment.create(name: Faker::Name.first_name, phone: Faker::PhoneNumber.cell_phone, email: Faker::Internet.email, service_id: rand(1..10) )
+# end

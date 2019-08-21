@@ -25,8 +25,9 @@
    <!--  <%= form.label :timeslot, :class => 'form-control' %><br>
     <%= form.time_field :timeslot, :class => 'form-text text-muted' %> -->
     <%= form.label :timeslot, :class => 'form-control' %><br>
-  	<%= form.select :timeslot, (9..17).to_a %>:00
-  </div>
+		<%= form.collection_select :timeslot_id, @timeslots, :id, :time %>
+	</div>
+
   <% if @services %>
   	<%= form.collection_select :service_id, @services, :id, :name %><br>
   	<% else %>
