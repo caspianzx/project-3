@@ -1,18 +1,124 @@
-
-<p>SHOW APPTS OF <%= @salon.email %></p>
-=======
 <div class="container">
 	<div class="row">
-		<div class="col-lg bg-dark">
-			<div class="row">
-				<div class="col-lg-3">
-					<div class="vertical-center">
-						<img class="img-fluid rounded-circle bg-info" src='<%= @salon.detail.logo_url %>' alt='logo'>
-					</div>
-				</div>
-				<div class="col-lg">
-					<p>Name: <%= @salon.detail.name %></p>
-					<p>Phone: <%= @salon.detail.phone %></p>
+		<div class="col-8 offset-2">
+			<div class="salonName">
+				<p><%= @salon.detail.name %></p>
+		  </div>
+
+		  <div id="carouselExampleControls" class="carousel slide" data-ride="carousel">
+
+  			<div class="carousel-inner">
+					<div class="carousel-item active">
+      			<img src="<%= @photos.first.photo_url%>" class="d-block w-100" alt="...">
+    			</div>
+
+					<% @photos.each do |photo| %>
+					<div class="carousel-item">
+      			<img src="<%=photo.photo_url%>" class="d-block w-100 image-fluid" alt="...">
+    			</div>
+    			<% end %>
+   			</div>
+
+
+  			<a class="carousel-control-prev" href="#carouselExampleControls" role="button" data-slide="prev">
+  				<div id ="previousBtn">
+  					<div class ="arrow">
+    				<span class="carousel-control-prev-icon" aria-hidden="true"></span>
+    				<span class="sr-only">Previous</span>
+    			</div>
+    			</div>
+  			</a>
+
+
+
+  			<a class="carousel-control-next" href="#carouselExampleControls" role="button" data-slide="next">
+  				<div id ="nextBtn">
+  					<div class ="arrow">
+    				<span class="carousel-control-next-icon" aria-hidden="true"></span>
+    				<span class="sr-only">Next</span>
+    			</div>
+    			</div>
+  		</a>
+		</div>
+		</div>
+	</div>
+</div>
+
+<div class="container menu">
+	<div class="row">
+		<div class="col-6 offset-3">
+
+			<ul class="nav nav-tabs nav-justified" id="myTab" role="tablist">
+  			<li class="nav-item">
+    			<a class="nav-link active" id="home-tab" data-toggle="tab" href="#home" role="tab" aria-controls="home" aria-selected="true">Services</a>
+  			</li>
+
+  			<li class="nav-item">
+    			<a class="nav-link" id="profile-tab" data-toggle="tab" href="#profile" role="tab" aria-controls="profile" aria-selected="false">Contact</a>
+  			</li>
+			</ul>
+
+		<div class="tab-content" id="myTabContent">
+  		<div class="tab-pane fade show active" id="home" role="tabpanel" aria-labelledby="home-tab">
+
+
+
+  			<table class="table table-hover">
+  				<tbody>
+  					<% @services.each do |service| %>
+    				<tr  data-toggle="modal" data-target="#exampleModalLong">
+    						<td> <%= service.name %></td>
+      					<td> SGD <%= service.price %></td>
+    				</tr>
+						<div class="modal fade" id="exampleModalLong" tabindex="-1" role="dialog" aria-labelledby="exampleModalLongTitle" aria-hidden="true">
+  						<div class="modal-dialog  modal-dialog-centered" role="document">
+    						<div class="modal-content">
+      						<div class="modal-header">
+        						<h5 class="modal-title" id="exampleModalLongTitle">Appointment </h5>
+        						<button type="button" class="close" data-dismiss="modal" aria-label="Close">
+          						<span aria-hidden="true">&times;</span>
+        						</button>
+      						</div>
+      						<div class="modal-body">
+      							<%= form_with scope: :appointment, url: create_appointment_path, local: true, class: 'newform' do |form| %>
+
+      								<div class="form-group">
+    										<%= form.text_field :name, :class => 'form-text text-muted', :placeholder =>  'Your Name' %>
+ 											</div>
+ 											<div class="form-group">
+    										<%= form.text_field :phone, :class => 'form-text text-muted', :placeholder =>  'Contact number' %>
+  										</div>
+  										<div class="form-group">
+    										<%= form.text_field :email, :class => 'form-text text-muted',  :placeholder =>  'Email' %>
+  										</div>
+  										<div class="form-group">
+    											<%= form.date_select :date %>
+  										</div>
+  										<div class="form-group">
+												<%= form.collection_select :timeslot_id, @timeslots, :id, :time %>
+											</div>
+<div class="form-group">
+											<%= form.collection_select :service_id, @services, :id, :name %>
+</div>
+        								<%= form.submit 'Book Appointment', :class => 'btn btn-primary' %>
+      								<% end %>
+      							</div>
+      						</div>
+    						</div>
+  						</div>
+							</div>
+    				<% end %>
+    			</tbody>
+				</table>
+
+
+
+
+
+  		</div>
+  		<div class="tab-pane fade" id="profile" role="tabpanel" aria-labelledby="profile-tab">
+  				<p class ="profileSalon"><%= @salon.detail.name %></p>
+  				<p>Phone: <%= @salon.detail.phone %></p>
 					<p>Address: <%= @salon.detail.address %></p>
 					<p>Area: <%= @salon.detail.area %></p>
 					<p>Website: <%= @salon.detail.website %></p>
@@ -21,47 +127,3 @@
 		</div>
 	</div>
 </div>
-
-
-<h5>Services</h5><br>
-
-<table>
-	<tr>
-		<th>Service</th>
-		<th>Price</th>
-	</tr>
-
-	<% @services.each do |service| %>
-		<tr>
-			<td><%= service.name %></td>
-			<td><%= service.price %></td>
-		</tr>
-	<% end %>
-</table><br>
-
-<% @photos.each do |photo| %>
-	<%= image_tag(photo.photo_url) %>
-
-<% end %><br>
-
-
-<% if @appointments %>
-	<% @appointments.each do |appt| %>
-		<p>Name:<%= appt.name %></p>
-		<p>Phone: <%= appt.phone %></p>
-		<p>Email: <%= appt.email %></p>
-		<p>Date: <%= appt.date %></p>
-		<p>Timeslot: <%= appt.timeslot.time %>:00 ~ <%= appt.timeslot.time.to_i + 1 %>:00</p>
-		<p>Svc Name: <%= appt.service.name %></p>
-		<p>Svc Price: <%= appt.service.price %></p>
-		<%= link_to 'Edit Appt', edit_appointment_path(:salon_id => @salon.id, :appt_id => appt.id), :class => 'btn btn-link' %>
-		<%= link_to 'Destroy Appt', destroy_appointment_path(:salon_id => @salon.id, :appt_id => appt.id),
-        method: :delete,
-        data: { confirm: 'Are you sure?' } %>
-	<% end %>
-<% else %>
-
-	<p>No appts yet!</p>
-<% end %>
-
-<%= link_to 'New Appt', new_appointment_path, :class => 'btn btn-link' %>
