@@ -1,49 +1,57 @@
-<h1>Submit price menu</h1><br>
 
-<%= form_with scope: :service, url: create_service_path, local: true do |form| %>
 
-	<input type="hidden" name="service[salon_id]" value="<%= @salonId %>" />
+<div class="container-fluid vertical-center">
+	<div class="row">
+		<div class="col-md-4 mx-auto">
+			<div class="card border-primary text-center" style="max-width: 20rem;">
+				<div class="card-header">
+					<h2>Edit price menu</h2>
+				</div>
+				<div class="card-body">
 
-<!-- <div>
-	<%= form.label :select_service%>
+					<h1>Submit price menu</h1><br>
 
-	<%= select_tag(:name, raw('<option value="Cut & Wash">Cut & Wash</option><option value="Colour">Colour</option><option value="Perm">Perm</option><option value="Rebonding">Rebonding</option><option value="Treatment">Treatment</option>')) %>
+					<%= form_with scope: :service, url: create_service_path, local: true do |form| %>
 
-		<%= form.label :price%>
-		<%= form.text_field :price %>
+					<input type="hidden" name="service[salon_id]" value="<%= @salonId %>" />
+
+
+					<!-- using input instead of dropdown  -->
+					<div>
+						<input name="serviceOne" value="Cut and Wash" readonly />
+						<input name="priceOne"/>
+					</div>
+
+					<div>
+						<input name="serviceTwo" value="Colour" readonly />
+						<input name="priceTwo"/>
+					</div>
+
+					<div>
+						<input name="serviceThree" value="Perm" readonly />
+						<input name="priceThree"/>
+					</div>
+
+					<div>
+						<input name="serviceFour" value="Rebonding" readonly />
+						<input name="priceFour"/>
+					</div>
+
+					<div>
+						<input name="serviceFive" value="Treatment" readonly />
+						<input name="priceFive"/>
+					</div>
+
+					<p>
+						<%= form.submit %>
+					</p>
+
+					<% end %>
+
+					<%= link_to 'Salons', salon_path %>
+
+				</div>
+			</div>
+		</div>
+	</div>
 </div>
- -->
-
-<!-- using input instead of dropdown  -->
-	<div>
-		<input name="serviceOne" value="Cut and Wash" readonly />
-		<input name="priceOne"/>
-	</div>
-
-	<div>
-		<input name="serviceTwo" value="Colour" readonly />
-		<input name="priceTwo"/>
-	</div>
-
-	<div>
-		<input name="serviceThree" value="Perm" readonly />
-		<input name="priceThree"/>
-	</div>
-
-	<div>
-		<input name="serviceFour" value="Rebonding" readonly />
-		<input name="priceFour"/>
-	</div>
-
-	<div>
-		<input name="serviceFive" value="Treatment" readonly />
-		<input name="priceFive"/>
-	</div>
-
-	<p>
-		<%= form.submit %>
-	</p>
-
-<% end %>
-
-<%= link_to 'Salons', salon_path %>
