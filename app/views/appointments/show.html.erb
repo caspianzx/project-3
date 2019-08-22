@@ -67,8 +67,8 @@
   				<tbody>
   					<% @services.each do |service| %>
     				<tr  data-toggle="modal" data-target="#exampleModalLong">
-    						<td> <%= service.name %></td>
-      					<td> SGD <%= service.price %></td>
+    						<td> <p><%= service.name %></p></td>
+      					<td> <p> SGD <%= service.price %> </p></td>
     				</tr>
 						<div class="modal fade" id="exampleModalLong" tabindex="-1" role="dialog" aria-labelledby="exampleModalLongTitle" aria-hidden="true">
   						<div class="modal-dialog  modal-dialog-centered" role="document">

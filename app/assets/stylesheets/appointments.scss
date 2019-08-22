@@ -49,13 +49,15 @@
 	margin-top:10px;
 }
 
+.table td >p {
+ margin-left: -115px;
+ margin-bottom: 0px;
+}
+
 
 .table td {
 	color: black;
 	text-align: center;
-}
-
-.table td {
 	cursor: pointer;
 	border-bottom: 1px solid rgba(0, 0, 0, 0.05);;
 }
