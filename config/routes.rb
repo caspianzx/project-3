@@ -31,6 +31,7 @@ Rails.application.routes.draw do
 
   #TIMESLOTS CONTROLLERS
   get '/salons/:id/timeslots' => 'timeslots#index', as: 'timeslots'
+  get '/salons/:id/timeslots/:date' => 'timeslots#show', as: 'show_timeslots'
 
    #salon_details table (for public)
   get '/salons/:id/new' => 'salons#new', as: 'new_salon'

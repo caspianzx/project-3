@@ -1,0 +1,5 @@
+<p><%= @salon.email %>'s schedule for <%= @date %></p>
+
+<% @timeslots.each do |slot| %>
+	<p><%= slot.time %></p>
+<% end  %>

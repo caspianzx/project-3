@@ -7,6 +7,11 @@ class TimeslotsController < ApplicationController
     @unavailable = @timeslots.select {|slot| slot.booked >= slot.capacity}
   end
 
+  def show
+    @salon = Salon.find(params[:id])
+    @date = params[:date]
+    @timeslots = @salon.timeslots.select {|slot| slot.date.to_s == @date}
+  end
 
 
 end
