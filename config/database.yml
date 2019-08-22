@@ -24,8 +24,6 @@ default: &default
 development:
   <<: *default
   database: hairsalon_development
-  username: 'apooshoo'
-  password: 'neilgaiman1'
 
 
   # The specified database role being used to connect to postgres.

@@ -30,8 +30,6 @@ class AppointmentsController < ApplicationController
     @services = @salon.services
     @appointment = Appointment.find(params[:appt_id])
     @timeslots = @salon.timeslots
-
-
   end
 
   def create
@@ -39,11 +37,16 @@ class AppointmentsController < ApplicationController
     @appointment.save
     if @appointment.save
       puts 'Booked!'
-      redirect_to :controller => 'appointments', :action => 'show', :id => params[:id]
+      redirect_to :controller => 'appointments', :action => 'confirmation', :id => params[:id], appt_id: @appointment.id
     else
       puts 'Booking failed!'
       redirect_to :controller => 'appointments', :action => 'new', :id => params[:id]
     end
+  end
+
+  def confirmation
+    @salon = Salon.find(params[:id])
+    @appointment = Appointment.find(params[:appt_id])
   end
 
   def update
