@@ -2,3 +2,33 @@
 	color: black;
 	text-align: center;
 }
+
+.confirmationPage {
+	margin-top: 20px;
+}
+
+.mainHeader {
+	font-size: 40px;
+	margin-bottom: 20px;
+	border-bottom: 1px solid rgba(0, 0, 0, 0.1);
+}
+
+.confirmationDetails {
+	text-align: left;
+	min-height: 360px;
+}
+
+.confirmationDetails > p {
+	font-size: 18px;
+}
+
+.detailsEnd {
+	border-bottom: 1px solid rgba(0, 0, 0, 0.1);
+	padding-bottom: 20px;
+}
+
+.linkButton {
+	font-size:20px;
+	display: inline-block;
+	margin-left: 10px;
+}
