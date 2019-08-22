@@ -107,11 +107,12 @@ end
   Appointment.create(name: Faker::Name.first_name, phone: Faker::PhoneNumber.cell_phone, email: Faker::Internet.email,service_id: rand(1..10), timeslot_id: rand(1..10) )
 end
 
-#doesnt seem to work in seed. but works in console
 z = Timeslot.all.select {|slot| slot.appointments != [] }
 z.each do |slot|
   slot.booked = 1
+  slot.save
 end
+
 
 
 
