@@ -2,6 +2,7 @@
 	<div class="card-header d-flex">
 		<h3 class="mr-auto">appointments</h3>
 	</div>
+
 	<div class="card-body">
 		<% if @appointments.blank? %>
 		<li class="list-group-item d-flex justify-content-between align-items-center">
@@ -9,6 +10,7 @@
 			<span class="badge badge-primary badge-pill">14</span>
 		</li>
 		<% elsif %>
+
 		<!-- all appointments -->
 		<div class="panel-group">
 			<div class="panel panel-default">
@@ -28,8 +30,8 @@
 				</div>
 			</div>
 		</div>
+
 		<!-- upcoming appointments -->
-		<% date = Date.new() %>
 		<div class="panel-group">
 			<div class="panel panel-default">
 				<div class="card-title d-flex justify-content-between align-items-center">
@@ -39,13 +41,10 @@
 				<div id="collapseUpcoming" class="panel-collapse collapse">
 					<ul class="list-group">
 						<% @salon.appointments.each do |a| %>
-						<% if a.date > date %>
-
 						<li class="list-group-item d-flex justify-content-between align-items-center">
 							<%= a.name %>
 							<span class="badge badge-primary badge-pill">14</span>
 						</li>
-						<% end %>
 						<% end %>
 					</ul>
 				</div>
