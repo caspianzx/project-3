@@ -9,6 +9,7 @@ class AppointmentsController < ApplicationController
     @services = Service.where(salon_id: params[:id] ).order("id ASC")
     # puts @salon.photos.first.photo_url
     @photos = @salon.photos
+
     puts "look here"
     puts params[:id]
 
@@ -19,6 +20,9 @@ class AppointmentsController < ApplicationController
     @avrating = Rating.average('rating')
     puts 'average rating'
     puts @avrating.inspect
+
+    @timeslots = @salon.timeslots
+
   end
 
   def new
@@ -29,7 +33,7 @@ class AppointmentsController < ApplicationController
     # @salon.timeslots.each do |timeslot|
     #   @timeslots.push(timeslot.time)
     # end
-    @timeslots = @salon.timeslots
+    @timeslots = @salon.timeslots.select {|slot| slot.appointments == []}
     puts @timeslots.inspect
   end
 
@@ -39,8 +43,6 @@ class AppointmentsController < ApplicationController
     @services = @salon.services
     @appointment = Appointment.find(params[:appt_id])
     @timeslots = @salon.timeslots
-
-
   end
 
   def create
@@ -48,11 +50,16 @@ class AppointmentsController < ApplicationController
     @appointment.save
     if @appointment.save
       puts 'Booked!'
-      redirect_to :controller => 'appointments', :action => 'show', :id => params[:id]
+      redirect_to :controller => 'appointments', :action => 'confirmation', :id => params[:id], appt_id: @appointment.id
     else
       puts 'Booking failed!'
       redirect_to :controller => 'appointments', :action => 'new', :id => params[:id]
     end
+  end
+
+  def confirmation
+    @salon = Salon.find(params[:id])
+    @appointment = Appointment.find(params[:appt_id])
   end
 
   def update

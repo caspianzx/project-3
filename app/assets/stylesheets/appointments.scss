@@ -1,0 +1,136 @@
+.salonName {
+	position: relative;
+	font-family: "Roboto thin", sans-serif;
+	font-size: 22px;
+	margin-top: 10px;
+	text-align: center;
+	letter-spacing: 2px;
+	color: black;
+	font-weight: bold;
+}
+
+#previousBtn {
+	background-color: #FF8272;
+	padding: 10px;
+	margin-left: -120px;
+	border-radius: 50px;
+	width: 60px;
+	height: 60px;
+	justify-content: center;
+	align-items: center;
+}
+
+.carousel-control-prev-icon, .carousel-control-next-icon  {
+	width: 15px;
+	height: 15px;
+	margin: 10px;
+}
+
+#nextBtn {
+	background-color: #FF8272;
+	padding: 14px;
+	margin-left: 120px;
+	border-radius: 50px;
+	width: 60px;
+	height: 60px;
+}
+
+.menu {
+	margin-top: 10px;
+}
+
+#contact > p {
+	color: black;
+	margin-bottom: 5px;
+}
+
+.profileSalon {
+	font-size: 17px;
+	font-weight: bold;
+	margin-top:10px;
+}
+
+.table td >p {
+ margin-bottom: 0px;
+ margin-left: 20px;
+}
+
+
+.table td {
+	color: black;
+	border-bottom: 1px solid rgba(0, 0, 0, 0.1);
+	padding-top: 20px;
+	padding-bottom: 20px;
+}
+
+.table-hover tbody tr:hover {
+
+    background-color: rgb(255, 255, 255);
+
+  }
+
+ .table {
+ 	margin-top:10px;
+ }
+
+#profile-tab, #home-tab, #contact-tab {
+	font-size: 18px;
+}
+
+
+ #profile-tab:focus {
+ 	color: #ff8272;
+ 	font-weight: bold;
+ }
+
+ #home-tab:focus {
+ 	color: #ff8272;
+ 	font-weight: bold;
+ }
+
+ #contact-tab:focus {
+ 	color: #ff8272;
+ 	font-weight: bold;
+ }
+
+ #nameForm {
+ 	justify-content: center;
+ 	align-items: center;
+ }
+
+.carousel-inner {
+height: 220px;
+}
+
+.nav-tabs .nav-link.active, .nav-tabs .nav-item.show .nav-link {
+	  color: #55595c;
+    background-color: #fff;
+    border-color: rgba(0,0,0,0.5) rgba(0,0,0,0.5) #fff
+}
+
+.nav-tabs {
+	border-bottom: 1px solid rgba(0,0,0,0.5);
+}
+
+
+.nav-tabs .nav-link:hover {
+	border-left-color: rgba(0,0,0,0.5);
+	border-right-color:rgba(0,0,0,0.5);
+	border-top-color: rgba(0,0,0,0.5);
+}
+
+.newform {
+	margin-top: 20px;
+}
+
+.apptForm {
+	width: 200px;
+	padding-top: 5px;
+	padding-bottom: 5px;
+}
+
+.instructions {
+	color: black;
+	font-size: 17px;
+	margin-top: 10px;
+}

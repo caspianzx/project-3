@@ -1,0 +1,21 @@
+<div class= "container confirmationPage">
+	<div class ="row">
+		<div class ="col-6 offset-3" id ="confirmation">
+			<p class ="mainHeader">Appointment Confirmed</p>
+			<div class ="confirmationDetails">
+			<p>Name: <%= @appointment.name %></p>
+			<p>Phone: <%= @appointment.phone %></p>
+			<p>Email: <%= @appointment.email %></p>
+			<p>Date: <%= @appointment.date %></p>
+			<p>Timeslot: <%= @appointment.timeslot.time %>:00 ~ <%= @appointment.timeslot.time.to_i + 1 %>:00</p>
+			<p>Service: <%= @appointment.service.name %></p>
+			<p>Price: SGD <%= @appointment.service.price %></p>
+			<p class ="detailsEnd"> If you would like to change or cancel your appointment, please click the links below. </p>
+			</div>
+		<%= link_to 'Edit', edit_appointment_path(:salon_id => @salon.id, :appt_id => @appointment.id), :class => 'linkButton' %>
+		<%= link_to 'Cancel', destroy_appointment_path(:salon_id => @salon.id, :appt_id => @appointment.id), :class => 'linkButton',
+    method: :delete,
+    data: { confirm: 'Are you sure?' } %>
+  </div>
+</div>
+</div>
