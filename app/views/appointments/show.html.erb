@@ -97,9 +97,9 @@
   										<div class="form-group">
 												<%= form.collection_select :timeslot_id, @timeslots, :id, :time %>
 											</div>
-<div class="form-group">
-											<%= form.collection_select :service_id, @services, :id, :name %>
-</div>
+											<div class="form-group">
+												<%= form.collection_select :service_id, @services, :id, :name %>
+											</div>
         								<%= form.submit 'Book Appointment', :class => 'btn btn-primary' %>
       								<% end %>
       							</div>
