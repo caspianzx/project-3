@@ -29,6 +29,9 @@ Rails.application.routes.draw do
   patch '/salons/:id/appointments' => 'appointments#update', as: 'update_appointment'
   delete '/salons/:id/appointments' => 'appointments#destroy', as: 'destroy_appointment'
 
+  #TIMESLOTS CONTROLLERS
+  get '/salons/:id/timeslots' => 'timeslots#index', as: 'timeslots'
+
    #salon_details table (for public)
   get '/salons/:id/new' => 'salons#new', as: 'new_salon'
   post '/salons/:id/create' => 'salons#create', as: 'create_salon'
