@@ -6,6 +6,7 @@
 	text-align: center;
 	letter-spacing: 2px;
 	color: black;
+	font-weight: bold;
 }
 
 #previousBtn {
@@ -38,7 +39,7 @@
 	margin-top: 10px;
 }
 
-#profile > p {
+#contact > p {
 	color: black;
 	margin-bottom: 5px;
 }
@@ -58,14 +59,13 @@
 .table td {
 	color: black;
 	text-align: center;
-	cursor: pointer;
-	border-bottom: 1px solid rgba(0, 0, 0, 0.05);;
+	border-bottom: 1px solid rgba(0, 0, 0, 0.1);;
 }
 
 .table-hover tbody tr:hover {
-    color: #FF8272 !important;
+
     background-color: rgb(255, 255, 255);
-    box-shadow: inset 0 0 0 2px #ff8272;
+
   }
 
  .table {
@@ -82,6 +82,11 @@
  	font-weight: bold;
  }
 
+ #contact-tab:focus {
+ 	color: #ff8272;
+ 	font-weight: bold;
+ }
+
  #nameForm {
  	justify-content: center;
  	align-items: center;
@@ -89,4 +94,21 @@
 
 .carousel-inner {
 height: 220px;
+}
+
+.nav-tabs .nav-link.active, .nav-tabs .nav-item.show .nav-link {
+	  color: #55595c;
+    background-color: #fff;
+    border-color: rgba(0,0,0,0.5) rgba(0,0,0,0.5) #fff
+}
+
+.nav-tabs {
+	border-bottom: 1px solid rgba(0,0,0,0.5);
+}
+
+
+.nav-tabs .nav-link:hover {
+	border-left-color: rgba(0,0,0,0.5);
+	border-right-color:rgba(0,0,0,0.5);
+	border-top-color: rgba(0,0,0,0.5);
 }
