@@ -99,7 +99,7 @@ l = 0
   l += 1
   m = 9
   10.times do
-    Timeslot.create(time: (m += 1), salon_id: (l), date: Faker::Date.between(from: 2.days.ago, to: Date.today))
+    Timeslot.create(time: (m += 1), salon_id: (l), date: Faker::Date.between(from: Date.today, to: 2.days.ago))
   end
 end
 
