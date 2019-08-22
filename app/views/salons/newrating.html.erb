@@ -18,9 +18,13 @@
 	<p>Select service used</p>
 		<%= form.collection_select :service_id, @services, :id, :name %>
 
+
 	<p>
 		<%= form.label :rating %><br>
-		<%= form.text_field :rating %>
+
+		<% 5.times.each_with_index do |index| %>
+ 			<%= image_tag("/images/empty-star.png", size: "16x16", id: "change-image#{index}")%>
+		<% end %>
 	</p>
 
 	<p>

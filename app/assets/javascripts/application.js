@@ -17,6 +17,24 @@
 //= require jquery3
 //= require popper
 //= require bootstrap-sprockets
+$(function() {
+    for (let i=0; i<5; i++) {
+        $(`#change-image${i}`).click(function() {
+            var src = $(this).attr("src").replace("/images/empty-star.png", "/images/star.png");
+           $(this).attr("src", src);
+        })
+    }
+});
+
+// function changeImage(){
+//     for (let i=0; i<5; i++) {
+//         if (document.getElementById("change-image").src == "/images/empty-star.png")
+//             {
+//                 document.getElementById("change-image").src == "/images/star.png"
+//             }
+//     }
+// }
+
 var set_stars = function(form_id, stars){
     for(i=1; i <= 5; i++) {
         if(i <= stars){

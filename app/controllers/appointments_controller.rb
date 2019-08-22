@@ -79,6 +79,7 @@ class AppointmentsController < ApplicationController
     redirect_to :controller => 'appointments', :action => 'show', :id => @salon.id
   end
 
+
 private
 
 

@@ -13,6 +13,7 @@
 
  */
 	@import "bootswatch/lux/variables";
+	$icon-font-path: 'bootstrap/';
 	@import "bootstrap";
 	@import "bootswatch/lux/bootswatch";
 	@import "navbar";

@@ -71,7 +71,13 @@
 		<p>No ratings yet</p>
 	<% elsif %>
 <!-- show aggregated star ratings -->
-		Rating: <%= @avrating %>
+		Rating:
+		<% @avrating.round.to_i.times do %>
+ 			<img src="/images/star.png" width="16px" height="16px">
+		<% end %>
+		<% (5-@avrating.round).to_i.times do %>
+ 			<img src="/images/empty-star.png" width="16px" height="16px">
+		<% end %>
 	<% end%>
 <%= link_to 'Submit rating', new_rating_path, :class => 'btn btn-link' %>
 </div>
