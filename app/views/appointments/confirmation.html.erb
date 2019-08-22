@@ -1,0 +1,14 @@
+<p>CONFIRMATION PG</p>
+
+
+<p>Name:<%= @appointment.name %></p>
+<p>Phone: <%= @appointment.phone %></p>
+<p>Email: <%= @appointment.email %></p>
+<p>Date: <%= @appointment.date %></p>
+<p>Timeslot: <%= @appointment.timeslot.time %>:00 ~ <%= @appointment.timeslot.time.to_i + 1 %>:00</p>
+<p>Svc Name: <%= @appointment.service.name %></p>
+<p>Svc Price: <%= @appointment.service.price %></p>
+<%= link_to 'Edit Appt', edit_appointment_path(:salon_id => @salon.id, :appt_id => @appointment.id), :class => 'btn btn-link' %>
+<%= link_to 'Destroy Appt', destroy_appointment_path(:salon_id => @salon.id, :appt_id => @appointment.id),
+    method: :delete,
+    data: { confirm: 'Are you sure?' } %>
