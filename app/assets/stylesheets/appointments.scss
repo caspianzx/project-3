@@ -51,15 +51,16 @@
 }
 
 .table td >p {
- margin-left: -115px;
  margin-bottom: 0px;
+ margin-left: 20px;
 }
 
 
 .table td {
 	color: black;
-	text-align: center;
-	border-bottom: 1px solid rgba(0, 0, 0, 0.1);;
+	border-bottom: 1px solid rgba(0, 0, 0, 0.1);
+	padding-top: 20px;
+	padding-bottom: 20px;
 }
 
 .table-hover tbody tr:hover {
@@ -71,6 +72,11 @@
  .table {
  	margin-top:10px;
  }
+
+#profile-tab, #home-tab, #contact-tab {
+	font-size: 18px;
+}
+
 
  #profile-tab:focus {
  	color: #ff8272;
@@ -111,4 +117,20 @@ height: 220px;
 	border-left-color: rgba(0,0,0,0.5);
 	border-right-color:rgba(0,0,0,0.5);
 	border-top-color: rgba(0,0,0,0.5);
+}
+
+.newform {
+	margin-top: 20px;
+}
+
+.apptForm {
+	width: 200px;
+	padding-top: 5px;
+	padding-bottom: 5px;
+}
+
+.instructions {
+	color: black;
+	font-size: 17px;
+	margin-top: 10px;
 }
