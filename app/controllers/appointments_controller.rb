@@ -20,7 +20,7 @@ class AppointmentsController < ApplicationController
     # @salon.timeslots.each do |timeslot|
     #   @timeslots.push(timeslot.time)
     # end
-    @timeslots = @salon.timeslots
+    @timeslots = @salon.timeslots.select {|slot| slot.appointments == []}
     puts @timeslots.inspect
   end
 
