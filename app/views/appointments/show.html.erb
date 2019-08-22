@@ -65,3 +65,13 @@
 <% end %>
 
 <%= link_to 'New Appt', new_appointment_path, :class => 'btn btn-link' %>
+
+<div id="star-rating">
+	<% if @ratings.blank? %>
+		<p>No ratings yet</p>
+	<% elsif %>
+<!-- show aggregated star ratings -->
+		Rating: <%= @avrating %>
+	<% end%>
+<%= link_to 'Submit rating', new_rating_path, :class => 'btn btn-link' %>
+</div>

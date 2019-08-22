@@ -9,6 +9,16 @@ class AppointmentsController < ApplicationController
     @services = Service.where(salon_id: params[:id] ).order("id ASC")
     # puts @salon.photos.first.photo_url
     @photos = @salon.photos
+    puts "look here"
+    puts params[:id]
+
+    @ratings = Rating.where(salon_id: params[:id])
+    #@avrating = @ratings.average
+    puts "ratings here"
+    puts @ratings.inspect
+    @avrating = Rating.average('rating')
+    puts 'average rating'
+    puts @avrating.inspect
   end
 
   def new
@@ -69,7 +79,11 @@ class AppointmentsController < ApplicationController
     redirect_to :controller => 'appointments', :action => 'show', :id => @salon.id
   end
 
+private
+
+
   def appointment_params
     params.require(:appointment).permit(:name, :phone, :email, :date, :timeslot_id, :service_id)
   end
+
 end

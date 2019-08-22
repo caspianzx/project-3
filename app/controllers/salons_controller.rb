@@ -86,6 +86,25 @@ class SalonsController < ApplicationController
     redirect_to :controller => 'salons', :action => 'showphoto', :id => @salon.id
   end
 
+  def newrating
+    @salon = Salon.find(params[:id])
+    puts "see here"
+    puts params[:id]
+    puts @salon.inspect
+    @services = @salon.services
+  end
+
+  def createrating
+    @salonId = params[:id]
+    @rating = Rating.new(rating_params)
+    puts "rating saved"
+    puts @rating.inspect
+    @rating.salon_id = @salonId
+    puts rating_params.inspect
+    @rating.save
+
+    redirect_to salon_path
+  end
 
   private
   def photo_params
@@ -94,6 +113,10 @@ class SalonsController < ApplicationController
 
   def detail_params
     params.require(:detail).permit(:name, :phone, :address, :area, :website, :logo_url)
+  end
+
+   def rating_params
+    params.require(:rating).permit(:name, :email, :date_of_visit, :rating, :service_id, )
   end
 
 end
