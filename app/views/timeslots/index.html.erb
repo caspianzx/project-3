@@ -1,1 +1,6 @@
-<p>TIMESLOTS PAGE</p>
+<p>TIMESLOTS PAGE of <%= @salon.email %></p>
+
+<% @timeslots.each do |slot| %>
+	<p><%= slot.time %></p>
+
+<% end  %>
