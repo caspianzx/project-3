@@ -1,20 +1,33 @@
-<h1>Edit price menu</h1><br>
 
-<%= form_with scope: :service, url: update_service_path, method: "patch", local: true do |form| %>
+<div class="container-fluid vertical-center">
+	<div class="row">
+		<div class="col-md-4 mx-auto">
+			<div class="card border-primary text-center" style="max-width: 20rem;">
+				<div class="card-header">
+					<h2>Edit price menu</h2>
+				</div>
+				<div class="card-body">
 
-	<input type="hidden" name="service[salon_id]" value="<%= @salonId %>" />
+					<%= form_with scope: :service, url: update_service_path, method: "patch", local: true do |form| %>
 
-	<% @services.each_with_index do |service, index| %>
+					<input type="hidden" name="service[salon_id]" value="<%= @salonId %>" />
 
-		<%= service.name %>
-		<input name="price<%= index %>" value=<%= service.price %>><br>
+					<% @services.each_with_index do |service, index| %>
+
+					<%= service.name %>
+					<input name="price<%= index %>" value=<%= service.price %>><br>
 
 
-  <% end %>
-	<p>
-		<%= form.submit %>
-	</p>
+					<% end %>
+					<p>
+						<%= form.submit %>
+					</p>
 
-	<% end %>
+					<% end %>
 
-	<%= link_to 'Back', salon_path %>
+					<%= link_to 'Back', salon_path %>
+				</div>
+			</div>
+		</div>
+	</div>
+</div>
