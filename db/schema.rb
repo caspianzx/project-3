@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2019_08_20_030548) do
+ActiveRecord::Schema.define(version: 2019_08_21_064116) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -20,11 +20,12 @@ ActiveRecord::Schema.define(version: 2019_08_20_030548) do
     t.text "phone"
     t.text "email"
     t.date "date"
-    t.text "timeslot"
     t.bigint "service_id"
+    t.bigint "timeslot_id"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
     t.index ["service_id"], name: "index_appointments_on_service_id"
+    t.index ["timeslot_id"], name: "index_appointments_on_timeslot_id"
   end
 
   create_table "details", force: :cascade do |t|
@@ -67,6 +68,12 @@ ActiveRecord::Schema.define(version: 2019_08_20_030548) do
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
     t.index ["salon_id"], name: "index_services_on_salon_id"
+  end
+
+  create_table "timeslots", force: :cascade do |t|
+    t.text "time"
+    t.bigint "salon_id"
+    t.index ["salon_id"], name: "index_timeslots_on_salon_id"
   end
 
 end

@@ -1,3 +1,6 @@
+
+<p>SHOW APPTS OF <%= @salon.email %></p>
+=======
 <div class="container">
 	<div class="row">
 		<div class="col-8 offset-2">
@@ -112,7 +115,7 @@
 					<p>Address: <%= @salon.detail.address %></p>
 					<p>Area: <%= @salon.detail.area %></p>
 					<p>Website: <%= @salon.detail.website %></p>
-  		</div>
+				</div>
 			</div>
 		</div>
 	</div>
@@ -125,14 +128,20 @@
 
 <% if @appointments %>
 	<% @appointments.each do |appt| %>
-		<p>Name: appt.name</p>
-		<p>Phone: appt.phone</p>
-		<p>Email: appt.email</p>
-		<p>Date: appt.date</p>
-		<p>Timeslot: appt.timeslot</p>
-		<p>Placeholder for services</p>
-
+		<p>Name:<%= appt.name %></p>
+		<p>Phone: <%= appt.phone %></p>
+		<p>Email: <%= appt.email %></p>
+		<p>Date: <%= appt.date %></p>
+		<p>Timeslot: <%= appt.timeslot.time %>:00 ~ <%= appt.timeslot.time.to_i + 1 %>:00</p>
+		<p>Svc Name: <%= appt.service.name %></p>
+		<p>Svc Price: <%= appt.service.price %></p>
+		<%= link_to 'Edit Appt', edit_appointment_path(:salon_id => @salon.id, :appt_id => appt.id), :class => 'btn btn-link' %>
+		<%= link_to 'Destroy Appt', destroy_appointment_path(:salon_id => @salon.id, :appt_id => appt.id),
+        method: :delete,
+        data: { confirm: 'Are you sure?' } %>
 	<% end %>
 <% else %>
 
+
 <% end %>
+
