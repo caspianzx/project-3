@@ -1,4 +1,6 @@
 class SalonsController < ApplicationController
+
+  # before_action :authenticate_user!, :except => [ :index ]
   def index
     @salons = Salon.all
     if current_salon
@@ -104,6 +106,12 @@ class SalonsController < ApplicationController
     @rating.save
 
     redirect_to salon_path
+  end
+
+  def showreview
+    puts 'show reviews'
+    @reviews = Rating.where(salon_id: params[:id])
+
   end
 
   private

@@ -39,8 +39,9 @@ Rails.application.routes.draw do
   get '/salons/:id' => 'salons#show', as: 'salon'
 
 
-  get '/salons/:id/ratings/new' => 'salons#newrating', as: 'new_rating'
+  get '/salons/:id/ratings/submit' => 'salons#newrating', as: 'new_rating'
   post '/salons/:id/ratings/create' => 'salons#createrating', as: 'create_rating'
+  get '/salons/:id/ratings' => 'salons#showreview', as: 'review'
   # post '/salons' => 'salons#create'
 
   # get '/salons/:id/edit' => 'salons#edit', as: 'edit_salon'
