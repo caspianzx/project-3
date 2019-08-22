@@ -72,6 +72,8 @@ ActiveRecord::Schema.define(version: 2019_08_21_064116) do
 
   create_table "timeslots", force: :cascade do |t|
     t.text "time"
+    t.integer "booked", default: 0
+    t.integer "capacity", default: 1
     t.bigint "salon_id"
     t.index ["salon_id"], name: "index_timeslots_on_salon_id"
   end
