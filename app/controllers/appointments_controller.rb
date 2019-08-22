@@ -9,6 +9,7 @@ class AppointmentsController < ApplicationController
     @services = Service.where(salon_id: params[:id] ).order("id ASC")
     # puts @salon.photos.first.photo_url
     @photos = @salon.photos
+    @timeslots = @salon.timeslots
   end
 
   def new
