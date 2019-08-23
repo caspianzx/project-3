@@ -1,5 +1,7 @@
 class ServicesController < ApplicationController
 
+before_action :authenticate_user!, :except => [ :show]
+
   def show
     # get services for specified salon
     @services = Service.where(salon_id: params[:id] ).order("id ASC")

@@ -1,6 +1,7 @@
 <div class="container">
 	<div class="row">
 		<div class="col-8 offset-2">
+			<!-- carousel -->
 			<div class="salonName">
 				<p><%= @salon.detail.name %></p>
 		  </div>
@@ -41,7 +42,7 @@
 <div class="container menu">
 	<div class="row">
 		<div class="col-8 offset-2">
-
+<!-- nav tabs -->
 			<ul class="nav nav-tabs nav-justified" id="myTab" role="tablist">
   			<li class="nav-item">
     			<a class="nav-link active" id="home-tab" data-toggle="tab" href="#home" role="tab" aria-controls="home" aria-selected="true">Services</a>
@@ -56,7 +57,7 @@
     			<a class="nav-link" id="reviews-tab" data-toggle="tab" href="#reviews" role="tab" aria-controls="reviews" aria-selected="false">Reviews</a>
   			</li>
 			</ul>
-
+<!-- service and price -->
 		<div class="tab-content" id="myTabContent">
   		<div class="tab-pane fade show active" id="home" role="tabpanel" aria-labelledby="home-tab">
   			<table class="table table-hover">
@@ -75,7 +76,7 @@
     			</tbody>
 				</table>
   		</div>
-
+<!-- appointment tab -->
   		<div class="tab-pane fade" id="profile" role="tabpanel" aria-labelledby="profile-tab">
   			<p class="instructions">Fill in your details below to book an appointment</p>
   				<%= form_with scope: :appointment, url: create_appointment_path, local: true, class: 'newform' do |form| %>
@@ -100,22 +101,22 @@
         		<%= form.submit 'Book Appointment', :class => 'btn btn-primary' %>
       	<% end %>
 				</div>
-
+<!-- salon contact  -->
 				<div class="tab-pane fade" id="contact" role="tabpanel" aria-labelledby="contact-tab">
 					<p class ="profileSalon"><%= @salon.detail.name %></p>
   				<p>Phone: <%= @salon.detail.phone %></p>
 					<p>Address: <%= @salon.detail.address %></p>
-					<p>Area: <%= @salon.detail.area %></p>
-					<p>Website: <%= @salon.detail.website %></p>
+					<%= link_to @salon.detail.website, "#{@salon.detail.website}", :target => "_blank" %>
 				</div>
 
 					<div class="tab-pane fade" id="reviews" role="tabpanel" aria-labelledby="reviews">
 						<div id="star-rating">
+
               <% if @ratings.blank? %>
 		            <p>No ratings yet</p>
 	             <% elsif %>
 <!-- show aggregated star ratings -->
-		        Rating:
+		        <span class ="overallRating">Overall Rating </span>
 		        <% @avrating.round.to_i.times do %>
  			        <img src="/images/star.png" width="16px" height="16px">
 		          <% end %>
@@ -123,11 +124,67 @@
  			      <img src="/images/empty-star.png" width="16px" height="16px">
 		      <% end %>
 	      <% end%>
-        <%= link_to 'Submit rating', new_rating_path, :class => 'btn btn-link ratingBtn' %>
-        <%= link_to 'Read reviews', review_path, :class => 'btn btn-link' %>
-              
-              
-	
+	      <br>
+	      <!-- Button trigger modal -->
+	      <div class ="btn btn-link ratingBtn" data-toggle="modal" data-target="#exampleModalScrollable">write a review</div>
+        <!-- Modal -->
+				<div class="modal fade" id="exampleModalScrollable" tabindex="-1" role="dialog" aria-labelledby="exampleModalScrollableTitle" aria-hidden="true">
+  				<div class="modal-dialog modal-dialog-scrollable" role="document">
+    				<div class="modal-content">
+      				<div class="modal-header">
+        				<h5 class="modal-title" id="exampleModalScrollableTitle">write a review</h5>
+        					<button type="button" class="close" data-dismiss="modal" aria-label="Close">
+          					<span aria-hidden="true">&times;</span>
+        					</button>
+      				</div>
+      				<!-- review form -->
+      			<div class="modal-body">
+        			<%= form_with scope: :rating, url: create_rating_path, local: true do |form| %>
+								<p>
+									<%= form.label :name %><br>
+									<%= form.text_field :name ,:required => true %>
+								</p>
+								<p>
+									<%= form.label :email %><br>
+									<%= form.text_field :email, :required => true %>
+								</p>
+								<p>
+									<%= form.label :date_of_visit %><br>
+									<%= form.text_field :date_of_visit, :required => true%>
+								</p>
+								<p>Select service used</p>
+									<%= form.collection_select :service_id, @services, :id, :name %>
+								<p> <br>
+									<%= form.label :rating %><br>
+									<% 5.times.each_with_index do |index| %>
+ 										<%= image_tag("/images/empty-star.png", size: "16x16", id: "change-image#{index}")%>
+									<% end %>
+									<%= form.hidden_field :rating %>
+									</p>
+									<p>
+										<%= form.label :review %><br>
+										<%= form.text_area :review, value: 'Optional' %>
+									</p>
+      			</div>
+      			<div class="modal-footer">
+        			<button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
+        				<p>
+									<%= form.submit 'Submit review', :class => 'btn btn-primary'%>
+								</p>
+						<% end %>
+      		</div>
+    		</div>
+  		</div>
+		</div>
+<!-- display past review -->
+        			<ul class="list-group">
+        				<% @ratings.each do |rating| %>
+  								<li class="list-group-item d-flex justify-content-between align-items-center" id="reviews-list">
+    								<%= rating.review %> <br>
+    								- <%= rating.name %>
+  								</li>
+  							<% end %>
+							</ul>
 						</div>
 				</div>
 		</div>

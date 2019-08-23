@@ -1,6 +1,6 @@
 class SalonsController < ApplicationController
 
-  # before_action :authenticate_user!, :except => [ :index ]
+  before_action :authenticate_user!, :except => [ :index, :search, :newrating, :createrating, :showreview ]
   def index
     ##edit these conditions as you like
     @salons = Detail.all.select {|detail| detail.name.present? == true && detail.logo_url.present? == true}
@@ -45,6 +45,7 @@ class SalonsController < ApplicationController
     @details = Detail.new(detail_params)
     @details.salon_id = params[:id]
     @details.save
+
     puts @details
     if @details.save
       puts 'worked'
@@ -115,7 +116,6 @@ class SalonsController < ApplicationController
     @rating.salon_id = @salonId
     puts rating_params.inspect
     @rating.save
-
     redirect_to appointments_path
   end
 

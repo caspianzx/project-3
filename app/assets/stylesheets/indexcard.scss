@@ -3,22 +3,30 @@
 }
 
 
-.card {
+#indexCard {
 	margin-bottom: 15px;
 	border-radius: 5px;
 	box-sizing: border-box;
 	cursor: pointer;
+	min-width: 250px;
 }
 
-.card:hover {
+#indexCard:hover {
 	/*box-shadow: inset 0 0 0 2px #ff8272;*/
 	opacity: 0.4;
 }
 
-.card-text {
-	font-family:"Roboto thin", sans-serif;
+#indexCardText {
+	font-family:"Quicksand", sans-serif;
 	font-size: 15px;
 	color: black;
 	letter-spacing: 2px;
 	text-decoration: none !important;
+}
+
+#cardWrapper {
+	display: flex;
+	flex-direction: row;
+	flex-wrap: wrap;
+	justify-content: space-around;
 }
