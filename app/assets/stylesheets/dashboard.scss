@@ -1,0 +1,47 @@
+/*company profile*/
+
+#dashboardDetails {
+	font-family: "Quicksand" ,sans-serif;
+}
+.bg-info {
+	background-color: white !important;
+}
+
+.image-border {
+	border: 1px solid rgba(0,0,0,1);
+	min-width: 200px;
+	min-height: 150px;
+	border-radius: 2px;
+}
+
+.image-border > img{
+	display: block;
+	object-fit: cover;
+}
+
+.dashboardContact{
+	height: 200px;
+	box-sizing: border-box;
+	padding: 22px;
+}
+
+.dashboardContact > p {
+	margin-bottom: 10px;
+}
+
+.companyName {
+	font-size: 30px;
+	font-family: "Open sans", sans-serif;
+	text-align: center;
+	margin-top: 10px
+}
+
+/*appointment dashboard*/
+
+#appointmentDashboard {
+font-family: "Quicksand", sans-serif;
+}
+
+.adjustPadding {
+	padding-bottom: 0px;
+}
