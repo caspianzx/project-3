@@ -107,7 +107,6 @@ class SalonsController < ApplicationController
     @rating.salon_id = @salonId
     puts rating_params.inspect
     @rating.save
-
     redirect_to appointments_path
   end
 
