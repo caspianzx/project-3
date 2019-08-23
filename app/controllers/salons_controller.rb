@@ -1,6 +1,6 @@
 class SalonsController < ApplicationController
   def index
-    @salons = Salon.all
+    @salons = Salon.all.select {|salon| salon.detail.attributes.each.present? == true}
     if current_salon
       @salon = current_salon
     end
