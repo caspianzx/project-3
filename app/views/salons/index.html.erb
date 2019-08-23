@@ -61,12 +61,3 @@
 
 
 <% end %>
-
-
-
-<%= form_with(url: "/salons/search", method: "get") do %>
-  <%= label_tag(:q, "Search for:") %>
-  <%= text_field_tag(:q) %>
-  <%= search_field(:p, :q) %>
-  <%= submit_tag("Search") %>
-<% end %>
