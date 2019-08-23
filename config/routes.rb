@@ -3,6 +3,7 @@ Rails.application.routes.draw do
   # For details on the DSL available within this file, see http://guides.rubyonrails.org/routing.html
   root 'salons#index'
   get '/salons' => 'salons#index', as: 'salons'
+  get '/salons/search' => 'salons#search'
 
   #CREATE SERVICES CONTROLLER
   # get '/salons/:id/services' => 'services#show', as: 'service'
