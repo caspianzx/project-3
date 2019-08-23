@@ -22,6 +22,7 @@ $(function() {
         $(`#change-image${i}`).click(function() {
             var src = $(this).attr("src").replace("/images/empty-star.png", "/images/star.png");
             $(this).attr("src", src);
+            $('#rating_rating').val(i+1);
             for (let j=0; j<i; j++) {
                 $(`#change-image${j}`).attr("src", src);
             }

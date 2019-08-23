@@ -98,6 +98,7 @@ class SalonsController < ApplicationController
 
   def createrating
     @salonId = params[:id]
+
     @rating = Rating.new(rating_params)
     puts "rating saved"
     puts @rating.inspect
@@ -124,7 +125,7 @@ class SalonsController < ApplicationController
   end
 
    def rating_params
-    params.require(:rating).permit(:name, :email, :date_of_visit, :rating, :service_id, )
+    params.require(:rating).permit(:name, :email, :date_of_visit, :rating, :review, :service_id )
   end
 
 end
