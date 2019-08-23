@@ -1,4 +1,5 @@
 class AppointmentsController < ApplicationController
+
   def index
 
   end
@@ -17,7 +18,7 @@ class AppointmentsController < ApplicationController
     #@avrating = @ratings.average
     puts "ratings here"
     puts @ratings.inspect
-    @avrating = Rating.average('rating')
+    @avrating = Rating.average(:rating)
     puts 'average rating'
     puts @avrating.inspect
 

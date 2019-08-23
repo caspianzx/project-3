@@ -21,19 +21,18 @@ $(function() {
     for (let i=0; i<5; i++) {
         $(`#change-image${i}`).click(function() {
             var src = $(this).attr("src").replace("/images/empty-star.png", "/images/star.png");
-           $(this).attr("src", src);
+            $(this).attr("src", src);
+            $('#rating_rating').val(i+1);
+            for (let j=0; j<i; j++) {
+                $(`#change-image${j}`).attr("src", src);
+            }
         })
     }
+    console.log(i);
+    //  get i value to create rating and reset
+
 });
 
-// function changeImage(){
-//     for (let i=0; i<5; i++) {
-//         if (document.getElementById("change-image").src == "/images/empty-star.png")
-//             {
-//                 document.getElementById("change-image").src == "/images/star.png"
-//             }
-//     }
-// }
 
 var set_stars = function(form_id, stars){
     for(i=1; i <= 5; i++) {

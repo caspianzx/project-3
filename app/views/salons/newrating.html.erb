@@ -25,6 +25,14 @@
 		<% 5.times.each_with_index do |index| %>
  			<%= image_tag("/images/empty-star.png", size: "16x16", id: "change-image#{index}")%>
 		<% end %>
+
+		<%= form.hidden_field :rating %>
+
+	</p>
+
+	<p>
+		<%= form.label :review %><br>
+		<%= form.text_area :review, value: 'Optional' %>
 	</p>
 
 	<p>

@@ -1,4 +1,6 @@
 class SalonsController < ApplicationController
+
+  # before_action :authenticate_user!, :except => [ :index ]
   def index
     @salons = Salon.all.select {|salon| salon.detail.attributes.each.present? == true}
     if current_salon
@@ -98,6 +100,7 @@ class SalonsController < ApplicationController
 
   def createrating
     @salonId = params[:id]
+
     @rating = Rating.new(rating_params)
     puts "rating saved"
     puts @rating.inspect
@@ -105,7 +108,13 @@ class SalonsController < ApplicationController
     puts rating_params.inspect
     @rating.save
 
-    redirect_to salon_path
+    redirect_to appointments_path
+  end
+
+  def showreview
+    puts 'show reviews'
+    @ratings = Rating.where(salon_id: params[:id])
+    puts @ratings.inspect
   end
 
   private
@@ -118,7 +127,7 @@ class SalonsController < ApplicationController
   end
 
    def rating_params
-    params.require(:rating).permit(:name, :email, :date_of_visit, :rating, :service_id, )
+    params.require(:rating).permit(:name, :email, :date_of_visit, :rating, :review, :service_id )
   end
 
 end

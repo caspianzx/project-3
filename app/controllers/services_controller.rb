@@ -31,9 +31,9 @@ class ServicesController < ApplicationController
       @saveService.save
     end
 
-    render plain: "done"
 
-    # #doing it the lengthy way for now
+
+    # lengthy way
     # @service = Service.new(name: params[:serviceOne], price: params[:priceOne], salon_id: params[:id])
     # @service.save
 
@@ -51,7 +51,7 @@ class ServicesController < ApplicationController
 
     # puts "saving service price"
 
-    # redirect_to salon_path
+    redirect_to salon_path
   end
 
   def edit

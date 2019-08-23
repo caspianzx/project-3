@@ -54,8 +54,11 @@ ActiveRecord::Schema.define(version: 2019_08_21_171728) do
     t.text "email"
     t.date "date_of_visit"
     t.integer "rating"
+    t.text "review"
     t.bigint "service_id"
     t.bigint "salon_id"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
     t.index ["salon_id"], name: "index_ratings_on_salon_id"
     t.index ["service_id"], name: "index_ratings_on_service_id"
   end
