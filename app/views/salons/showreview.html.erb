@@ -1,17 +1,11 @@
 <h1>Reviews list</h1>
 
-<!-- <table>
-	<tr>
-		<th>Review</th>
-		<th>Service type</th>
-		<th>Review date</th>
-	</tr>
-
+<ul>
 	<% @ratings.each do |rating| %>
-		<tr>
-			<td><%= rating.review %></td>
-			<td><%= rating.service_name %></td>
-			<td><%= rating.created_at %></td>
-		</tr>
+
+			<li>Review: <%= rating.review %><br>
+			Service: <%= rating.service.name %><br>
+			Review date: <%= rating.created_at %></li><br>
+
 	<% end %>
-</table><br> -->
+</ul>

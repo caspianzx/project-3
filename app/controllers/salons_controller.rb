@@ -106,13 +106,13 @@ class SalonsController < ApplicationController
     puts rating_params.inspect
     @rating.save
 
-    redirect_to salon_path
+    redirect_to appointments_path
   end
 
   def showreview
     puts 'show reviews'
-    @reviews = Rating.where(salon_id: params[:id])
-
+    @ratings = Rating.where(salon_id: params[:id])
+    puts @ratings.inspect
   end
 
   private
