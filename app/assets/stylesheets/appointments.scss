@@ -1,6 +1,6 @@
 .salonName {
 	position: relative;
-	font-family: "Roboto thin", sans-serif;
+	font-family: "Quicksand", sans-serif;
 	font-size: 22px;
 	margin-top: 10px;
 	text-align: center;
@@ -42,21 +42,25 @@
 #contact > p {
 	color: black;
 	margin-bottom: 5px;
+	font-family: "Quicksand", sans-serif;
 }
 
 .profileSalon {
+	font-family: "Quicksand", sans-serif;
 	font-size: 17px;
 	font-weight: bold;
 	margin-top:10px;
 }
 
 .table td >p {
+font-family: "Quicksand", sans-serif;
  margin-bottom: 0px;
  margin-left: 20px;
 }
 
 
 .table td {
+	font-family: "Quicksand", sans-serif;
 	color: black;
 	border-bottom: 1px solid rgba(0, 0, 0, 0.1);
 	padding-top: 20px;
@@ -73,23 +77,29 @@
  	margin-top:10px;
  }
 
-#profile-tab, #home-tab, #contact-tab {
+#profile-tab, #home-tab, #contact-tab, #reviews-tab {
 	font-size: 18px;
+	font-family: "Quicksand", sans-serif;
 }
 
 
  #profile-tab:focus {
- 	color: #ff8272;
+ 	color: #ec5869;
  	font-weight: bold;
  }
 
  #home-tab:focus {
- 	color: #ff8272;
+ 	color: #ec5869;
  	font-weight: bold;
  }
 
  #contact-tab:focus {
- 	color: #ff8272;
+ 	color: #ec5869;
+ 	font-weight: bold;
+ }
+
+ #reviews-tab:focus {
+ 	color: #ec5869;
  	font-weight: bold;
  }
 
@@ -133,4 +143,15 @@ height: 220px;
 	color: black;
 	font-size: 17px;
 	margin-top: 10px;
+}
+
+#star-rating {
+	margin-top: 10px;
+	font-size: 18px;
+	font-family: "Quicksand", sans-serif;
+}
+
+.ratingBtn {
+	padding-left:0;
+	font-family: "futura", sans-serif;
 }
