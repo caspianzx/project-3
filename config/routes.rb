@@ -39,6 +39,9 @@ Rails.application.routes.draw do
   #show.html, auth only salons
   get '/salons/:id' => 'salons#show', as: 'salon'
 
+
+  get '/salons/:id/ratings/new' => 'salons#newrating', as: 'new_rating'
+  post '/salons/:id/ratings/create' => 'salons#createrating', as: 'create_rating'
   # post '/salons' => 'salons#create'
 
   # get '/salons/:id/edit' => 'salons#edit', as: 'edit_salon'

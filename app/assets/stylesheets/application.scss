@@ -13,6 +13,7 @@
 
  */
 	@import "bootswatch/lux/variables";
+	$icon-font-path: 'bootstrap/';
 	@import "bootstrap";
 	@import "bootswatch/lux/bootswatch";
 	@import "navbar";
@@ -20,4 +21,5 @@
 	@import "searchForm";
 	@import "center";
 	@import "indexcard";
-	@import "appointments"
+	@import "appointments";
+	@import "confirmation"
