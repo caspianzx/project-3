@@ -149,9 +149,28 @@ height: 220px;
 	margin-top: 10px;
 	font-size: 18px;
 	font-family: "Quicksand", sans-serif;
+	color:black;
 }
 
 .ratingBtn {
-	padding-left:0;
 	font-family: "futura", sans-serif;
+	color:#ec5869;
+	padding-left: 0px;
+	cursor: pointer;
+}
+
+.ratingBtn:hover {
+	color:#ec5869;
+	text-decoration: none;
+	opacity: 0.7;
+
+}
+
+#reviews-list {
+	font-family: "Quicksand", sans-serif;
+	color:black;
+}
+
+.overallRating {
+	font-size: 20px;
 }
