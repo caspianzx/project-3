@@ -6,6 +6,10 @@ class SalonsController < ApplicationController
     end
   end
 
+  def search
+    puts 'IN SEARCH!!!!!!!!!!!!!!'
+  end
+
   def show
     puts 'SHOWING'
     @salon = Salon.find(params[:id])
@@ -15,8 +19,6 @@ class SalonsController < ApplicationController
 
     # puts @salon.photos.first.photo_url
     @photos = @salon.photos
-
-
   end
 
   def new
