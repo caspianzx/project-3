@@ -1,25 +1,24 @@
-<p>SALONS THAT HAVE <%= @services.first.name %></p>
-
-<div class="container">
-  <div class="row">
-
-  	<% @salons.each do |salon| %>
-
-
-  	<div class="col-4">
-  		<a href ="/salons/<%=salon.id%>/appointments" class="aTag">
-  		<div class="card">
-  			<div class ="cardImage">
-  				<img src= "<%=salon.detail.logo_url%>" class="card-img-top cardImage" alt="...">
-  			</div>
-  			</a>
- 					 <div class="card-body">
-    					<p class="card-text"><%= salon.detail.name %></p>
-  					</div>
-			</div>
-
-  	</div>
-
-    <% end %>
-  </div>
-</div>
+<p>You searched: <%= @input %></p>
+<% if @services.present? == true && @salonsService.present? == true %>
+	<p>Salons with the service: <%= @services.first.name %></p>
+	<div class="container">
+	  <div class="row">
+	  	<% @salonsService.each do |salon| %>
+	  	<div class="col-4">
+	  		<a href ="/salons/<%=salon.id%>/appointments" class="aTag">
+	  		<div class="card">
+	  			<div class ="cardImage">
+	  				<img src= "<%=salon.detail.logo_url%>" class="card-img-top cardImage" alt="...">
+	  			</div>
+	  			</a>
+	 					<div class="card-body">
+	    				<p class="card-text"><%= salon.detail.name %></p>
+	  				</div>
+				</div>
+	  	</div>
+	    <% end %>
+	  </div>
+	</div>
+<% else %>
+	<p>Could not find salons that offer that service.</p>
+<% end %>

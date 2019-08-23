@@ -10,9 +10,11 @@ class SalonsController < ApplicationController
 
   def search
     puts 'IN SEARCH!!!!!!!!!!!!!!'
-    @services = Service.where(name: params[:search])
-    puts @services.inspect
-    @salons = Salon.all.select {|salon| salon.services.includes(name: 'Cut')}
+    @input = params[:search]
+    @services = Service.where(:name.downcase == @input)
+    @salonsService = Salon.all.select {|salon| salon.services.includes(:name.downcase == @input.downcase)}
+
+
   end
 
   def show
