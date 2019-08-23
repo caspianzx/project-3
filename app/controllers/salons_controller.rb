@@ -1,6 +1,6 @@
 class SalonsController < ApplicationController
 
-  # before_action :authenticate_user!, :except => [ :index ]
+  before_action :authenticate_user!, :except => [ :index, :search, :newrating, :createrating, :showreview ]
   def index
     @salons = Salon.all.select {|salon| salon.detail.attributes.each.present? == true}
     if current_salon

@@ -17,8 +17,8 @@ class AppointmentsController < ApplicationController
     @ratings = Rating.where(salon_id: params[:id])
     #@avrating = @ratings.average
     puts "ratings here"
-    puts @ratings.inspect
-    @avrating = Rating.average(:rating)
+    # puts type(@ratings.first.rating)
+    @avrating = @ratings.average(:rating)
     puts 'average rating'
     puts @avrating.inspect
 
@@ -87,6 +87,32 @@ class AppointmentsController < ApplicationController
     redirect_to :controller => 'appointments', :action => 'show', :id => @salon.id
   end
 
+   def newrating
+    @salon = Salon.find(params[:id])
+    puts "see here"
+    puts params[:id]
+    puts @salon.inspect
+    @services = @salon.services
+  end
+
+  def createrating
+    @salonId = params[:id]
+
+    @rating = Rating.new(rating_params)
+    puts "rating saved"
+    puts @rating.inspect
+    @rating.salon_id = @salonId
+    puts rating_params.inspect
+    @rating.save
+
+    redirect_to appointments_path
+  end
+
+  def showreview
+    puts 'show reviews'
+    @ratings = Rating.where(salon_id: params[:id])
+    puts @ratings.inspect
+  end
 
 private
 
@@ -95,4 +121,7 @@ private
     params.require(:appointment).permit(:name, :phone, :email, :date, :timeslot_id, :service_id)
   end
 
+  def rating_params
+    params.require(:rating).permit(:name, :email, :date_of_visit, :rating, :review, :service_id )
+  end
 end
