@@ -1,7 +1,7 @@
 
 
 
-<div class="container-fluid">
+<div class="container-fluid p-0">
   <div class="row">
   	<div class= "col-md-12 p-0">
   		<div class ="overlay">
@@ -17,7 +17,7 @@
 </div>
 
 <div class ="row" id="shiftRow">
-	<div class="col-md-6 offset-md-3" id="alignSearch">
+	<div class="col-md-6 offset-md-3 w-100" id="alignSearch">
 		<div class="container-fluid">
   		<div class="row">
   			<div class= "col-sm-8 p-0" id="heightAdjustment">
@@ -43,10 +43,10 @@
 
 <% if defined? @salons.first.detail != nil %>
 
-<div class="container" id="cardWrapper">
+<div class="container w-100" id="cardWrapper">
   <div class="row">
   	<% @salons.each do |salon| %>
-  	<div class="col-4">
+  	<div class="col-lg-4 col-sm-6" id="indexCardMargin">
   		<a href ="/salons/<%=salon.id%>/appointments" class="aTag">
   			<div class="card" id="indexCard">
   				<div class ="cardImage">

@@ -8,7 +8,7 @@
 	border-radius: 5px;
 	box-sizing: border-box;
 	cursor: pointer;
-	min-width: 285px;
+	min-width: 250px;
 }
 
 #indexCard:hover {
@@ -28,4 +28,5 @@
 	display: flex;
 	flex-direction: row;
 	flex-wrap: wrap;
+	justify-content: space-around;
 }
