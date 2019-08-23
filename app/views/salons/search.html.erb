@@ -1,18 +1,18 @@
 <p>You searched: <%= @input %></p>
-<% if @services.present? == true && @salonsService.present? == true %>
+<% if @services.present? == true %>
 	<p>Salons with the service: <%= @services.first.name %></p>
 	<div class="container">
 	  <div class="row">
-	  	<% @salonsService.each do |salon| %>
+	  	<% @services.each do |svc| %>
 	  	<div class="col-4">
-	  		<a href ="/salons/<%=salon.id%>/appointments" class="aTag">
+	  		<a href ="/salons/<%=svc.salon.id%>/appointments" class="aTag">
 	  		<div class="card">
 	  			<div class ="cardImage">
-	  				<img src= "<%=salon.detail.logo_url%>" class="card-img-top cardImage" alt="...">
+	  				<img src= "<%=svc.salon.detail.logo_url%>" class="card-img-top cardImage" alt="...">
 	  			</div>
 	  			</a>
 	 					<div class="card-body">
-	    				<p class="card-text"><%= salon.detail.name %></p>
+	    				<p class="card-text"><%= svc.salon.detail.name %></p>
 	  				</div>
 				</div>
 	  	</div>
