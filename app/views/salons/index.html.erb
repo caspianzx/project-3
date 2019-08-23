@@ -33,7 +33,7 @@
 	<p>Discover new salons</p>
 </div>
 
-<% if defined? @salons.first.detail != nil %>
+<% if defined? @salons.first != nil %>
 <div class="container">
   <div class="row">
 
@@ -44,11 +44,11 @@
   		<a href ="/salons/<%=salon.id%>/appointments" class="aTag">
   		<div class="card">
   			<div class ="cardImage">
-  				<img src= "<%=salon.detail.logo_url%>" class="card-img-top cardImage" alt="...">
+  				<img src= "<%=salon.logo_url%>" class="card-img-top cardImage" alt="...">
   			</div>
   			</a>
  					 <div class="card-body">
-    					<p class="card-text"><%= salon.detail.name %></p>
+    					<p class="card-text"><%= salon.name %></p>
   					</div>
 			</div>
 
@@ -59,9 +59,4 @@
 </div>
 
 
-<% end %>
-
-<%= form_with(url: search_path, method: "get", local: true) do %>
-  Service <%= text_field_tag :search %>
-  <%= submit_tag 'Search' %>
 <% end %>

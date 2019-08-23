@@ -2,7 +2,8 @@ class SalonsController < ApplicationController
 
   # before_action :authenticate_user!, :except => [ :index ]
   def index
-    @salons = Salon.all.select {|salon| salon.detail.attributes.each.present? == true}
+    ##edit these conditions as you like
+    @salons = Detail.all.select {|detail| detail.name.present? == true && detail.logo_url.present? == true}
     if current_salon
       @salon = current_salon
     end
@@ -11,10 +12,11 @@ class SalonsController < ApplicationController
   def search
     puts 'IN SEARCH!!!!!!!!!!!!!!'
     @input = params[:search]
-    @services = Service.where(:name.downcase == @input)
-    @salonsService = Salon.all.select {|salon| salon.services.includes(:name.downcase == @input.downcase)}
-
-
+    # @services = Service.where(:name.downcase == @input)
+    # @salonsService = Salon.all.select {|salon| salon.services.where(:name.downcase == @input.downcase)}
+    # @services = Service.where("REPLACE(name.downcase, ' ', '') = REPLACE('#{@input}.downcase', ' ', '')")
+    Service.where("REPLACE(LOWER(name), ' ', '') = REPLACE(LOWER('hair treatment'), ' ', '')")
+    @services = Service.where("REPLACE(LOWER(name), ' ', '') = REPLACE(LOWER('#{@input}'), ' ', '')")
   end
 
   def show
@@ -40,7 +42,7 @@ class SalonsController < ApplicationController
 
   def create
     @details = Detail.new(detail_params)
-    @details.salon = current_salon
+    @details.salon_id = params[:id]
     @details.save
     puts @details
     if @details.save
