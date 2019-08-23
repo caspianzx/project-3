@@ -19,22 +19,14 @@
 <div class ="row" id="shiftRow">
 	<div class="col-md-6 offset-md-3" id="alignSearch">
 		<div class="container-fluid">
-  		<div class="row">
-  			<div class= "col-sm-8 p-0" id="heightAdjustment">
-  				<form>
-  					<div class="form-group">
-      				<input type="search" class="form-control" id="input1" placeholder="Search for services or salon">
-    				</div>
-  				</form>
-
-  			</div>
-  			<div class= "col-sm-4 p-0">
-  				<form>
-  					<button type="submit" class="btn btn-danger" id="submit_btn">Search</button>
-  				</form>
-  			</div>
-  		</div>
-  	</div>
+	  		<%= form_with(url: search_path, method: "get", local: true, :class => 'form-group row') do %>
+  				<%= content_tag :div, class: 'col-sm-8 p-0', id: 'heightAdjustment' do %>
+						<%= text_field_tag :search, "", :class => 'form-control', :id => 'input1', :placeholder => 'Search for services or salon' %>
+					<% end %>
+					<%= content_tag :div, class: 'col-sm-4 p-0' do %>
+						<%= submit_tag 'Search', :class => 'btn btn-danger', :id => 'submit_btn' %>
+					<% end %>
+				<% end %>
 	</div>
 </div>
 <div class= "discover">
@@ -67,4 +59,9 @@
 </div>
 
 
+<% end %>
+
+<%= form_with(url: search_path, method: "get", local: true) do %>
+  Service <%= text_field_tag :search %>
+  <%= submit_tag 'Search' %>
 <% end %>

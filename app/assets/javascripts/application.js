@@ -17,56 +17,63 @@
 //= require jquery3
 //= require popper
 //= require bootstrap-sprockets
-$(function() {
-    for (let i=0; i<5; i++) {
-        $(`#change-image${i}`).click(function() {
-            var src = $(this).attr("src").replace("/images/empty-star.png", "/images/star.png");
-            $(this).attr("src", src);
-            $('#rating_rating').val(i+1);
-            for (let j=0; j<i; j++) {
-                $(`#change-image${j}`).attr("src", src);
+
+if (document.getElementById('change-image1')){
+    $(function() {
+        for (let i=0; i<5; i++) {
+            $(`#change-image${i}`).click(function() {
+                var src = $(this).attr("src").replace("/images/empty-star.png", "/images/star.png");
+                $(this).attr("src", src);
+                $('#rating_rating').val(i+1);
+                for (let j=0; j<i; j++) {
+                    $(`#change-image${j}`).attr("src", src);
+                }
+            })
+        }
+        console.log(i);
+        //  get i value to create rating and reset
+
+    });
+
+
+    var set_stars = function(form_id, stars){
+        for(i=1; i <= 5; i++) {
+            if(i <= stars){
+                $('#' + form_id + '_' + i).addClass("on");
             }
-        })
-    }
-    console.log(i);
-    //  get i value to create rating and reset
-
-});
-
-
-var set_stars = function(form_id, stars){
-    for(i=1; i <= 5; i++) {
-        if(i <= stars){
-            $('#' + form_id + '_' + i).addClass("on");
-        }
-        else {
-            $('#' + form_id + '_' + i).removeClass("on");
+            else {
+                $('#' + form_id + '_' + i).removeClass("on");
+            }
         }
     }
-}
 
-// click event to star rating element
-$(function() {
-    $('.rating_star').click(function() {
-        var star = $(this);
-        var form_id = star.attr("data-form-id");
-        var stars = star.attr("data-stars");
+    // click event to star rating element
+    $(function() {
+        $('.rating_star').click(function() {
+            var star = $(this);
+            var form_id = star.attr("data-form-id");
+            var stars = star.attr("data-stars");
 
-        set_stars(form_id, stars);
+            set_stars(form_id, stars);
 
-        $('#' + form_id + '_stars').val(stars);
+            $('#' + form_id + '_stars').val(stars);
 
-        $.ajax({
-            type: "post",
-            url: $('#' + form_id).attr('action'),
-            data: $('#' + form_id).serialize()
-        })
+            $.ajax({
+                type: "post",
+                url: $('#' + form_id).attr('action'),
+                data: $('#' + form_id).serialize()
+            })
+        });
+
+        $('.star_rating_form').each(function() {
+            var form_id = $(this).attr('id');
+            set_stars(form_id, $('#' + form_id + '_stars').val());
+        });
     });
 
-    $('.star_rating_form').each(function() {
-        var form_id = $(this).attr('id');
-        set_stars(form_id, $('#' + form_id + '_stars').val());
-    });
-});
+    // set constraints so that user cannot submit more than 1 rating for same salon
 
-// set constraints so that user cannot submit more than 1 rating for same salon
+
+
+
+};
