@@ -2,10 +2,14 @@ class SalonsController < ApplicationController
 
   # before_action :authenticate_user!, :except => [ :index ]
   def index
-    @salons = Salon.all
+    @salons = Salon.all.select {|salon| salon.detail.attributes.each.present? == true}
     if current_salon
       @salon = current_salon
     end
+  end
+
+  def search
+    puts 'IN SEARCH!!!!!!!!!!!!!!'
   end
 
   def show
@@ -17,8 +21,6 @@ class SalonsController < ApplicationController
 
     # puts @salon.photos.first.photo_url
     @photos = @salon.photos
-
-
   end
 
   def new

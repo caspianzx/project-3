@@ -26,10 +26,12 @@
 						<%= form.date_select :date %>
 					</div>
 
-					<div class="form-group">
-						<%= form.label :timeslot, :class => 'form-control' %><br>
-						<%= form.collection_select :timeslot_id, @timeslots, :id, :time %>
-					</div>
+  <div class="form-group">
+   <!--  <%= form.label :timeslot, :class => 'form-control' %><br>
+    <%= form.time_field :timeslot, :class => 'form-text text-muted' %> -->
+    <%= form.label :timeslot, :class => 'form-control' %><br>
+		<%= form.collection_select :timeslot_id, @timeslots, :id, :time %>
+	</div>
 
 					<% if @services %>
 					<%= form.collection_select :service_id, @services, :id, :name %><br>
