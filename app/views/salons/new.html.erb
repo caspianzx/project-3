@@ -14,8 +14,6 @@
 
 					<%= form_with scope: :detail, url: create_salon_path, local: true, class: 'newform' do |form| %>
 
-					<%= form_with  url: create_salon_path, local: true, class: 'newform' do |form| %>
-
 					<div class="form-group">
 						<%= form.label :name, :class => 'form-control' %><br>
 						<%= form.text_field :name, :class => 'form-text text-muted' %>

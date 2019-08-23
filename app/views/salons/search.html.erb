@@ -1,1 +1,24 @@
-<p>SEARCH RESULTS</p>
+<p>You searched: <%= @input %></p>
+<% if @services.present? == true %>
+	<p>Salons with the service: <%= @services.first.name %></p>
+	<div class="container">
+	  <div class="row">
+	  	<% @services.each do |svc| %>
+	  	<div class="col-4">
+	  		<a href ="/salons/<%=svc.salon.id%>/appointments" class="aTag">
+	  		<div class="card">
+	  			<div class ="cardImage">
+	  				<img src= "<%=svc.salon.detail.logo_url%>" class="card-img-top cardImage" alt="...">
+	  			</div>
+	  			</a>
+	 					<div class="card-body">
+	    				<p class="card-text"><%= svc.salon.detail.name %></p>
+	  				</div>
+				</div>
+	  	</div>
+	    <% end %>
+	  </div>
+	</div>
+<% else %>
+	<p>Could not find salons that offer that service.</p>
+<% end %>
