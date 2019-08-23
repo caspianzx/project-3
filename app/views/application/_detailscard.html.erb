@@ -1,13 +1,14 @@
-<div class="card border-primary my-3 w-100">
-	<div class="col-lg">
+<div class="card border-primary my-3" id="dashboardDetails">
+	<div class ="companyName">Company Profile</div>
+	<div class="col">
 		<div class="row justify-content-between">
 			<div class="col-3">
-				<div class="vertical-center">
+				<div class="vertical-center image-border">
 					<img class="bg-info w-100" src='<%= @salon.detail.logo_url %>' alt='logo'>
 				</div>
 			</div>
-			<div class="col">
-				<p>Name: <%= @salon.detail.name %></p>
+			<div class="col dashboardContact">
+				<p>Company Name: <%= @salon.detail.name %></p>
 				<p>Phone: <%= @salon.detail.phone %></p>
 				<p>Address: <%= @salon.detail.address %></p>
 				<p>Area: <%= @salon.detail.area %></p>

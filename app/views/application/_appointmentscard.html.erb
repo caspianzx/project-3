@@ -1,4 +1,4 @@
-<div class="card border-primary my-3 w-100 h-100">
+<div class="card border-primary my-3 w-100 h-100" id="appointmentDashboard">
 	<div class="card-header d-flex">
 		<h3 class="mr-auto">appointments</h3>
 	</div>
@@ -21,9 +21,20 @@
 				<div id="collapseAll" class="panel-collapse collapse">
 					<ul class="list-group">
 						<% @salon.appointments.each do |a| %>
-						<li class="list-group-item d-flex justify-content-between align-items-center">
-							<%= a.name %>
-							<span class="badge badge-primary badge-pill">14</span>
+						<li class="list-group-item d-flex justify-content-between align-items-center adjustPadding">
+							<div class ="container">
+								<div class ="row">
+									<div class ="col-4">
+										<%= a.name %>
+									</div>
+								<div class ="col-4">
+									<p><%=a.service.name=%></p>
+								</div>
+								<div class ="col-4">
+              	<p> <%=a.timeslot.time=%>:00 ~<%= a.timeslot.time.to_i + 1 %>:00</p>
+            </div>
+          </div>
+        </div>
 						</li>
 						<% end %>
 					</ul>
@@ -41,9 +52,20 @@
 				<div id="collapseUpcoming" class="panel-collapse collapse">
 					<ul class="list-group">
 						<% @salon.appointments.each do |a| %>
-						<li class="list-group-item d-flex justify-content-between align-items-center">
-							<%= a.name %>
-							<span class="badge badge-primary badge-pill">14</span>
+						<li class="list-group-item d-flex justify-content-between align-items-center adjustPadding">
+							<div class ="container">
+								<div class ="row">
+									<div class ="col-4">
+										<%= a.name %>
+									</div>
+								<div class ="col-4">
+									<p><%=a.service.name=%></p>
+								</div>
+								<div class ="col-4">
+              	<p> <%=a.timeslot.time=%></p>
+            </div>
+          </div>
+        </div>
 						</li>
 						<% end %>
 					</ul>
@@ -62,15 +84,12 @@
 						<% @salon.appointments.each do |a| %>
 						<li class="list-group-item d-flex justify-content-between align-items-center">
 							<%= a.name %>
-							<span class="badge badge-primary badge-pill">14</span>
 						</li>
 						<% end %>
 					</ul>
 				</div>
 			</div>
 		</div>
-
-
 		<% end %>
 	</div>
 </div>
