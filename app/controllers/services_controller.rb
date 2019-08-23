@@ -16,24 +16,40 @@ class ServicesController < ApplicationController
   end
 
   def create
+    @services = params[:serviceName]
+    @prices = params[:prices]
 
-    #doing it the lengthy way for now
-    @service = Service.new(name: params[:serviceOne], price: params[:priceOne], salon_id: params[:id])
-    @service.save
+    p "------"
+    p @services
+    p @prices
 
-    @service2 = Service.new(name: params[:serviceTwo], price: params[:priceTwo], salon_id: params[:id])
-    @service2.save
+    @services.each_with_index do |service, index|
+      p service
+      indvPrice = @prices[index]
+      p indvPrice
+      @saveService = Service.new(name: service, price: indvPrice, salon_id: params[:id])
+      @saveService.save
+    end
 
-    @service3 = Service.new(name: params[:serviceThree], price: params[:priceThree], salon_id: params[:id])
-    @service3.save
 
-    @service4 = Service.new(name: params[:serviceFour], price: params[:priceFour], salon_id: params[:id])
-    @service4.save
 
-    @service5 = Service.new(name: params[:serviceFive], price: params[:priceFive], salon_id: params[:id])
-    @service5.save
+    # lengthy way
+    # @service = Service.new(name: params[:serviceOne], price: params[:priceOne], salon_id: params[:id])
+    # @service.save
 
-    puts "saving service price"
+    # @service2 = Service.new(name: params[:serviceTwo], price: params[:priceTwo], salon_id: params[:id])
+    # @service2.save
+
+    # @service3 = Service.new(name: params[:serviceThree], price: params[:priceThree], salon_id: params[:id])
+    # @service3.save
+
+    # @service4 = Service.new(name: params[:serviceFour], price: params[:priceFour], salon_id: params[:id])
+    # @service4.save
+
+    # @service5 = Service.new(name: params[:serviceFive], price: params[:priceFive], salon_id: params[:id])
+    # @service5.save
+
+    # puts "saving service price"
 
     redirect_to salon_path
   end

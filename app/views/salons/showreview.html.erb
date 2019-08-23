@@ -1,0 +1,10 @@
+<h1>Reviews list</h1>
+
+<ul>
+	<% @ratings.each do |rating| %>
+
+			<li>Review: <%= rating.review %><br>
+			Service: <%= rating.service.name %><br>
+			Review date: <%= rating.created_at %></li><br>
+	<% end %>
+</ul>

@@ -1,0 +1,44 @@
+<h1>Review</h1>
+
+<%= form_with scope: :rating, url: create_rating_path, local: true do |form| %>
+
+	<p>
+		<%= form.label :name %><br>
+		<%= form.text_field :name %>
+	</p>
+	<p>
+		<%= form.label :email %><br>
+		<%= form.text_field :email %>
+	</p>
+	<p>
+		<%= form.label :date_of_visit %><br>
+		<%= form.text_field :date_of_visit %>
+	</p>
+
+	<p>Select service used</p>
+		<%= form.collection_select :service_id, @services, :id, :name %>
+
+
+	<p>
+		<%= form.label :rating %><br>
+
+		<% 5.times.each_with_index do |index| %>
+ 			<%= image_tag("/images/empty-star.png", size: "16x16", id: "change-image#{index}")%>
+		<% end %>
+
+		<%= form.hidden_field :rating %>
+
+	</p>
+
+	<p>
+		<%= form.label :review %><br>
+		<%= form.text_area :review, value: 'Optional' %>
+	</p>
+
+	<p>
+		<%= form.submit %>
+	</p>
+
+	<% end %>
+
+	<%= link_to 'Back', salon_path %>

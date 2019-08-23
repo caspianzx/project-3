@@ -1,11 +1,12 @@
 .salonName {
 	position: relative;
-	font-family: "Roboto thin", sans-serif;
+	font-family: "Quicksand", sans-serif;
 	font-size: 22px;
 	margin-top: 10px;
 	text-align: center;
 	letter-spacing: 2px;
 	color: black;
+	font-weight: bold;
 }
 
 #previousBtn {
@@ -38,45 +39,67 @@
 	margin-top: 10px;
 }
 
-#profile > p {
+#contact > p {
 	color: black;
 	margin-bottom: 5px;
+	font-family: "Quicksand", sans-serif;
 }
 
 .profileSalon {
+	font-family: "Quicksand", sans-serif;
 	font-size: 17px;
 	font-weight: bold;
 	margin-top:10px;
 }
 
-
-.table th, .table td {
-	color: black;
-	text-align: center;
+.table td >p {
+font-family: "Quicksand", sans-serif;
+ margin-bottom: 0px;
+ margin-left: 20px;
 }
 
+
 .table td {
-	cursor: pointer;
-	border-bottom: 1px solid rgba(0, 0, 0, 0.05);;
+	font-family: "Quicksand", sans-serif;
+	color: black;
+	border-bottom: 1px solid rgba(0, 0, 0, 0.1);
+	padding-top: 20px;
+	padding-bottom: 20px;
 }
 
 .table-hover tbody tr:hover {
-    color: #FF8272 !important;
+
     background-color: rgb(255, 255, 255);
-    box-shadow: inset 0 0 0 2px #ff8272;
+
   }
 
  .table {
  	margin-top:10px;
  }
 
+#profile-tab, #home-tab, #contact-tab, #reviews-tab {
+	font-size: 18px;
+	font-family: "Quicksand", sans-serif;
+}
+
+
  #profile-tab:focus {
- 	color: #ff8272;
+ 	color: #ec5869;
  	font-weight: bold;
  }
 
  #home-tab:focus {
- 	color: #ff8272;
+ 	color: #ec5869;
+ 	font-weight: bold;
+ }
+
+ #contact-tab:focus {
+ 	color: #ec5869;
+ 	font-weight: bold;
+ }
+
+ #reviews-tab:focus {
+ 	color: #ec5869;
  	font-weight: bold;
  }
 
@@ -87,4 +110,67 @@
 
 .carousel-inner {
 height: 220px;
+}
+
+.nav-tabs .nav-link.active, .nav-tabs .nav-item.show .nav-link {
+	  color: #55595c;
+    background-color: #fff;
+    border-color: rgba(0,0,0,0.5) rgba(0,0,0,0.5) #fff
+}
+
+.nav-tabs {
+	border-bottom: 1px solid rgba(0,0,0,0.5);
+}
+
+
+.nav-tabs .nav-link:hover {
+	border-left-color: rgba(0,0,0,0.5);
+	border-right-color:rgba(0,0,0,0.5);
+	border-top-color: rgba(0,0,0,0.5);
+}
+
+.newform {
+	margin-top: 20px;
+}
+
+.apptForm {
+	width: 200px;
+	padding-top: 5px;
+	padding-bottom: 5px;
+}
+
+.instructions {
+	color: black;
+	font-size: 17px;
+	margin-top: 10px;
+}
+
+#star-rating {
+	margin-top: 10px;
+	font-size: 18px;
+	font-family: "Quicksand", sans-serif;
+	color:black;
+}
+
+.ratingBtn {
+	font-family: "futura", sans-serif;
+	color:#ec5869;
+	padding-left: 0px;
+	cursor: pointer;
+}
+
+.ratingBtn:hover {
+	color:#ec5869;
+	text-decoration: none;
+	opacity: 0.7;
+
+}
+
+#reviews-list {
+	font-family: "Quicksand", sans-serif;
+	color:black;
+}
+
+.overallRating {
+	font-size: 20px;
 }
