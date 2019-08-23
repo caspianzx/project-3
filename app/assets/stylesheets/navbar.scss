@@ -7,13 +7,14 @@ body {
 	margin-bottom: 0px;
 }
 
-#listsalon {
-	color: #FF8272;
+.listsalon {
+	color:  #ec5869;
 }
 
-#salonborder {
+#salonborder > .nav-link {
 	border: 1px solid white;
 	border-radius: 3px;
+	color:  #ec5869
 }
 
 .navbar {
