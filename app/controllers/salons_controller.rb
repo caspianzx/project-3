@@ -36,7 +36,11 @@ class SalonsController < ApplicationController
   def create
     @details = Detail.new(detail_params)
     @details.salon = current_salon
-    @details.save
+    if @details.valid?
+      @details.save
+    else
+      redirect_to new_salon_path
+    end
     puts @details
     if @details.save
       puts 'worked'
