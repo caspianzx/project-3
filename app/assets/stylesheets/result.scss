@@ -22,9 +22,51 @@
 /*result image*/
 #resultImg {
 	min-width: 180px;
-	min-height: 180px;
+	min-height: 150px;
 }
-#resultImgBorder {
+/*#resultImgBorder {
 	border-radius: 3px;
 	border: 1px solid #eee;
+}*/
+
+/*adjusting shop details*/
+#resultList > p {
+	font-family: "Quicksand", sans-serif;
+	color: black;
+	margin-bottom: 5px;
+}
+
+.resultSalon {
+	font-size:23px;
+}
+#listSpace {
+	margin-bottom: 15px;
+	border: 1px solid rgba(0, 0, 0, 0.3);
+	border-radius: 5px;
+	padding: 18px 20px;
+}
+
+#listSpace :hover {
+	opacity: 0.75;
+}
+
+#tag {
+	text-decoration: none;
+}
+
+/*details not included in mobile*/
+@media only screen and (max-width: 780px) {
+	.mobileNone {
+		display: none;
+	}
+	.resultSalon {
+		font-size: 18px;
+		text-align: center;
+	}
+
+	.searchHeader {
+		font-size: 20px;
+
+	}
+
 }

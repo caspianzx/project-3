@@ -1,4 +1,13 @@
-<div class ="searchHeader">Search Results with <%= @services.first.name %> </div>
+
+<div class ="container">
+	<div class ="row">
+		<div class="col">
+			<div class ="searchHeader">Search Results with <%= @services.first.name %>
+			</div>
+		</div>
+	</div>
+</div>
+
 <% if @services.present? %>
 <!-- 	<p>Salons with the service: <%= @services.first.name %></p> -->
 <div class ="container">
@@ -7,20 +16,21 @@
 			<ul class="list-group">
 				<% @services.each do |svc| %>
 				<!-- generate list with name, picture and address -->
-  				<li class="list-group-item">
-  					<div class ="container">
-							<div class ="row">
-								<div class = "col-4" id="resultImgBorder">
-									<img src= "<%=svc.salon.detail.logo_url%>" class="card-img-top" id ="resultImg" alt="...">
-								</div>
-								<div class = "col-8">
-									<p><%= svc.salon.detail.name %></p>
-									<p>Phone: <%= svc.salon.detail.phone %></p>
-									<p>Address: <%= svc.salon.detail.address %></p>
-									<%= link_to svc.salon.detail.website, "#{svc.salon.detail.website}", :target => "_blank" %>
+  				<li class="list-group-item" id="listSpace">
+  					<a href ="/salons/<%=svc.salon.id%>/appointments" id="tag">
+  						<div class ="container">
+								<div class ="row">
+									<div class = "col-lg-4 col-sm p-2 w-100" id="resultImgBorder">
+										<img src= "<%=svc.salon.detail.logo_url%>" class="card-img-top" id ="resultImg" alt="...">
+									</div>
+									<div class = "col-lg-8 col-sm w-100" id="resultList">
+										<p class ="resultSalon"><%= svc.salon.detail.name %></p>
+										<p class ="mobileNone"><%= svc.salon.detail.phone %></p>
+										<p class ="mobileNone"><%= svc.salon.detail.address %></p>
+									</div>
 								</div>
 							</div>
-						</div>
+						</a>
   				</li>
   			<% end %>
 			</ul>
@@ -28,33 +38,6 @@
 	</div>
 </div>
 
-
-
-
-
-<div class="container">
-	<div class="row">
-	  <% @services.each do |svc| %>
-	  <!-- each card -->
-	  <div class="col-4">
-	  	<div class="card" id="indexCard">
-	  		<a href ="/salons/<%=svc.salon.id%>/appointments" class="aTag">
-	  			<!-- card image component -->
-	  			<div class ="cardImage">
-	  				<img src= "<%=svc.salon.detail.logo_url%>" class="card-img-top cardImage" alt="...">
-	  			</div>
-	  		</a>
-	  		<!-- card text -->
-	 			<div class="card-body">
-	    		<p class="card-text" id="indexCardText">
-	    			<%= svc.salon.detail.name %>
-	    		</p>
-	  		</div>
-			</div>
-	  </div>
-	  <% end %>
-	 </div>
-</div>
 
 <% else %>
 	<h1 class ="noResult">Sorry, could not find salons that offer that service.</h1>
