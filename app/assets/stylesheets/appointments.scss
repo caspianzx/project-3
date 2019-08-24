@@ -42,7 +42,6 @@
 
 #contact > p {
 	color: black;
-	margin-bottom: 5px;
 	font-family: "Quicksand", sans-serif;
 }
 
@@ -52,6 +51,8 @@
 	font-weight: bold;
 	margin-top:10px;
 }
+
+
 
 .table td >p {
 font-family: "Quicksand", sans-serif;
@@ -78,6 +79,7 @@ font-family: "Quicksand", sans-serif;
  	margin-top:10px;
  }
 
+/*tab change color on focus */
 #profile-tab, #home-tab, #contact-tab, #reviews-tab {
 	font-size: 18px;
 	font-family: "Quicksand", sans-serif;
@@ -113,6 +115,7 @@ font-family: "Quicksand", sans-serif;
 height: 220px;
 }
 
+/*adjusting tab color when switching tab to tab*/
 .nav-tabs .nav-link.active, .nav-tabs .nav-item.show .nav-link {
 	  color: #55595c;
     background-color: #fff;
@@ -138,12 +141,16 @@ height: 220px;
 	width: 200px;
 	padding-top: 5px;
 	padding-bottom: 5px;
+	border: solid 1px rgb(169, 169, 169);
+	padding-left: 5px;
+	border-radius: 3px;
 }
 
 .instructions {
 	color: black;
 	font-size: 17px;
 	margin-top: 10px;
+	margin-bottom: 0px;
 }
 
 #star-rating {
@@ -171,8 +178,33 @@ height: 220px;
 #reviews-list {
 	font-family: "Quicksand", sans-serif;
 	color:black;
+	font-size: 17px;
 }
 
 .overallRating {
 	font-size: 20px;
+}
+
+/*adjusting colors and font of appt tab*/
+
+#appt >p {
+	color: black;
+	margin-bottom: 0px;
+	font-size: 17px;
+	font-family: "Quicksand", sans-serif;
+}
+
+#appointment_timeslot_id {
+	border: 1px solid rgb(169, 169, 169);
+	padding:5px;
+	height: 30px;
+}
+#appointment_date_of_visit {
+	border-radius: 3px;
+	padding:5px;
+	width: 200px;
+}
+
+#appointment_service_id  {
+	height: 36px;
 }

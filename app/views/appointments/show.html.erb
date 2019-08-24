@@ -80,23 +80,29 @@
   		<div class="tab-pane fade" id="profile" role="tabpanel" aria-labelledby="profile-tab">
   			<p class="instructions">Fill in your details below to book an appointment</p>
   				<%= form_with scope: :appointment, url: create_appointment_path, local: true, class: 'newform' do |form| %>
-      		<div class="form-group">
-    				<%= form.text_field :name, :class => 'form-text text-muted apptForm', :placeholder =>  'Your Name', :required => true %>
+      		<div class="form-group" id="appt">
+      			<p><%= form.label :name %></p>
+    				<p><%= form.text_field :name, :class => 'form-text  apptForm', :placeholder =>  'e.g. George', :required => true %></p>
  					</div>
- 					<div class="form-group">
-    				<%= form.text_field :phone, :class => 'form-text text-muted apptForm', :placeholder =>  'Contact number', :required => true %>
+ 					<div class="form-group" id="appt">
+ 						<p><%= form.label :phone %></p>
+    				<p><%= form.text_field :phone, :class => 'form-text  apptForm', :placeholder =>  'Contact number', :required => true %></p>
   				</div>
-  				<div class="form-group">
-    				<%= form.text_field :email, :class => 'form-text text-muted apptForm',  :placeholder =>  'Email', :required => true %>
+  				<div class="form-group" id="appt">
+  					<p><%= form.label :email %></p>
+    				<p><%= form.text_field :email, :class => 'form-text apptForm',  :placeholder =>  'e.g. george@gmail.com', :required => true %></p>
   				</div>
-  				<div class="form-group">
-    				<%= form.date_select :date %>
+  				<div class="form-group" id="appt">
+  					<p><%= form.label :date %></p>
+    				<p><%= form.date_field :date_of_visit, :required => true%></p>
   				</div>
-  				<div class="form-group">
-						<%= form.collection_select :timeslot_id, @timeslots, :id, :time %>
+  				<div class="form-group" id="appt">
+  					<p><%= form.label :time %> </p>
+						<p><%= form.collection_select :timeslot_id, @timeslots, :id, :time %></p>
 					</div>
-					<div class="form-group">
-						<%= form.collection_select :service_id, @services, :id, :name %>
+					<div class="form-group" id="appt">
+						<p><%= form.label :service %></p>
+						<p><%= form.collection_select :service_id, @services, :id, :name %></p>
 					</div>
         		<%= form.submit 'Book Appointment', :class => 'btn btn-primary' %>
       	<% end %>
@@ -113,7 +119,7 @@
 						<div id="star-rating">
 
               <% if @ratings.blank? %>
-		            <p>No ratings yet</p>
+		            <p>No ratings yet. Be the first to review this salon!</p>
 	             <% elsif %>
 <!-- show aggregated star ratings -->
 		        <span class ="overallRating">Overall Rating </span>
@@ -150,7 +156,7 @@
 								</p>
 								<p>
 									<%= form.label :date_of_visit %><br>
-									<%= form.date_field :date_of_visit, :required => true%>
+									<%= form.date_field :date_of_visit%>
 								</p>
 								<p>Select service used</p>
 									<%= form.collection_select :service_id, @services, :id, :name %>
@@ -163,7 +169,7 @@
 									</p>
 									<p>
 										<%= form.label :review %><br>
-										<%= form.text_area :review, value: 'Optional' %>
+										<%= form.text_area :review, placeholder: 'Optional' %>
 									</p>
       			</div>
       			<div class="modal-footer">
