@@ -1,24 +1,44 @@
-<p>You searched: <%= @input %></p>
-<% if @services.present? == true %>
-	<p>Salons with the service: <%= @services.first.name %></p>
-	<div class="container">
-	  <div class="row">
-	  	<% @services.each do |svc| %>
-	  	<div class="col-4">
-	  		<a href ="/salons/<%=svc.salon.id%>/appointments" class="aTag">
-	  		<div class="card">
-	  			<div class ="cardImage">
-	  				<img src= "<%=svc.salon.detail.logo_url%>" class="card-img-top cardImage" alt="...">
-	  			</div>
-	  			</a>
-	 					<div class="card-body">
-	    				<p class="card-text"><%= svc.salon.detail.name %></p>
-	  				</div>
-				</div>
-	  	</div>
-	    <% end %>
-	  </div>
+
+<div class ="container">
+	<div class ="row">
+		<div class="col">
+			<div class ="searchHeader">Search Results with <%= @services.first.name %>
+			</div>
+		</div>
 	</div>
+</div>
+
+<% if @services.present? %>
+<!-- 	<p>Salons with the service: <%= @services.first.name %></p> -->
+<div class ="container">
+	<div class ="row">
+		<div class = "col-8 offset-2">
+			<ul class="list-group">
+				<% @services.each do |svc| %>
+				<!-- generate list with name, picture and address -->
+  				<li class="list-group-item" id="listSpace">
+  					<a href ="/salons/<%=svc.salon.id%>/appointments" id="tag">
+  						<div class ="container">
+								<div class ="row">
+									<div class = "col-lg-4 col-sm  w-100 p-1" id="resultImgBorder">
+										<img src= "<%=svc.salon.detail.logo_url%>" class="card-img-top" id ="resultImg" alt="...">
+									</div>
+									<div class = "col-lg-8 col-sm w-100" id="resultList">
+										<p class ="resultSalon"><%= svc.salon.detail.name %></p>
+										<p class ="mobileNone"><%= svc.salon.detail.phone %></p>
+										<p class ="mobileNone"><%= svc.salon.detail.address %></p>
+									</div>
+								</div>
+							</div>
+						</a>
+  				</li>
+  			<% end %>
+			</ul>
+		</div>
+	</div>
+</div>
+
+
 <% else %>
-	<p>Could not find salons that offer that service.</p>
+	<h1 class ="noResult">Sorry, could not find salons that offer that service.</h1>
 <% end %>

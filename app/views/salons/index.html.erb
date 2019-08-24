@@ -6,7 +6,7 @@
   	<div class= "col-md-12 p-0">
   		<div class ="overlay">
   		</div>
-
+<!-- slogan -->
 		<div class= "indexBanner">
 			<p class= "indexSlogan">looking for your next hair cut?</p>
 			<p class ="indexSloganTag">We are your one stop solution for all your hair needs</p>
@@ -15,7 +15,7 @@
 		</div>
 	</div>
 </div>
-
+<!-- search bar -->
 <div class ="row" id="shiftRow">
 	<div class="col-md-6 offset-md-3 w-100" id="alignSearch">
 		<div class="container-fluid">
@@ -27,35 +27,42 @@
 						<%= submit_tag 'Search', :class => 'btn btn-danger', :id => 'submit_btn' %>
 					<% end %>
 				<% end %>
+		</div>
 	</div>
 </div>
+
+<!-- instruction -->
 <div class= "discover">
 	<p>Discover new salons</p>
 </div>
 
+<!-- salon cards -->
 <% if defined? @salons.first != nil %>
+
 <div class="container">
   <div class="row">
-
-
-<div class="container w-100" id="cardWrapper">
-  <div class="row">
-  	<% @salons.each do |salon| %>
-  	<div class="col-lg-4 col-sm-6" id="indexCardMargin">
-  		<a href ="/salons/<%=salon.id%>/appointments" class="aTag">
-  		<div class="card">
-  			<div class ="cardImage">
-  				<img src= "<%=salon.logo_url%>" class="card-img-top cardImage" alt="...">
+		<div class="container w-100" id="cardWrapper">
+  		<div class="row">
+  			<% @salons.each do |salon| %>
+  			<!-- each card -->
+  			<div class="col-lg-4 col-sm-6" id="indexCard">
+  					<div class="card">
+  						<a href ="/salons/<%=salon.id%>/appointments" class="aTag">
+  							<div class ="cardImage">
+  								<img src= "<%=salon.logo_url%>" class="card-img-top cardImage" alt="...">
+  							</div>
+  						</a>
+ 					 		<div class="card-body">
+    						<p class="card-text" id="indexCardText">
+    							<%= salon.name %>
+    						</p>
+  						</div>
+						</div>
   			</div>
-  			</a>
- 					 <div class="card-body">
-    					<p class="card-text"><%= salon.name %></p>
-  					</div>
-			</div>
-  	</div>
-    <% end %>
-  </div>
+  			<!-- card ends here -->
+    		<% end %>
+  		</div>
+		</div>
+	</div>
 </div>
-
-
 <% end %>
