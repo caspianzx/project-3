@@ -1,6 +1,6 @@
 class ServicesController < ApplicationController
 
-before_action :authenticate_user!, :except => [ :show]
+before_action :authenticate_salon!, :except => [ :show]
 
   def show
     # get services for specified salon
