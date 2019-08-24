@@ -1,6 +1,6 @@
 class SalonsController < ApplicationController
 
-  before_action :authenticate_user!, :except => [ :index, :search, :newrating, :createrating, :showreview ]
+  before_action :authenticate_salon!, :except => [ :index, :search, :newrating, :createrating, :showreview ]
   def index
     ##edit these conditions as you like
     @salons = Detail.all.select {|detail| detail.name.present? == true && detail.logo_url.present? == true}
