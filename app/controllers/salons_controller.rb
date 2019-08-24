@@ -15,9 +15,11 @@ class SalonsController < ApplicationController
     # @services = Service.where(:name.downcase == @input)
     # @salonsService = Salon.all.select {|salon| salon.services.where(:name.downcase == @input.downcase)}
     # @services = Service.where("REPLACE(name.downcase, ' ', '') = REPLACE('#{@input}.downcase', ' ', '')")
-    Service.where("REPLACE(LOWER(name), ' ', '') = REPLACE(LOWER('hair treatment'), ' ', '')")
+    # Service.where("REPLACE(LOWER(name), ' ', '') = REPLACE(LOWER('hair treatment'), ' ', '')")
     @services = Service.where("REPLACE(LOWER(name), ' ', '') = REPLACE(LOWER('#{@input}'), ' ', '')")
     puts @services.inspect
+    @details = Detail.where("REPLACE(LOWER(area), ' ', '') = REPLACE(LOWER('#{@input}'), ' ', '')")
+    puts @details.inspect
   end
 
   def show
