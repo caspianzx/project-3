@@ -1,5 +1,7 @@
+
+
 <p>You searched: <%= @input %></p>
-<% if @services.present? == true %>
+<% if @services.present? %>
 	<p>Salons with the service: <%= @services.first.name %></p>
 	<div class="container">
 	  <div class="row">
@@ -20,5 +22,5 @@
 	  </div>
 	</div>
 <% else %>
-	<p>Could not find salons that offer that service.</p>
+	<h1>Could not find salons that offer that service.</h1>
 <% end %>

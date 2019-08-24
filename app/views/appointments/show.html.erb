@@ -150,7 +150,7 @@
 								</p>
 								<p>
 									<%= form.label :date_of_visit %><br>
-									<%= form.text_field :date_of_visit, :required => true%>
+									<%= form.date_field :date_of_visit, :required => true%>
 								</p>
 								<p>Select service used</p>
 									<%= form.collection_select :service_id, @services, :id, :name %>
