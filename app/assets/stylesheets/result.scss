@@ -18,3 +18,13 @@
 	margin-bottom: 30px;
 	text-transform: lowercase;
 }
+
+/*result image*/
+#resultImg {
+	min-width: 180px;
+	min-height: 180px;
+}
+#resultImgBorder {
+	border-radius: 3px;
+	border: 1px solid #eee;
+}

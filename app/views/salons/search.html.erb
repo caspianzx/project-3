@@ -1,6 +1,37 @@
 <div class ="searchHeader">Search Results with <%= @services.first.name %> </div>
 <% if @services.present? %>
 <!-- 	<p>Salons with the service: <%= @services.first.name %></p> -->
+<div class ="container">
+	<div class ="row">
+		<div class = "col-8 offset-2">
+			<ul class="list-group">
+				<% @services.each do |svc| %>
+				<!-- generate list with name, picture and address -->
+  				<li class="list-group-item">
+  					<div class ="container">
+							<div class ="row">
+								<div class = "col-4" id="resultImgBorder">
+									<img src= "<%=svc.salon.detail.logo_url%>" class="card-img-top" id ="resultImg" alt="...">
+								</div>
+								<div class = "col-8">
+									<p><%= svc.salon.detail.name %></p>
+									<p>Phone: <%= svc.salon.detail.phone %></p>
+									<p>Address: <%= svc.salon.detail.address %></p>
+									<%= link_to svc.salon.detail.website, "#{svc.salon.detail.website}", :target => "_blank" %>
+								</div>
+							</div>
+						</div>
+  				</li>
+  			<% end %>
+			</ul>
+		</div>
+	</div>
+</div>
+
+
+
+
+
 <div class="container">
 	<div class="row">
 	  <% @services.each do |svc| %>
