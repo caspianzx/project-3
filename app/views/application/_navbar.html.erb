@@ -8,7 +8,11 @@
 		<div class="collapse navbar-collapse justify-content-end" id="navbarColor01">
 			<ul class="navbar-nav">
 
-				<% if salon_signed_in? %>
+				<% if salon_signed_in? && @details.blank? %>
+				<li class="nav-item" id="salonborder">
+					<%= link_to 'Log Out', destroy_salon_session_path, :class => 'nav-link', :method => :delete  %>
+				</li>
+				<% elsif salon_signed_in? %>
 				<li class="nav-item" id="salonborder">
 					<%= link_to 'Dashboard', salon_path(@salon), :class => 'nav-link listsalon' %>
 				</li>
