@@ -5,8 +5,11 @@ Our web application is a one-stop information platform which allows customers to
 Salons which do not yet have an online presence are able to register an account to be listed on our website to extend their reach and boost sales. They can also tap on our platform to digitalize the scheduling of appointments for their salons. 
 
 ### Built with
-- Ruby on Rails, Devise gem
+- Ruby on Rails
+- Devise gem
 - Bootstrap
+- Bootswatch theme
+- Faker gem
 - PostgreSQL
 - JavaScript and jQuery
 
