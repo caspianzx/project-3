@@ -93,8 +93,12 @@ background:linear-gradient(to bottom,rgba(0,0,0,.05) 0,rgba(0,0,0,.7) 100%);
 		border-radius: 3px;
 		width: 300px;
 		margin:auto;
+		text-align: center;
 	}
 	.indexBanner, .overlay {
 		height: 450px;
+	}
+	#alignSearch {
+		margin-left: 15px;
 	}
 }

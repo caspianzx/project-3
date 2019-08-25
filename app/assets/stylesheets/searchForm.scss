@@ -13,10 +13,12 @@
 }
 
 #input1 {
+	display: block;
 	border-top-left-radius: 3px;
 	border-bottom-left-radius: 3px;
 	font-family: "Quicksand", sans-serif;
 	font-size: 14px;
+
 
 }
 
@@ -27,6 +29,7 @@
 	padding-top: 15px;
 	padding-bottom:15px;
 	z-index: 3;
+	justify-content: center;
 }
 
 #heightAdjustment {
