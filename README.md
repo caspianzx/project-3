@@ -1,6 +1,6 @@
 # The Hair Affair 
 
-Our web application is a one-stop information portal which allows customers to search for hair salons, find out the services they offer and their respective prices and read reviews by other customers. Customers are also able to view a salon’s available appointments and book their own appointments.
+Our web application is a one-stop information platform which allows customers to search for hair salons, find out the services they offer and their respective prices and read reviews by other customers. Customers are also able to view a salon’s available appointments and book their own appointments.
 
 Salons which do not yet have an online presence are able to register an account to be listed on our website to extend their reach and boost sales. They can also tap on our platform to digitalize the scheduling of appointments for their salons. 
 
@@ -45,4 +45,4 @@ We identified some issues that hair salon customers may face today:
 - [Jonathan Bek](https://github.com/apooshoo)
 - [Alicia Wong](https://github.com/aliciawongg)
 
-**Heroku link**</br>
+###Website link</br>
