@@ -110,8 +110,8 @@
 <!-- salon contact  -->
 				<div class="tab-pane fade" id="contact" role="tabpanel" aria-labelledby="contact-tab">
 					<p class ="profileSalon"><%= @salon.detail.name %></p>
-  				<p>Phone: <%= @salon.detail.phone %></p>
-					<p>Address: <%= @salon.detail.address %></p>
+  				<p><%= @salon.detail.phone %></p>
+					<p><%= @salon.detail.address %></p>
 					<%= link_to @salon.detail.website, "#{@salon.detail.website}", :target => "_blank" %>
 				</div>
 
