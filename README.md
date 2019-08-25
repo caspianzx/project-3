@@ -41,7 +41,7 @@ We identified some issues that hair salon customers may face today:
 
 ### Team
 - [Caspian Ng](https://github.com/caspianzx)
-- [Muhammad Hafiz Bin Abu Bakar](https://github.com/eenfeeneet)
+- [M Hafiz](https://github.com/eenfeeneet)
 - [Jonathan Bek](https://github.com/apooshoo)
 - [Alicia Wong](https://github.com/aliciawongg)
 
