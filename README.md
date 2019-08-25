@@ -45,4 +45,4 @@ We identified some issues that hair salon customers may face today:
 - [Jonathan Bek](https://github.com/apooshoo)
 - [Alicia Wong](https://github.com/aliciawongg)
 
-###Website link</br>
+### Website link</br>
