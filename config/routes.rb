@@ -15,10 +15,10 @@ Rails.application.routes.draw do
   #REDIRECT TO...
 
   #PHOTOS TABLE SALON CONTROLLER
-  get '/salons/:id/photos' => 'salons#showphoto', as: 'photos'
-  get '/salons/:id/photos/new' => 'salons#newphoto', as: 'new_photo'
-  post '/salons/:id/photos/create' => 'salons#createphoto', as: 'create_photo'
-  delete '/salons/:id/photos' => 'salons#destroyphoto', as: 'destroy_photo'
+  get '/salons/:id/photos' => 'photos#show', as: 'photos'
+  get '/salons/:id/photos/new' => 'photos#new', as: 'new_photo'
+  post '/salons/:id/photos/create' => 'photos#create', as: 'create_photo'
+  delete '/salons/:id/photos' => 'photos#destroy', as: 'destroy_photo'
 
   #CREATE APPTS CONTROLLER
   #appts table
