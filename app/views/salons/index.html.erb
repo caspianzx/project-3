@@ -17,8 +17,8 @@
 </div>
 <!-- search bar -->
 <div class ="row" id="shiftRow">
-	<div class="col-md-6 offset-md-3 w-100" id="alignSearch">
-		<div class="container-fluid">
+	<div class="col-md-6 offset-1  w-100" id="alignSearch">
+		<div class="container-fluid" id="justifysearch">
 	  		<%= form_with(url: search_path, method: "get", local: true, :class => 'form-group row') do %>
   				<%= content_tag :div, class: 'col-sm-8 p-0', id: 'heightAdjustment' do %>
 						<%= text_field_tag :search, "", :class => 'form-control', :id => 'input1', :placeholder => 'Search for services or salon' %>
