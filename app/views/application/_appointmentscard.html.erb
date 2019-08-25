@@ -27,14 +27,14 @@
 									<div class ="col-4">
 										<%= a.name %>
 									</div>
-								<div class ="col-4">
-									<p><%=a.service.name=%></p>
+									<div class ="col-4">
+										<p><%=a.service.name=%></p>
+									</div>
+									<div class ="col-4">
+										<p> <%=a.timeslot.time=%>:00 ~<%= a.timeslot.time.to_i + 1 %>:00</p>
+									</div>
 								</div>
-								<div class ="col-4">
-              	<p> <%=a.timeslot.time=%>:00 ~<%= a.timeslot.time.to_i + 1 %>:00</p>
-            </div>
-          </div>
-        </div>
+							</div>
 						</li>
 						<% end %>
 					</ul>
@@ -51,21 +51,24 @@
 
 				<div id="collapseUpcoming" class="panel-collapse collapse">
 					<ul class="list-group">
-						<% @salon.appointments.each do |a| %>
+						<% @upcoming_appointments.each do |a| %>
 						<li class="list-group-item d-flex justify-content-between align-items-center adjustPadding">
 							<div class ="container">
 								<div class ="row">
-									<div class ="col-4">
+									<div class ="col-3">
 										<%= a.name %>
 									</div>
-								<div class ="col-4">
-									<p><%=a.service.name=%></p>
+									<div class ="col-3">
+										<p><%=a.service.name=%></p>
+									</div>
+									<div class ="col-3">
+										<p> <%=a.timeslot.time=%>:00</p>
+									</div>
+									<div class ="col-3">
+										<p> <%=a.date=%></p>
+									</div>
 								</div>
-								<div class ="col-4">
-              	<p> <%=a.timeslot.time=%></p>
-            </div>
-          </div>
-        </div>
+							</div>
 						</li>
 						<% end %>
 					</ul>
@@ -81,7 +84,7 @@
 
 				<div id="collapsePast" class="panel-collapse collapse">
 					<ul class="list-group">
-						<% @salon.appointments.each do |a| %>
+						<% @past_appointments.each do |a| %>
 						<li class="list-group-item d-flex justify-content-between align-items-center">
 							<%= a.name %>
 						</li>
