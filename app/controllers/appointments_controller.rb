@@ -86,10 +86,10 @@ class AppointmentsController < ApplicationController
     @appointment.destroy
     if @appointment.destroy
       puts 'WORKED'
+    redirect_to :controller => 'salons', :action => 'show', :id => @salon.id
     else
       puts 'DIDNT WORK'
     end
-    redirect_to :controller => 'appointments', :action => 'show', :id => @salon.id
   end
 
    def newrating

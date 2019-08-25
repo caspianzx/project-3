@@ -86,7 +86,8 @@
 					<ul class="list-group">
 						<% @past_appointments.each do |a| %>
 						<li class="list-group-item d-flex justify-content-between align-items-center">
-							<%= a.name %>
+							<p class="mr-auto"><%= a.name %></p>
+							<%= link_to image_tag('delete.svg', :height => '20' ), destroy_appointment_path, :class => 'mx-2'  %>
 						</li>
 						<% end %>
 					</ul>
