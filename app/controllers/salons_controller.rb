@@ -34,6 +34,9 @@ class SalonsController < ApplicationController
     @services = Service.where(salon_id: params[:id] ).order("id ASC")
 
     @appointments = @salon.appointments
+    @past_appointments = @appointments.where('date < ?', Date.today)
+    @upcoming_appointments = @appointments.where('date > ?', Date.today)
+
 
     # puts @salon.photos.first.photo_url
     @photos = @salon.photos
