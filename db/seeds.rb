@@ -115,26 +115,33 @@ b = 0
 pArray = ["https://beautyundercoverproduction.s3.amazonaws.com/salons/photo_covers/000/000/271/cover_frontend/Salon_Vim_Cover1.jpg?1479204599", "http://www.zenredsalonbangkok.com/images/zenred-salon-bangkok.JPG",
 "https://www.gowabi.com/system/pictures/images/000/007/120/big_slider_pic/HummingHair_lead.jpg?1531884328", "https://www.gowabi.com/system/pictures/images/000/007/115/big_slider_pic/HummingHair_5.jpg?1531884253"]
 
-11.times do
+
+Photo.create(photo_url: "http://4.bp.blogspot.com/-uIlPmmIb_EM/U8KLowqkFJI/AAAAAAAAI8E/-Gx2O1LVGYY/s1600/COVO+Exterior.jpg",salon_id: 1)
+Photo.create(photo_url: "https://i.imgur.com/9fIrA6v.jpg",salon_id: 1)
+Photo.create(photo_url: "https://i.imgur.com/rE697jt.jpg",salon_id: 1)
+
+b = 1
+
+10.times do
   Photo.create(photo_url: pArray[0],salon_id: b += 1)
 end
 
-b1 = 0
+b1 = 1
 
-11.times do
+10.times do
   Photo.create(photo_url: pArray[1],salon_id: b1 += 1)
 end
 
-b2 = 0
+b2 = 1
 
-11.times do
+10.times do
   Photo.create(photo_url: pArray[2],salon_id: b2 += 1)
 end
 
-b3 = 0
+b3 = 1
 
 
-11.times do
+10.times do
   Photo.create(photo_url: pArray[3],salon_id: b3 += 1)
 end
 
