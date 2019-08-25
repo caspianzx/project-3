@@ -1,37 +1,41 @@
 
 <nav class="navbar navbar-expand-lg navbar-light bg-light fixed-top">
-		<%= link_to 'The Hair Affair', salons_path, :class => 'navbar-brand' %>
-		<button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarColor01" aria-controls="navbarColor01" aria-expanded="false" aria-label="Toggle navigation">
-			<span class="navbar-toggler-icon"></span>
-		</button>
+	<%= link_to 'The Hair Affair', salons_path, :class => 'navbar-brand' %>
+	<button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarColor01" aria-controls="navbarColor01" aria-expanded="false" aria-label="Toggle navigation">
+		<span class="navbar-toggler-icon"></span>
+	</button>
 
-		<div class="collapse navbar-collapse justify-content-end" id="navbarColor01">
-			<ul class="navbar-nav">
+	<div class="collapse navbar-collapse justify-content-end" id="navbarColor01">
+		<ul class="navbar-nav">
 
-				<% if salon_signed_in? && @detail.blank? %>
-					<li class="nav-item" id="salonborder">
-						<%= link_to 'Log Out', destroy_salon_session_path, :class => 'nav-link', :method => :delete  %>
-					</li>
-				<% elsif salon_signed_in? %>
-					<li class="nav-item" id="salonborder">
-						<%= link_to 'Dashboard', salon_path(@salon), :class => 'nav-link listsalon' %>
-					</li>
-					<li class="nav-item">
-						<%= link_to 'Log Out', destroy_salon_session_path, :class => 'nav-link', :method => :delete  %>
-					</li>
-				<% else %>
-					<li class="nav-item" id="salonborder">
-						<%= link_to 'List your salon', new_salon_registration_path, :class => 'nav-link listsalon' %>
-					</li>
-					<li class="nav-item">
-						<%= link_to 'Log In', new_salon_session_path, :class => 'nav-link' %>
-					</li>
-				<% end %>
+			<% if salon_signed_in? && @detail.blank? %>
+			<li class="nav-item" id="salonborder">
+				<%= link_to 'Complete Your Profile', new_salon_path(id: current_salon.id), :class => 'nav-link listsalon' %>
+			</li>
 
-				<li class="nav-item">
-					<a class="nav-link" href="#">About</a>
-				</li>
+			<li class="nav-item" id="salonborder">
+				<%= link_to 'Log Out', destroy_salon_session_path, :class => 'nav-link', :method => :delete  %>
+			</li>
+			<% elsif salon_signed_in? %>
+			<li class="nav-item" id="salonborder">
+				<%= link_to 'Dashboard', salon_path(@c_salon), :class => 'nav-link listsalon' %>
+			</li>
+			<li class="nav-item">
+				<%= link_to 'Log Out', destroy_salon_session_path, :class => 'nav-link', :method => :delete  %>
+			</li>
+			<% else %>
+			<li class="nav-item" id="salonborder">
+				<%= link_to 'List your salon', new_salon_registration_path, :class => 'nav-link listsalon' %>
+			</li>
+			<li class="nav-item">
+				<%= link_to 'Log In', new_salon_session_path, :class => 'nav-link' %>
+			</li>
+			<% end %>
 
-			</ul>
-		</div>
-	</nav>
+			<li class="nav-item">
+				<a class="nav-link" href="#">About</a>
+			</li>
+
+		</ul>
+	</div>
+</nav>
