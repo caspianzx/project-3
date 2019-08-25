@@ -110,31 +110,54 @@ Service.create(name:"Perm" , price:"150" , salon_id:"11" )
 Service.create(name:"Rebonding" , price:"139" , salon_id:"11" )
 Service.create(name:"Treatment" , price:"86" , salon_id:"11" )
 
-b = 0
 
 pArray = ["https://beautyundercoverproduction.s3.amazonaws.com/salons/photo_covers/000/000/271/cover_frontend/Salon_Vim_Cover1.jpg?1479204599", "http://www.zenredsalonbangkok.com/images/zenred-salon-bangkok.JPG",
 "https://www.gowabi.com/system/pictures/images/000/007/120/big_slider_pic/HummingHair_lead.jpg?1531884328", "https://www.gowabi.com/system/pictures/images/000/007/115/big_slider_pic/HummingHair_5.jpg?1531884253"]
 
-11.times do
+
+Photo.create(photo_url: "https://i.imgur.com/Om9Zmkn.jpg",salon_id: 1)
+Photo.create(photo_url: "http://4.bp.blogspot.com/-uIlPmmIb_EM/U8KLowqkFJI/AAAAAAAAI8E/-Gx2O1LVGYY/s1600/COVO+Exterior.jpg",salon_id: 1)
+Photo.create(photo_url: "https://i.imgur.com/9fIrA6v.jpg",salon_id: 1)
+Photo.create(photo_url: "https://i.imgur.com/nUYyOzY.jpg",salon_id: 1)
+
+Photo.create(photo_url: "https://beautyundercoverproduction.s3.amazonaws.com/salons/photo_covers/000/000/271/cover_frontend/Salon_Vim_Cover1.jpg?1479204599",salon_id: 2)
+Photo.create(photo_url: "https://i.imgur.com/GvVKtWT.jpg",salon_id: 2)
+Photo.create(photo_url: "https://sg-everydayonsales-infomartglobal.netdna-ssl.com/wp-content/uploads/2016/02/Salon-Vim-25-off-all-chemical-services.jpg",salon_id: 2)
+Photo.create(photo_url: "https://4.bp.blogspot.com/-9jTijk8ugFw/V3yrsV8DiII/AAAAAAAADCE/T6f6aU84FeA1Wn2aOGdfkKiXptQQ4GMrACLcB/s1600/
+  IMG_5210.JPG",salon_id: 2)
+
+Photo.create(photo_url: "https://i.insing.com/business/ee/b7/11/00/kimage-salon-pte-ltd.jpg",salon_id:3 )
+Photo.create(photo_url: "https://i.imgur.com/LZ0QkYC.jpg",salon_id:3 )
+Photo.create(photo_url: "https://i.imgur.com/Gn6odCZ.jpg",salon_id:3 )
+Photo.create(photo_url: "https://i.imgur.com/nqOeFJi.jpg",salon_id:3 )
+
+Photo.create(photo_url: "https://i.imgur.com/EwGTQyW.jpg",salon_id:4 )
+Photo.create(photo_url: "https://i.imgur.com/tKDs3JN.jpg",salon_id:4 )
+Photo.create(photo_url: "https://i.imgur.com/XuAMkyF.jpg",salon_id:4 )
+Photo.create(photo_url: "https://i.imgur.com/lMEglch.jpg",salon_id:4 )
+
+
+b = 4
+
+7.times do
   Photo.create(photo_url: pArray[0],salon_id: b += 1)
 end
 
-b1 = 0
+b1 = 4
 
-11.times do
+7.times do
   Photo.create(photo_url: pArray[1],salon_id: b1 += 1)
 end
 
-b2 = 0
+b2 = 4
 
-11.times do
+7.times do
   Photo.create(photo_url: pArray[2],salon_id: b2 += 1)
 end
 
-b3 = 0
+b3 = 4
 
-
-11.times do
+7.times do
   Photo.create(photo_url: pArray[3],salon_id: b3 += 1)
 end
 

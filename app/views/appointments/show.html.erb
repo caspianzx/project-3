@@ -84,6 +84,9 @@
       			<p><%= form.label :name %></p>
     				<p><%= form.text_field :name, :class => 'form-text  apptForm', :placeholder =>  'e.g. George', :required => true %></p>
  					</div>
+ 					<p class="error">
+  					<%= show_errors(@appointment, :name) %>
+					</p>
  					<div class="form-group" id="appt">
  						<p><%= form.label :phone %></p>
     				<p><%= form.text_field :phone, :class => 'form-text  apptForm', :placeholder =>  'Contact number', :required => true %></p>
@@ -150,6 +153,9 @@
 									<%= form.label :name %><br>
 									<%= form.text_field :name ,:required => true %>
 								</p>
+								<p class="error">
+  								<%= show_errors(@rating, :name) %>
+								</p>
 								<p>
 									<%= form.label :email %><br>
 									<%= form.text_field :email, :required => true %>
@@ -184,7 +190,7 @@
 		</div>
 <!-- display past review -->
         			<ul class="list-group">
-        				<% @ratings.each do |rating| %>
+        				<% @latestreviews.each do |rating| %>
 <!--         				displays only if there is customer review -->
         					<% if !rating.review.blank? %>
   									<li class="list-group-item d-flex justify-content-between align-items-center" id="reviews-list">

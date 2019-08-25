@@ -1,4 +1,6 @@
 class Detail < ApplicationRecord
   belongs_to :salon
-  validates :name, presence: true
+  validates :name, :phone, :address, presence: true
+
+
 end
