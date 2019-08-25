@@ -1,6 +1,6 @@
 class ServicesController < ApplicationController
 
-before_action :authenticate_salon!, :except => [ :show]
+  before_action :authenticate_salon!, :except => [ :show]
 
   def show
     # get services for specified salon
@@ -15,6 +15,10 @@ before_action :authenticate_salon!, :except => [ :show]
     @salonId = params[:id]
     # p "------------"
     # p @salonId
+    if current_salon
+      @c_salon = current_salon
+      @detail = @c_salon.detail
+    end
   end
 
   def create
@@ -58,10 +62,15 @@ before_action :authenticate_salon!, :except => [ :show]
 
   def edit
     #@salon = Salon.find(params[:id])
-   @salonId = params[:id]
-   @services = Service.where(salon_id: params[:id] ).order("id ASC")
+    @salonId = params[:id]
+    @services = Service.where(salon_id: params[:id] ).order("id ASC")
     puts "edit services"
     puts @services
+
+    if current_salon
+      @c_salon = current_salon
+      @detail = @c_salon.detail
+    end
   end
 
   def update
@@ -82,7 +91,7 @@ before_action :authenticate_salon!, :except => [ :show]
   # def destroy
   # end
 
-private
+  private
 
   def service_params
     params.require(:service).permit(:name, :price, :salon_id)
