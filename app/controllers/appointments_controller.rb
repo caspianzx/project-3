@@ -24,6 +24,10 @@ class AppointmentsController < ApplicationController
     #show 6 latest reviews
     @latestreviews = @ratings.last(6).reverse
     @timeslots = @salon.timeslots
+    if current_salon
+      @c_salon = current_salon
+      @detail = @c_salon.detail
+    end
 
   end
 

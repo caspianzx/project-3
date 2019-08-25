@@ -5,7 +5,8 @@ class SalonsController < ApplicationController
     ##edit these conditions as you like
     @salons = Detail.all.select {|detail| detail.name.present? == true && detail.logo_url.present? == true}
     if current_salon
-      @salon = current_salon
+      @c_salon = current_salon
+      @detail = @c_salon.detail
     end
   end
 
@@ -40,6 +41,11 @@ class SalonsController < ApplicationController
 
     # puts @salon.photos.first.photo_url
     @photos = @salon.photos
+
+    if current_salon
+      @c_salon = current_salon
+      @detail = @c_salon.detail
+    end
   end
 
   def new
@@ -51,6 +57,10 @@ class SalonsController < ApplicationController
     puts @salon.email
     @detail = Detail.where(salon: @salon).first
     puts @detail.phone
+    if current_salon
+      @c_salon = current_salon
+      @detail = @c_salon.detail
+    end
   end
 
   def create
