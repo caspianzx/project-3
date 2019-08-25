@@ -204,17 +204,33 @@ l = 0
   end
 end
 
+# 50.times do
+#   Appointment.create(name: Faker::Name.first_name, date: Faker::Time.between(from: DateTime.now - 1, to: DateTime.now), phone: Faker::PhoneNumber.cell_phone, email: Faker::Internet.email,service_id: rand(1..55), timeslot_id: rand(1..100) )
+# end
+
+
+
+#past appointments
 50.times do
-  Appointment.create(name: Faker::Name.first_name, phone: Faker::PhoneNumber.cell_phone, email: Faker::Internet.email,service_id: rand(1..55), timeslot_id: rand(1..100) )
+  Appointment.create(name: Faker::Name.first_name, date: Faker::Time.backward(days: 100), phone: Faker::PhoneNumber.cell_phone, email: Faker::Internet.email,service_id: rand(1..55), timeslot_id: rand(1..100) )
 end
 
-z = Timeslot.all.select {|slot| slot.appointments != [] }
-z.each do |slot|
-  slot.booked = 1
-  slot.save
+#future appointments
+50.times do
+  Appointment.create(name: Faker::Name.first_name, date: Faker::Time.forward(days: 100), phone: Faker::PhoneNumber.cell_phone, email: Faker::Internet.email,service_id: rand(1..55), timeslot_id: rand(1..100) )
 end
 
 
+# z = Timeslot.all.select {|slot| slot.appointments != [] }
+# z.each do |slot|
+#   slot.booked = 1
+#   slot.save
+# end
+
+
+50.times do
+  Rating.create(name: Faker::Name.first_name, rating: rand(1..5), email: Faker::Internet.email,service_id: rand(1..55), review: Faker::Lorem.paragraphs, salon_id: rand(1..11),date_of_visit: Faker::Time.backward(days: 100) )
+end
 
 
 # n = 0
