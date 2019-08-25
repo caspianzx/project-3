@@ -24,8 +24,6 @@ default: &default
 development:
   <<: *default
   database: hairsalon_development
-  username: 'apooshoo'
-  password: 'neilgaiman1'
 
 
 # Warning: The database defined as "test" will be erased and
