@@ -1,16 +1,16 @@
-## The Hair Affair 
+# The Hair Affair 
 
-Our web application is a one-stop information portal which allows customers to search for hair salons, find out the services they offer and their respective prices and read reviews by other customers. Customers are also able to view a salon’s available appointments and book their own appointments.
+Our web application is a one-stop information platform which allows customers to search for hair salons, find out the services they offer and their respective prices and read reviews by other customers. Customers are also able to view a salon’s available appointments and book their own appointments.
 
 Salons which do not yet have an online presence are able to register an account to be listed on our website to extend their reach and boost sales. They can also tap on our platform to digitalize the scheduling of appointments for their salons. 
 
-####Built with
+### Built with
 - Ruby on Rails, Devise gem
 - Bootstrap
 - PostgreSQL
 - JavaScript and jQuery
 
-####Workflow
+### Workflow
 We identified some issues that hair salon customers may face today:
 - booking of appointments are often inconvenient e.g. having to call the salon during work hours and
 - lack of trusted customer reviews for hair salons.
@@ -23,7 +23,7 @@ We identified some issues that hair salon customers may face today:
 - Mostly working and have little time to call salons during working hours
 
 
-####Wireframes
+### Wireframes
 
 <img src="https://i.imgur.com/TrKSLnf.png" width="30%">
 
@@ -33,16 +33,16 @@ We identified some issues that hair salon customers may face today:
 
 <img src="https://i.imgur.com/x3W9xsx.png" width="30%">
 
-####Additional features to explore
+### Additional features to explore
 - Customers are able to maintain their own account to keep a hair journal for reference.
 - Customers are able to accumulate loyalty points with salons.
 - Salons are able to advertise their promotions.
 - Salons are able to showcase hair stylists' portfolio.
 
-####Team
+### Team
 - [Caspian Ng](https://github.com/caspianzx)
 - [Muhammad Hafiz Bin Abu Bakar](https://github.com/eenfeeneet)
 - [Jonathan Bek](https://github.com/apooshoo)
 - [Alicia Wong](https://github.com/aliciawongg)
 
-**Heroku link**</br>
+###Website link</br>
