@@ -1,6 +1,6 @@
 class SalonsController < ApplicationController
 
-  before_action :authenticate_user!, :except => [ :index, :search, :newrating, :createrating, :showreview ]
+  before_action :authenticate_salon!, :except => [ :index, :search, :newrating, :createrating, :showreview ]
   def index
     ##edit these conditions as you like
     @salons = Detail.all.select {|detail| detail.name.present? == true && detail.logo_url.present? == true}
@@ -25,8 +25,14 @@ class SalonsController < ApplicationController
   def show
     puts 'SHOWING'
     @salon = Salon.find(params[:id])
-
+    @detail = @salon.detail
+    puts 'details'
+    puts @detail.inspect
+    if @detail.blank?
+      redirect_to new_salon_path
+    end
     @services = Service.where(salon_id: params[:id] ).order("id ASC")
+
     @appointments = @salon.appointments
 
     # puts @salon.photos.first.photo_url
@@ -34,6 +40,7 @@ class SalonsController < ApplicationController
   end
 
   def new
+
   end
 
   def edit
@@ -54,7 +61,7 @@ class SalonsController < ApplicationController
       redirect_to salon_path
     else
       puts 'try again'
-      redirect_to 'new'
+      redirect_to new_salon_path
     end
   end
 
