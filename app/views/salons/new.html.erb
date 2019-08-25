@@ -7,40 +7,40 @@
 			<div class="card border-primary text-center ">
 
 				<div class="card-header">
-					<h2>Register</h2>
+					<h2>Complete Details</h2>
 				</div>
 				<div class="card-body">
 
 
 					<%= form_with scope: :detail, url: create_salon_path, local: true, class: 'newform' do |form| %>
 
+					<div class="form-group">
+						<%= form.label :name%><br>
+						<%= form.text_field :name, :class => 'form-control w-75 text-muted mx-auto' %>
+					</div>
 
-					<div class="form-group">
-						<%= form.label :name, :class => 'form-control' %><br>
-						<%= form.text_field :name, :class => 'form-text text-muted' %>
-					</div>
 					<p class="error">
-  					<%= show_errors(@details, :name) %>
+						<%= show_errors(@details, :name) %>
 					</p>
-					<div class="form-group">
-						<%= form.label :phone, :class => 'form-control' %><br>
-						<%= form.text_field :phone, :class => 'form-text text-muted' %>
+					<div class="form-group ">
+						<%= form.label :phone %><br>
+						<%= form.text_field :phone, :class => 'form-control w-75 text-muted mx-auto' %>
 					</div>
 					<div class="form-group">
-						<%= form.label :address, :class => 'form-control' %><br>
-						<%= form.text_field :address, :class => 'form-text text-muted' %>
+						<%= form.label :address %><br>
+						<%= form.text_field :address, :class => 'form-control w-75 text-muted mx-auto' %>
 					</div>
 					<div class="form-group">
-						<%= form.label :area, :class => 'form-control' %><br>
-						<%= form.text_field :area, :class => 'form-text text-muted' %>
+						<%= form.label :area %><br>
+						<%= form.text_field :area, :class => 'form-control w-75 text-muted mx-auto' %>
 					</div>
 					<div class="form-group">
-						<%= form.label :website, :class => 'form-control' %><br>
-						<%= form.text_field :website, :class => 'form-text text-muted' %>
+						<%= form.label :website %><br>
+						<%= form.url_field :website, :class => 'form-control w-75 text-muted mx-auto' %>
 					</div>
 					<div class="form-group">
-						<%= form.label :logo_url, :class => 'form-control' %><br>
-						<%= form.text_field :logo_url, :class => 'form-text text-muted' %>
+						<%= form.label :logo_url %><br>
+						<%= form.url_field :logo_url, :class => 'form-control w-75 text-muted mx-auto' %>
 					</div>
 
 					<%= form.submit 'Save', :class => 'btn btn-primary' %>
