@@ -21,6 +21,10 @@ class SalonsController < ApplicationController
     puts @services.inspect
     @details = Detail.where("REPLACE(LOWER(area), ' ', '') = REPLACE(LOWER('#{@input}'), ' ', '')")
     puts @details.inspect
+    if current_salon
+      @c_salon = current_salon
+      @detail = @c_salon.detail
+    end
   end
 
   def show
