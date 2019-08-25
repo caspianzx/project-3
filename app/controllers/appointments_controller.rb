@@ -21,7 +21,8 @@ class AppointmentsController < ApplicationController
     @avrating = @ratings.average(:rating)
     puts 'average rating'
     puts @avrating.inspect
-
+    #show 6 latest reviews
+    @latestreviews = @ratings.last(6).reverse
     @timeslots = @salon.timeslots
 
   end

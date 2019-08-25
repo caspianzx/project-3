@@ -184,7 +184,7 @@
 		</div>
 <!-- display past review -->
         			<ul class="list-group">
-        				<% @ratings.each do |rating| %>
+        				<% @latestreviews.each do |rating| %>
 <!--         				displays only if there is customer review -->
         					<% if !rating.review.blank? %>
   									<li class="list-group-item d-flex justify-content-between align-items-center" id="reviews-list">
