@@ -18,42 +18,19 @@ before_action :authenticate_salon!, :except => [ :show]
   end
 
   def create
-    @services = params[:serviceName]
-    @prices = params[:prices]
+    @service = Service.new(service_params)
+    @service.salon_id = params[:id]
 
     p "------"
-    p @services
-    p @prices
+    p @service
 
-    @services.each_with_index do |service, index|
-      p service
-      indvPrice = @prices[index]
-      p indvPrice
-      @saveService = Service.new(name: service, price: indvPrice, salon_id: params[:id])
-      @saveService.save
-    end
-
-
-
-    # lengthy way
-    # @service = Service.new(name: params[:serviceOne], price: params[:priceOne], salon_id: params[:id])
-    # @service.save
-
-    # @service2 = Service.new(name: params[:serviceTwo], price: params[:priceTwo], salon_id: params[:id])
-    # @service2.save
-
-    # @service3 = Service.new(name: params[:serviceThree], price: params[:priceThree], salon_id: params[:id])
-    # @service3.save
-
-    # @service4 = Service.new(name: params[:serviceFour], price: params[:priceFour], salon_id: params[:id])
-    # @service4.save
-
-    # @service5 = Service.new(name: params[:serviceFive], price: params[:priceFive], salon_id: params[:id])
-    # @service5.save
-
-    # puts "saving service price"
-
+    if @service.save
+      puts 'worked'
+      redirect_to salon_path
+    else
+      puts 'try again'
     redirect_to salon_path
+    end
   end
 
   def edit

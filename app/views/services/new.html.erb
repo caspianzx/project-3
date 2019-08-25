@@ -5,70 +5,23 @@
 		<div class="col-md-4 mx-auto">
 			<div class="card border-primary text-center" style="max-width: 20rem;">
 				<div class="card-header">
-					<h2>Edit price menu</h2>
+					<h2>Add new Service</h2>
 				</div>
 				<div class="card-body">
 
-					<h1>Submit price menu</h1><br>
 
 					<%= form_with scope: :service, url: create_service_path, local: true do |form| %>
 
 					<input type="hidden" name="service[salon_id]" value="<%= @salonId %>" />
 
-<!-- using input instead of dropdown  -->
-
-	<div>
-		<input name="serviceName[]" value="Cut and Wash" readonly />
-		<input name="prices[]"/>
-	</div>
-
-	<div>
-		<input name="serviceName[]" value="Colour" readonly />
-		<input name="prices[]"/>
-	</div>
-
-	<div>
-		<input name="serviceName[]" value="Perm" readonly />
-		<input name="prices[]"/>
-	</div>
-
-	<div>
-		<input name="serviceName[]" value="Rebonding" readonly />
-		<input name="prices[]"/>
-	</div>
-
-	<div>
-		<input name="serviceName[]" value="Treatment" readonly />
-		<input name="prices[]"/>
-	</div>
-
-
-					<!-- using input instead of dropdown  -->
-					<!-- <div>
-						<input name="serviceOne" value="Cut and Wash" readonly />
-						<input name="priceOne"/>
+`					<div class="form-group">
+						<%= form.label 'Service Name'%><br>
+						<%= form.text_field :name, :class => 'form-control w-75 mx-auto' %>
 					</div>
-
-					<div>
-						<input name="serviceTwo" value="Colour" readonly />
-						<input name="priceTwo"/>
+					<div class="form-group">
+						<%= form.label :price%><br>
+						<%= form.number_field :price, :class => 'form-control w-75 mx-auto' %>
 					</div>
-
-					<div>
-						<input name="serviceThree" value="Perm" readonly />
-						<input name="priceThree"/>
-					</div>
-
-					<div>
-						<input name="serviceFour" value="Rebonding" readonly />
-						<input name="priceFour"/>
-					</div>
-
-					<div>
-						<input name="serviceFive" value="Treatment" readonly />
-						<input name="priceFive"/>
-					</div> -->
-
 
 					<p>
 						<%= form.submit %>
