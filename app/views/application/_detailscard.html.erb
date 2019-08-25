@@ -1,13 +1,21 @@
 <div class="card border-primary my-3" id="dashboardDetails">
-	<div class ="companyName">Company Profile</div>
-	<div class="col">
+	<div class ="card-header d-flex companyName">
+			<h3 class="mr-auto">Salons Profile</h3>
+			<%= link_to image_tag('edit.svg', :height => '20' ), edit_salon_path %>
+	</div>
+	<div class="card-body">
 		<div class="row justify-content-between">
-			<div class="col-3">
-				<div class="vertical-center image-border">
+			<div class="col-lg-3">
+				<div class="image-border">
+					<% if @salon.detail.logo_url.blank? %>
+					<%= image_tag "default-image.jpg", alt: "alttext" %>
+					<% else %>
+
 					<img class="bg-info w-100" src='<%= @salon.detail.logo_url %>' alt='logo'>
+					<% end %>
 				</div>
 			</div>
-			<div class="col dashboardContact">
+			<div class="col-lg dashboardContact">
 				<p>Company Name: <%= @salon.detail.name %></p>
 				<p>Phone: <%= @salon.detail.phone %></p>
 				<p>Address: <%= @salon.detail.address %></p>
@@ -15,5 +23,6 @@
 				<p>Website: <%= @salon.detail.website %></p>
 			</div>
 		</div>
+
 	</div>
 </div>
